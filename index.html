@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sofiane Hafsaoui</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#1a1a1a;
+    --muted:#6b6b6b;
+    --line:#e8e8e8;
+    --soft:#f6f6f4;
+    --accent:#1a1a1a;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:'Cormorant Garamond',Georgia,serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s, background .3s;
+  }
+  nav.scrolled{border-color:var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:.5px}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-size:13px;letter-spacing:.04em;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .lang-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .lang-toggle button{
+    border:0;background:transparent;cursor:pointer;
+    font-family:inherit;font-size:12px;letter-spacing:.06em;
+    padding:7px 13px;color:var(--muted);transition:all .25s;
+  }
+  .lang-toggle button.active{background:var(--ink);color:#fff}
+  .menu-btn{display:none;border:0;background:none;cursor:pointer;font-size:22px}
+
+  /* HERO */
+  header.hero{padding:190px 0 110px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+  h1.name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(52px,9vw,104px);line-height:.98;letter-spacing:-.5px}
+  .role{font-size:clamp(17px,2.4vw,22px);color:var(--muted);margin-top:24px;max-width:640px;font-weight:300}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:42px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;border-radius:999px;font-size:13px;letter-spacing:.04em;
+    border:1px solid var(--ink);transition:all .25s;cursor:pointer;
+  }
+  .btn.solid{background:var(--ink);color:#fff}
+  .btn.solid:hover{background:#000}
+  .btn.ghost:hover{background:var(--soft)}
+
+  /* SECTION */
+  section{padding:96px 0;border-bottom:1px solid var(--line)}
+  .sec-label{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:38px}
+  h2.title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(30px,4.5vw,46px);line-height:1.08;letter-spacing:-.3px;margin-bottom:30px}
+  .lead{font-size:19px;font-weight:300;color:#333;max-width:760px}
+  .lead b{font-weight:500;color:var(--ink)}
+
+  /* SKILLS */
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .skill-cell{background:var(--bg);padding:32px 28px;transition:background .3s}
+  .skill-cell:hover{background:var(--soft)}
+  .skill-cell h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;margin-bottom:16px}
+  .skill-cell .num{font-size:12px;color:var(--muted);letter-spacing:.1em;display:block;margin-bottom:14px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{font-size:12.5px;color:#444;border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:#fff}
+
+  /* EXPERIENCE TIMELINE */
+  .exp{display:flex;gap:40px;padding:30px 0;border-top:1px solid var(--line);align-items:flex-start}
+  .exp:first-of-type{border-top:0}
+  .exp .when{flex:0 0 150px;font-size:13px;color:var(--muted);letter-spacing:.03em;padding-top:5px}
+  .exp .body{flex:1}
+  .exp h3{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .exp .co-role{font-size:14px;color:var(--muted);margin:4px 0 12px}
+  .exp p{font-size:15.5px;color:#3a3a3a;font-weight:300;max-width:680px}
+  .badge{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:#fff;padding:3px 10px;border-radius:999px;font-family:'Inter',sans-serif;font-weight:500}
+
+  /* EDUCATION + LANG two col */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  .edu-item{padding:22px 0;border-top:1px solid var(--line)}
+  .edu-item:first-child{border-top:0}
+  .edu-item h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600}
+  .edu-item .school{font-size:14px;color:var(--muted);margin-top:2px}
+  .edu-item .yr{font-size:12.5px;color:var(--muted);margin-top:6px;letter-spacing:.05em}
+  .lang-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid var(--line)}
+  .lang-row:first-of-type{border-top:0}
+  .lang-row .l{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600}
+  .lang-row .lvl{font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+  .dots{display:inline-flex;gap:5px;margin-left:14px}
+  .dots i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+  .dots i.on{background:var(--ink)}
+
+  /* CONTACT */
+  .contact-h{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(34px,6vw,68px);line-height:1.02;letter-spacing:-.5px;margin-bottom:34px}
+  .contact-links{display:flex;flex-wrap:wrap;gap:14px}
+  footer{padding:48px 0;color:var(--muted);font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* WORK */
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:42px}
+  .filters button{
+    border:1px solid var(--line);background:#fff;cursor:pointer;
+    font-family:inherit;font-size:12.5px;letter-spacing:.04em;color:var(--muted);
+    padding:9px 18px;border-radius:999px;transition:all .25s;
+  }
+  .filters button:hover{border-color:#cfcfcf;color:var(--ink)}
+  .filters button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .card{
+    border:1px solid var(--line);border-radius:16px;padding:30px 30px 26px;
+    background:#fff;display:flex;flex-direction:column;min-height:210px;
+    transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .35s;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 50px -28px rgba(0,0,0,.28);border-color:#dcdcdc}
+  .card-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  .card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.1}
+  .card .yr{font-size:12px;color:var(--muted);letter-spacing:.06em;white-space:nowrap}
+  .card p{font-size:14.5px;color:#444;font-weight:300;margin-top:12px;flex:1}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+  .chips span{font-size:11px;letter-spacing:.05em;color:#555;background:var(--soft);border-radius:999px;padding:4px 11px}
+  .card .live{margin-top:16px;font-size:12.5px;letter-spacing:.04em;color:var(--ink);display:inline-flex;align-items:center;gap:6px;align-self:flex-start;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:gap .25s}
+  .card .live:hover{gap:11px}
+  .card.hide{display:none}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* scroll progress (analytical) */
+  #progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--ink);z-index:60;transition:width .08s linear}
+
+  /* crypto decode */
+  .decode{display:inline-block;font-variant-ligatures:none}
+  h1.name .decode{cursor:pointer}
+
+  /* drawn underline on section titles */
+  h2.title{position:relative}
+  h2.title::after{content:"";position:absolute;left:0;bottom:-14px;height:2px;width:52px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.16,1,.3,1) .25s}
+  h2.title.in::after{transform:scaleX(1)}
+
+  /* blueprint grid easter egg */
+  #grid-overlay{position:fixed;inset:0;z-index:40;pointer-events:none;opacity:0;transition:opacity .5s;
+    background-image:linear-gradient(rgba(0,0,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.05) 1px,transparent 1px);
+    background-size:34px 34px}
+  #grid-overlay.on{opacity:1}
+  #grid-overlay::after{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(0,0,0,.11) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.11) 1px,transparent 1px);
+    background-size:170px 170px}
+
+  /* toast */
+  #toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(18px);
+    background:var(--ink);color:#fff;font-size:13px;letter-spacing:.04em;padding:13px 22px;border-radius:999px;
+    z-index:95;opacity:0;pointer-events:none;transition:opacity .4s,transform .4s;white-space:nowrap}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  /* thinking trigger */
+  #think-trigger{position:fixed;right:26px;bottom:26px;z-index:55;display:flex;align-items:center;
+    background:#fff;border:1px solid var(--line);border-radius:999px;height:42px;padding:0 14px;cursor:pointer;
+    font-family:inherit;color:var(--muted);transition:all .35s cubic-bezier(.16,1,.3,1);box-shadow:0 6px 24px -16px rgba(0,0,0,.4)}
+  #think-trigger .dot{width:8px;height:8px;border-radius:50%;background:var(--ink);flex:0 0 auto;animation:pulse 2.4s infinite}
+  #think-trigger .lbl{max-width:0;opacity:0;white-space:nowrap;font-size:12.5px;letter-spacing:.04em;transition:all .35s;margin-left:0}
+  #think-trigger:hover{border-color:var(--ink);color:var(--ink)}
+  #think-trigger:hover .lbl{max-width:140px;opacity:1;margin-left:10px}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.5);opacity:.35}}
+
+  /* thinking panel */
+  #think-overlay{position:fixed;inset:0;background:rgba(20,20,20,.26);z-index:80;opacity:0;pointer-events:none;transition:opacity .4s;backdrop-filter:blur(2px)}
+  #think-overlay.open{opacity:1;pointer-events:auto}
+  #think-panel{position:fixed;top:0;right:0;height:100%;width:min(440px,90vw);background:#fff;z-index:90;
+    transform:translateX(100%);transition:transform .55s cubic-bezier(.16,1,.3,1);padding:54px 40px;overflow-y:auto;border-left:1px solid var(--line)}
+  #think-panel.open{transform:none}
+  #think-panel .close{position:absolute;top:22px;right:26px;border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:var(--muted)}
+  #think-panel h2{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin-bottom:8px}
+  #think-panel .pintro{font-size:14.5px;color:var(--muted);font-weight:300;margin-bottom:30px;max-width:330px}
+  .principle{padding:20px 0;border-top:1px solid var(--line);display:flex;gap:16px}
+  .principle .n{font-size:12px;color:var(--muted);padding-top:6px;letter-spacing:.1em}
+  .principle h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:3px}
+  .principle p{font-size:14px;color:#444;font-weight:300}
+
+  @media(max-width:820px){
+    .nav-links a:not(.lang-wrap){display:none}
+    .skill-grid{grid-template-columns:1fr}
+    .two{grid-template-columns:1fr;gap:40px}
+    .exp{flex-direction:column;gap:8px}
+    .exp .when{flex-basis:auto}
+    header.hero{padding:150px 0 80px}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="grid-overlay"></div>
+<div id="toast"></div>
+
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">Sofiane Hafsaoui</a>
+    <div class="nav-links">
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="#skills" data-i18n="nav_skills">Expertise</a>
+      <a href="#work" data-i18n="nav_work">Work</a>
+      <a href="#experience" data-i18n="nav_exp">Experience</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="es">ES</button>
+        <button data-lang="fr">FR</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow reveal" data-i18n="hero_eyebrow">Strategy · Product · Operations</p>
+    <h1 class="name reveal"><span class="decode" data-text="Sofiane">Sofiane</span><br><span class="decode" data-text="Hafsaoui">Hafsaoui</span></h1>
+    <p class="role reveal" data-i18n="hero_role">Business strategist and product designer bridging quantitative rigor with founder instinct — building, valuing and scaling startups across MENA and Europe.</p>
+    <div class="cta-row reveal">
+      <a href="#contact" class="btn solid" data-i18n="hero_cta1">Get in touch</a>
+      <a href="Sofiane Hafsaoui CV English.pdf" target="_blank" class="btn ghost" data-i18n="hero_cta2">Download CV</a>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <p class="sec-label reveal" data-i18n="about_label">Profile</p>
+    <p class="lead reveal" data-i18n="about_text">An aspiring analyst combining a <b>technical background in Algebra & Cryptography</b> with hands-on founder experience. Currently pursuing a Master in International Trade & Business at ESIC Madrid, and serving as an <b>Operations, Marketing & Business Strategy Intern at Valtier Real Estate</b>. I leverage product strategy and quantitative discipline to assess product-market fit, structure deals, and turn ideas into scalable ventures.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="sec-label reveal" data-i18n="skills_label">What I do</p>
+    <h2 class="title reveal" data-i18n="skills_title">Expertise across strategy, product and automation.</h2>
+    <div class="skill-grid reveal">
+      <div class="skill-cell">
+        <span class="num">01</span>
+        <h3 data-i18n="sk1_h">Investment & Strategy</h3>
+        <div class="tags">
+          <span data-i18n="sk1_a">Startup Valuations</span>
+          <span data-i18n="sk1_b">Market Sizing</span>
+          <span data-i18n="sk1_c">Due Diligence</span>
+          <span data-i18n="sk1_d">Deal Sourcing</span>
+          <span data-i18n="sk1_e">Business Model Analysis</span>
+          <span data-i18n="sk1_f">Market Research</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <span class="num">02</span>
+        <h3 data-i18n="sk2_h">Product & Tech</h3>
+        <div class="tags">
+          <span data-i18n="sk2_a">Product Strategy</span>
+          <span data-i18n="sk2_b">UI/UX & Prototyping</span>
+          <span data-i18n="sk2_c">Competitive Benchmarking</span>
+          <span data-i18n="sk2_d">No-Code Development</span>
+          <span data-i18n="sk2_e">Roadmapping</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <span class="num">03</span>
+        <h3 data-i18n="sk3_h">Automation & AI</h3>
+        <div class="tags">
+          <span data-i18n="sk3_a">Automation Systems & Tools</span>
+          <span data-i18n="sk3_b">AI Agents</span>
+          <span data-i18n="sk3_c">Dashboarding</span>
+          <span data-i18n="sk3_d">Workflow Design</span>
+          <span data-i18n="sk3_e">Data Visualization</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <p class="sec-label reveal" data-i18n="exp_label">Experience</p>
+    <h2 class="title reveal" data-i18n="exp_title">A track record of building.</h2>
+
+    <div class="exp reveal">
+      <div class="when">2026 — <span data-i18n="present">Present</span></div>
+      <div class="body">
+        <h3>Valtier Real Estate <span class="badge" data-i18n="current">Current</span></h3>
+        <div class="co-role" data-i18n="vex_role">Operations, Marketing & Business Strategy Intern</div>
+        <p data-i18n="vex_p">Driving operational efficiency and go-to-market initiatives — building automation systems, AI-assisted workflows and performance dashboards to support strategic decision-making.</p>
+      </div>
+    </div>
+
+    <div class="exp reveal">
+      <div class="when">2024 — <span data-i18n="present">Present</span></div>
+      <div class="body">
+        <h3>A9RA</h3>
+        <div class="co-role" data-i18n="a9_role">Co-founder</div>
+        <p data-i18n="a9_p">Executed the go-to-market strategy that acquired 25,000+ users within 5 days of public beta. Ran competitive landscape analysis to identify EdTech market gaps and built the investor pitch deck and financial projections for the pre-seed round.</p>
+      </div>
+    </div>
+
+    <div class="exp reveal">
+      <div class="when">12/2025 — <span data-i18n="present">Present</span></div>
+      <div class="body">
+        <h3>Moustachir</h3>
+        <div class="co-role" data-i18n="mo_role">Lead Product Designer</div>
+        <p data-i18n="mo_p">Leading the strategic redesign of Moustachir V4, transforming the product into the region's first fully integrated digital consulting marketplace.</p>
+      </div>
+    </div>
+
+    <div class="exp reveal">
+      <div class="when">01/2025 — 09/2025</div>
+      <div class="body">
+        <h3>Positive Agency</h3>
+        <div class="co-role" data-i18n="pa_role">Product Designer</div>
+        <p data-i18n="pa_p">Developed product roadmap strategy for clients, boosting retention and feedback. Directed the creation of "AngelEast," a platform linking MENA founders with regional investors to enhance early-stage deal flow.</p>
+      </div>
+    </div>
+
+    <div class="exp reveal">
+      <div class="when">2024 — 2025</div>
+      <div class="body">
+        <h3>Hexaee</h3>
+        <div class="co-role" data-i18n="hx_role">Product Designer</div>
+        <p data-i18n="hx_p">Managed end-to-end product delivery, optimizing for scalability and time-to-market.</p>
+      </div>
+    </div>
+
+    <div class="exp reveal">
+      <div class="when">2024 — 2025</div>
+      <div class="body">
+        <h3 data-i18n="vm_co">Valuation Models Research</h3>
+        <div class="co-role" data-i18n="vm_role">Research Analyst</div>
+        <p data-i18n="vm_p">Developed valuation frameworks for Algerian startups by adapting established models to the emerging-market context.</p>
+      </div>
+    </div>
+
+    <div class="exp reveal">
+      <div class="when">2022 — 2023</div>
+      <div class="body">
+        <h3>Ruina Studio &amp; Itihad Group</h3>
+        <div class="co-role" data-i18n="ru_role">Early Career & Consulting</div>
+        <p data-i18n="ru_p">Advised client leadership on product roadmap and retention strategies, directly impacting revenue and market positioning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <p class="sec-label reveal" data-i18n="work_label">Selected Work</p>
+    <h2 class="title reveal" data-i18n="work_title">Selected work from my portfolio.</h2>
+
+    <div class="filters reveal">
+      <button data-filter="all" class="active" data-i18n="filt_all">All</button>
+      <button data-filter="product" data-i18n="filt_product">Product &amp; UX</button>
+      <button data-filter="web" data-i18n="filt_web">Web Apps</button>
+      <button data-filter="landing" data-i18n="filt_landing">Landing Pages</button>
+      <button data-filter="brand" data-i18n="filt_brand">Branding</button>
+    </div>
+
+    <div class="work-grid">
+      <div class="card reveal" data-cat="product">
+        <div class="card-top"><h3>Moustachir V4</h3><span class="yr">2025</span></div>
+        <p data-i18n="pj_moustachir">Strategic redesign of Moustachir into the region's first fully integrated digital consulting marketplace.</p>
+        <div class="chips"><span data-i18n="t_uiux">UI/UX</span><span data-i18n="t_web">Web App</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="web">
+        <div class="card-top"><h3>Angel East</h3><span class="yr">2025</span></div>
+        <p data-i18n="pj_angel">A platform connecting MENA founders with regional investors to accelerate early-stage deal flow.</p>
+        <div class="chips"><span data-i18n="t_web">Web App</span><span data-i18n="t_landing">Landing Page</span></div>
+        <a href="https://conclusive-anything-025785.framer.app/" target="_blank" class="live" data-i18n="view_live">View live →</a>
+      </div>
+
+      <div class="card reveal" data-cat="landing">
+        <div class="card-top"><h3>Positive Agency</h3><span class="yr">2025</span></div>
+        <p data-i18n="pj_positive">Brand and landing page for Positive Agency, a product and design studio.</p>
+        <div class="chips"><span data-i18n="t_landing">Landing Page</span><span data-i18n="t_brand">Branding</span></div>
+        <a href="https://positiveagency.co/" target="_blank" class="live" data-i18n="view_live">View live →</a>
+      </div>
+
+      <div class="card reveal" data-cat="landing">
+        <div class="card-top"><h3>A9RA</h3><span class="yr">2024</span></div>
+        <p data-i18n="pj_a9ra">Brand identity and landing page for an EdTech venture that reached 25,000+ users in 5 days.</p>
+        <div class="chips"><span data-i18n="t_landing">Landing Page</span><span data-i18n="t_brand">Branding</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="product">
+        <div class="card-top"><h3>Dash BI</h3><span class="yr">2024</span></div>
+        <p data-i18n="pj_dashbi">Interface design for a business-intelligence dashboard and reporting tool.</p>
+        <div class="chips"><span data-i18n="t_uiux">UI/UX</span><span data-i18n="t_dash">Dashboard</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="web">
+        <div class="card-top"><h3>Studiit</h3><span class="yr">2024</span></div>
+        <p data-i18n="pj_studiit">End-to-end product design for a student-focused web platform.</p>
+        <div class="chips"><span data-i18n="t_uiux">UI/UX</span><span data-i18n="t_web">Web App</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="product">
+        <div class="card-top"><h3>Nusuk</h3><span class="yr">2024</span></div>
+        <p data-i18n="pj_nusuk">A vertical redesign exploration reimagining the Nusuk booking experience.</p>
+        <div class="chips"><span data-i18n="t_uiux">UI/UX</span><span data-i18n="t_landing">Landing Page</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="brand">
+        <div class="card-top"><h3>Genelin</h3><span class="yr">2024</span></div>
+        <p data-i18n="pj_genelin">Full brand identity and graphic design system for Genelin.</p>
+        <div class="chips"><span data-i18n="t_brand">Branding</span><span data-i18n="t_graphic">Graphic Design</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="web">
+        <div class="card-top"><h3>Actile Platform</h3><span class="yr">2023</span></div>
+        <p data-i18n="pj_actile">Internal operations platform designed for scalability and speed.</p>
+        <div class="chips"><span data-i18n="t_uiux">UI/UX</span><span data-i18n="t_web">Web App</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="web">
+        <div class="card-top"><h3>Web Services Platform</h3><span class="yr">2023</span></div>
+        <p data-i18n="pj_webserv">User and admin interfaces for a web-services marketplace.</p>
+        <div class="chips"><span data-i18n="t_uiux">UI/UX</span><span data-i18n="t_web">Web App</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="two">
+      <div class="reveal">
+        <p class="sec-label" data-i18n="edu_label">Education</p>
+        <div class="edu-item">
+          <h3 data-i18n="ed1_d">Master in International Trade & Business</h3>
+          <div class="school">ESIC, Madrid</div>
+          <div class="yr">Sep 2025 — <span data-i18n="present">Present</span></div>
+        </div>
+        <div class="edu-item">
+          <h3 data-i18n="ed2_d">Bachelor's in Marketing & Business Management</h3>
+          <div class="school">ISG, Algiers</div>
+          <div class="yr">2022 — 2025</div>
+        </div>
+        <div class="edu-item">
+          <h3 data-i18n="ed3_d">Bachelor's in Algebra & Cryptography</h3>
+          <div class="school">USTHB, Algiers</div>
+          <div class="yr">2020 — 2022</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="sec-label" data-i18n="lang_label">Languages</p>
+        <div class="lang-row"><span class="l">English</span><span class="lvl" data-i18n="lv_bi">Bilingual<span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span></div>
+        <div class="lang-row"><span class="l">Français</span><span class="lvl" data-i18n="lv_adv">Advanced<span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></span></div>
+        <div class="lang-row"><span class="l">Español</span><span class="lvl" data-i18n="lv_int">Intermediate<span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></span></div>
+        <div class="lang-row"><span class="l">العربية</span><span class="lvl" data-i18n="lv_nat">Native<span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:0">
+  <div class="wrap">
+    <p class="sec-label reveal" data-i18n="contact_label">Contact</p>
+    <h2 class="contact-h reveal" data-i18n="contact_h">Let's build something worth scaling.</h2>
+    <div class="contact-links reveal">
+      <a href="mailto:sofiane7hafsaoui@gmail.com" class="btn solid">sofiane7hafsaoui@gmail.com</a>
+      <a href="https://www.linkedin.com/in/sofiane-hafsaoui" target="_blank" class="btn ghost">LinkedIn</a>
+      <a href="tel:+34662316895" class="btn ghost">+34 662 316 895</a>
+      <a href="Sofiane Hafsaoui CV English.pdf" target="_blank" class="btn ghost" data-i18n="hero_cta2">Download CV</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© 2026 Sofiane Hafsaoui</span>
+  <span data-i18n="foot">Madrid, Spain · Operations & Strategy</span>
+</footer>
+
+<button id="think-trigger" aria-label="How I think">
+  <span class="dot"></span>
+  <span class="lbl" data-i18n="think_lbl">How I think</span>
+</button>
+<div id="think-overlay"></div>
+<aside id="think-panel" aria-hidden="true">
+  <button id="think-close" class="close" aria-label="Close">&times;</button>
+  <h2 data-i18n="think_title">How I think</h2>
+  <p class="pintro" data-i18n="think_intro">A few principles that shape how I approach a problem.</p>
+  <div class="principle"><span class="n">01</span><div><h3 data-i18n="tp1_h">First principles</h3><p data-i18n="tp1_p">I strip a problem down to its primitives before building anything on top of it.</p></div></div>
+  <div class="principle"><span class="n">02</span><div><h3 data-i18n="tp2_h">Quantify the intuition</h3><p data-i18n="tp2_p">Every instinct gets pressure-tested against numbers and evidence before it becomes a decision.</p></div></div>
+  <div class="principle"><span class="n">03</span><div><h3 data-i18n="tp3_h">Systems over screens</h3><p data-i18n="tp3_p">I design the mechanism, not just the surface — the screen is the last ten percent.</p></div></div>
+  <div class="principle"><span class="n">04</span><div><h3 data-i18n="tp4_h">Ship, measure, iterate</h3><p data-i18n="tp4_p">Momentum beats perfection. Launch, read the signal, and adjust quickly.</p></div></div>
+</aside>
+
+<script>
+const I18N = {
+  en:{
+    nav_about:"About", nav_skills:"Expertise", nav_work:"Work", nav_exp:"Experience", nav_contact:"Contact",
+    work_label:"Selected Work", work_title:"Selected work from my portfolio.",
+    filt_all:"All", filt_product:"Product & UX", filt_web:"Web Apps", filt_landing:"Landing Pages", filt_brand:"Branding",
+    view_live:"View live →",
+    t_uiux:"UI/UX", t_web:"Web App", t_brand:"Branding", t_landing:"Landing Page", t_dash:"Dashboard", t_graphic:"Graphic Design",
+    pj_moustachir:"Strategic redesign of Moustachir into the region's first fully integrated digital consulting marketplace.",
+    pj_angel:"A platform connecting MENA founders with regional investors to accelerate early-stage deal flow.",
+    pj_positive:"Brand and landing page for Positive Agency, a product and design studio.",
+    pj_a9ra:"Brand identity and landing page for an EdTech venture that reached 25,000+ users in 5 days.",
+    pj_dashbi:"Interface design for a business-intelligence dashboard and reporting tool.",
+    pj_studiit:"End-to-end product design for a student-focused web platform.",
+    pj_nusuk:"A vertical redesign exploration reimagining the Nusuk booking experience.",
+    pj_genelin:"Full brand identity and graphic design system for Genelin.",
+    pj_actile:"Internal operations platform designed for scalability and speed.",
+    pj_webserv:"User and admin interfaces for a web-services marketplace.",
+    think_lbl:"How I think", think_title:"How I think",
+    think_intro:"A few principles that shape how I approach a problem.",
+    tp1_h:"First principles", tp1_p:"I strip a problem down to its primitives before building anything on top of it.",
+    tp2_h:"Quantify the intuition", tp2_p:"Every instinct gets pressure-tested against numbers and evidence before it becomes a decision.",
+    tp3_h:"Systems over screens", tp3_p:"I design the mechanism, not just the surface — the screen is the last ten percent.",
+    tp4_h:"Ship, measure, iterate", tp4_p:"Momentum beats perfection. Launch, read the signal, and adjust quickly.",
+    konami_toast:"Blueprint mode — this is how I see structure.",
+    hero_eyebrow:"Strategy · Product · Operations",
+    hero_role:"Business strategist and product designer bridging quantitative rigor with founder instinct — building, valuing and scaling startups across MENA and Europe.",
+    hero_cta1:"Get in touch", hero_cta2:"Download CV",
+    about_label:"Profile",
+    about_text:"An aspiring analyst combining a <b>technical background in Algebra & Cryptography</b> with hands-on founder experience. Currently pursuing a Master in International Trade & Business at ESIC Madrid, and serving as an <b>Operations, Marketing & Business Strategy Intern at Valtier Real Estate</b>. I leverage product strategy and quantitative discipline to assess product-market fit, structure deals, and turn ideas into scalable ventures.",
+    skills_label:"What I do", skills_title:"Expertise across strategy, product and automation.",
+    sk1_h:"Investment & Strategy", sk1_a:"Startup Valuations", sk1_b:"Market Sizing", sk1_c:"Due Diligence", sk1_d:"Deal Sourcing", sk1_e:"Business Model Analysis", sk1_f:"Market Research",
+    sk2_h:"Product & Tech", sk2_a:"Product Strategy", sk2_b:"UI/UX & Prototyping", sk2_c:"Competitive Benchmarking", sk2_d:"No-Code Development", sk2_e:"Roadmapping",
+    sk3_h:"Automation & AI", sk3_a:"Automation Systems & Tools", sk3_b:"AI Agents", sk3_c:"Dashboarding", sk3_d:"Workflow Design", sk3_e:"Data Visualization",
+    exp_label:"Experience", exp_title:"A track record of building.",
+    present:"Present", current:"Current",
+    vex_role:"Operations, Marketing & Business Strategy Intern",
+    vex_p:"Driving operational efficiency and go-to-market initiatives — building automation systems, AI-assisted workflows and performance dashboards to support strategic decision-making.",
+    a9_role:"Co-founder",
+    a9_p:"Executed the go-to-market strategy that acquired 25,000+ users within 5 days of public beta. Ran competitive landscape analysis to identify EdTech market gaps and built the investor pitch deck and financial projections for the pre-seed round.",
+    mo_role:"Lead Product Designer",
+    mo_p:"Leading the strategic redesign of Moustachir V4, transforming the product into the region's first fully integrated digital consulting marketplace.",
+    pa_role:"Product Designer",
+    pa_p:"Developed product roadmap strategy for clients, boosting retention and feedback. Directed the creation of \"AngelEast,\" a platform linking MENA founders with regional investors to enhance early-stage deal flow.",
+    hx_role:"Product Designer",
+    hx_p:"Managed end-to-end product delivery, optimizing for scalability and time-to-market.",
+    vm_co:"Valuation Models Research", vm_role:"Research Analyst",
+    vm_p:"Developed valuation frameworks for Algerian startups by adapting established models to the emerging-market context.",
+    ru_role:"Early Career & Consulting",
+    ru_p:"Advised client leadership on product roadmap and retention strategies, directly impacting revenue and market positioning.",
+    edu_label:"Education",
+    ed1_d:"Master in International Trade & Business", ed2_d:"Bachelor's in Marketing & Business Management", ed3_d:"Bachelor's in Algebra & Cryptography",
+    lang_label:"Languages", lv_bi:"Bilingual", lv_adv:"Advanced", lv_int:"Intermediate", lv_nat:"Native",
+    contact_label:"Contact", contact_h:"Let's build something worth scaling.",
+    foot:"Madrid, Spain · Operations & Strategy"
+  },
+  es:{
+    nav_about:"Perfil", nav_skills:"Experiencia", nav_work:"Proyectos", nav_exp:"Trayectoria", nav_contact:"Contacto",
+    work_label:"Proyectos seleccionados", work_title:"Una selección de mi portafolio.",
+    filt_all:"Todos", filt_product:"Producto y UX", filt_web:"Apps Web", filt_landing:"Landing Pages", filt_brand:"Marca",
+    view_live:"Ver en vivo →",
+    t_uiux:"UI/UX", t_web:"App Web", t_brand:"Marca", t_landing:"Landing Page", t_dash:"Dashboard", t_graphic:"Diseño Gráfico",
+    pj_moustachir:"Rediseño estratégico de Moustachir hacia el primer marketplace de consultoría digital totalmente integrado de la región.",
+    pj_angel:"Una plataforma que conecta a fundadores de MENA con inversores regionales para acelerar el deal flow en etapas tempranas.",
+    pj_positive:"Marca y landing page para Positive Agency, un estudio de producto y diseño.",
+    pj_a9ra:"Identidad de marca y landing page para un proyecto EdTech que alcanzó más de 25.000 usuarios en 5 días.",
+    pj_dashbi:"Diseño de interfaz para un dashboard de inteligencia de negocio y reporting.",
+    pj_studiit:"Diseño de producto de extremo a extremo para una plataforma web orientada a estudiantes.",
+    pj_nusuk:"Una exploración de rediseño vertical reimaginando la experiencia de reservas de Nusuk.",
+    pj_genelin:"Identidad de marca completa y sistema de diseño gráfico para Genelin.",
+    pj_actile:"Plataforma de operaciones interna diseñada para la escalabilidad y la velocidad.",
+    pj_webserv:"Interfaces de usuario y administración para un marketplace de servicios web.",
+    think_lbl:"Cómo pienso", think_title:"Cómo pienso",
+    think_intro:"Algunos principios que dan forma a cómo abordo un problema.",
+    tp1_h:"Primeros principios", tp1_p:"Reduzco un problema a sus elementos esenciales antes de construir nada encima.",
+    tp2_h:"Cuantificar la intuición", tp2_p:"Cada instinto se contrasta con números y evidencia antes de convertirse en decisión.",
+    tp3_h:"Sistemas, no pantallas", tp3_p:"Diseño el mecanismo, no solo la superficie — la pantalla es el último diez por ciento.",
+    tp4_h:"Lanzar, medir, iterar", tp4_p:"El impulso supera a la perfección. Lanza, lee la señal y ajusta rápido.",
+    konami_toast:"Modo plano — así veo la estructura.",
+    hero_eyebrow:"Estrategia · Producto · Operaciones",
+    hero_role:"Estratega de negocio y diseñador de producto que une el rigor cuantitativo con el instinto de fundador — creando, valorando y escalando startups en MENA y Europa.",
+    hero_cta1:"Contactar", hero_cta2:"Descargar CV",
+    about_label:"Perfil",
+    about_text:"Analista en formación que combina una <b>base técnica en Álgebra y Criptografía</b> con experiencia real como fundador. Actualmente cursando un Máster en Comercio Internacional y Negocios en ESIC Madrid, y ejerciendo como <b>Becario de Operaciones, Marketing y Estrategia de Negocio en Valtier Real Estate</b>. Aplico la estrategia de producto y la disciplina cuantitativa para evaluar el ajuste producto-mercado, estructurar acuerdos y convertir ideas en proyectos escalables.",
+    skills_label:"Qué hago", skills_title:"Experiencia en estrategia, producto y automatización.",
+    sk1_h:"Inversión y Estrategia", sk1_a:"Valoración de Startups", sk1_b:"Dimensionamiento de Mercado", sk1_c:"Due Diligence", sk1_d:"Originación de Operaciones", sk1_e:"Análisis de Modelos de Negocio", sk1_f:"Investigación de Mercado",
+    sk2_h:"Producto y Tecnología", sk2_a:"Estrategia de Producto", sk2_b:"UI/UX y Prototipado", sk2_c:"Benchmarking Competitivo", sk2_d:"Desarrollo No-Code", sk2_e:"Hojas de Ruta",
+    sk3_h:"Automatización e IA", sk3_a:"Sistemas y Herramientas de Automatización", sk3_b:"Agentes de IA", sk3_c:"Dashboards", sk3_d:"Diseño de Flujos", sk3_e:"Visualización de Datos",
+    exp_label:"Trayectoria", exp_title:"Una trayectoria construyendo.",
+    present:"Actualidad", current:"Actual",
+    vex_role:"Becario de Operaciones, Marketing y Estrategia de Negocio",
+    vex_p:"Impulsando la eficiencia operativa y las iniciativas de salida al mercado — creando sistemas de automatización, flujos asistidos por IA y dashboards de rendimiento para apoyar la toma de decisiones estratégicas.",
+    a9_role:"Cofundador",
+    a9_p:"Ejecuté la estrategia de salida al mercado que captó más de 25.000 usuarios en los 5 primeros días de la beta pública. Realicé análisis competitivo para detectar oportunidades en EdTech y elaboré el pitch deck y las proyecciones financieras para la ronda pre-seed.",
+    mo_role:"Diseñador de Producto Principal",
+    mo_p:"Liderando el rediseño estratégico de Moustachir V4, transformando el producto en el primer marketplace de consultoría digital totalmente integrado de la región.",
+    pa_role:"Diseñador de Producto",
+    pa_p:"Desarrollé la estrategia de hoja de ruta de producto para clientes, mejorando la retención y el feedback. Dirigí la creación de \"AngelEast\", una plataforma que conecta a fundadores de MENA con inversores regionales para impulsar el flujo de operaciones en etapas tempranas.",
+    hx_role:"Diseñador de Producto",
+    hx_p:"Gestioné la entrega de producto de extremo a extremo, optimizando la escalabilidad y el time-to-market.",
+    vm_co:"Investigación de Modelos de Valoración", vm_role:"Analista de Investigación",
+    vm_p:"Desarrollé marcos de valoración para startups argelinas adaptando modelos establecidos al contexto de mercados emergentes.",
+    ru_role:"Inicios y Consultoría",
+    ru_p:"Asesoré a la dirección de clientes en hojas de ruta de producto y estrategias de retención, con impacto directo en ingresos y posicionamiento.",
+    edu_label:"Formación",
+    ed1_d:"Máster en Comercio Internacional y Negocios", ed2_d:"Grado en Marketing y Gestión de Empresas", ed3_d:"Grado en Álgebra y Criptografía",
+    lang_label:"Idiomas", lv_bi:"Bilingüe", lv_adv:"Avanzado", lv_int:"Intermedio", lv_nat:"Nativo",
+    contact_label:"Contacto", contact_h:"Construyamos algo que valga la pena escalar.",
+    foot:"Madrid, España · Operaciones y Estrategia"
+  },
+  fr:{
+    nav_about:"Profil", nav_skills:"Expertise", nav_work:"Projets", nav_exp:"Parcours", nav_contact:"Contact",
+    work_label:"Réalisations", work_title:"Une sélection de mon portfolio.",
+    filt_all:"Tout", filt_product:"Produit & UX", filt_web:"Apps Web", filt_landing:"Landing Pages", filt_brand:"Identité",
+    view_live:"Voir le site →",
+    t_uiux:"UI/UX", t_web:"App Web", t_brand:"Identité", t_landing:"Landing Page", t_dash:"Dashboard", t_graphic:"Design Graphique",
+    pj_moustachir:"Refonte stratégique de Moustachir vers la première marketplace de conseil digital entièrement intégrée de la région.",
+    pj_angel:"Une plateforme reliant les fondateurs du MENA aux investisseurs régionaux pour accélérer le deal flow early-stage.",
+    pj_positive:"Identité de marque et landing page pour Positive Agency, un studio de produit et de design.",
+    pj_a9ra:"Identité de marque et landing page pour une startup EdTech ayant atteint plus de 25 000 utilisateurs en 5 jours.",
+    pj_dashbi:"Conception d'interface pour un dashboard de business intelligence et de reporting.",
+    pj_studiit:"Design produit de bout en bout pour une plateforme web dédiée aux étudiants.",
+    pj_nusuk:"Une exploration de refonte verticale réimaginant l'expérience de réservation Nusuk.",
+    pj_genelin:"Identité de marque complète et système de design graphique pour Genelin.",
+    pj_actile:"Plateforme d'opérations interne conçue pour la scalabilité et la rapidité.",
+    pj_webserv:"Interfaces utilisateur et administration pour une marketplace de services web.",
+    think_lbl:"Comment je pense", think_title:"Comment je pense",
+    think_intro:"Quelques principes qui façonnent ma manière d'aborder un problème.",
+    tp1_h:"Premiers principes", tp1_p:"Je décompose un problème en ses éléments fondamentaux avant de construire quoi que ce soit dessus.",
+    tp2_h:"Quantifier l'intuition", tp2_p:"Chaque instinct est confronté aux chiffres et aux faits avant de devenir une décision.",
+    tp3_h:"Systèmes plutôt qu'écrans", tp3_p:"Je conçois le mécanisme, pas seulement la surface — l'écran, ce sont les derniers dix pour cent.",
+    tp4_h:"Lancer, mesurer, itérer", tp4_p:"L'élan vaut mieux que la perfection. Lance, lis le signal et ajuste vite.",
+    konami_toast:"Mode plan — voici comment je vois la structure.",
+    hero_eyebrow:"Stratégie · Produit · Opérations",
+    hero_role:"Stratège business et designer produit alliant rigueur quantitative et instinct de fondateur — créant, valorisant et faisant croître des startups au MENA et en Europe.",
+    hero_cta1:"Me contacter", hero_cta2:"Télécharger le CV",
+    about_label:"Profil",
+    about_text:"Analyste en devenir alliant un <b>socle technique en Algèbre & Cryptographie</b> à une véritable expérience de fondateur. Actuellement en Master de Commerce International et Business à l'ESIC Madrid, et <b>Stagiaire Opérations, Marketing & Stratégie d'Entreprise chez Valtier Real Estate</b>. J'applique la stratégie produit et la discipline quantitative pour évaluer l'adéquation produit-marché, structurer des deals et transformer des idées en projets scalables.",
+    skills_label:"Ce que je fais", skills_title:"Expertise en stratégie, produit et automatisation.",
+    sk1_h:"Investissement & Stratégie", sk1_a:"Valorisation de Startups", sk1_b:"Dimensionnement de Marché", sk1_c:"Due Diligence", sk1_d:"Sourcing de Deals", sk1_e:"Analyse de Business Model", sk1_f:"Étude de Marché",
+    sk2_h:"Produit & Tech", sk2_a:"Stratégie Produit", sk2_b:"UI/UX & Prototypage", sk2_c:"Benchmark Concurrentiel", sk2_d:"Développement No-Code", sk2_e:"Roadmapping",
+    sk3_h:"Automatisation & IA", sk3_a:"Systèmes & Outils d'Automatisation", sk3_b:"Agents IA", sk3_c:"Dashboards", sk3_d:"Conception de Workflows", sk3_e:"Visualisation de Données",
+    exp_label:"Parcours", exp_title:"Un parcours de bâtisseur.",
+    present:"Aujourd'hui", current:"En cours",
+    vex_role:"Stagiaire Opérations, Marketing & Stratégie d'Entreprise",
+    vex_p:"Pilotage de l'efficacité opérationnelle et des initiatives go-to-market — création de systèmes d'automatisation, de workflows assistés par IA et de dashboards de performance pour appuyer la décision stratégique.",
+    a9_role:"Cofondateur",
+    a9_p:"Exécution de la stratégie go-to-market ayant acquis plus de 25 000 utilisateurs en 5 jours après le lancement de la bêta publique. Analyse concurrentielle pour identifier les opportunités EdTech et création du pitch deck investisseurs et des projections financières du tour pre-seed.",
+    mo_role:"Lead Product Designer",
+    mo_p:"Pilotage de la refonte stratégique de Moustachir V4, transformant le produit en première marketplace de conseil digital entièrement intégrée de la région.",
+    pa_role:"Product Designer",
+    pa_p:"Élaboration de la stratégie de roadmap produit pour les clients, améliorant la rétention et les retours. Direction de la création d'« AngelEast », une plateforme reliant les fondateurs du MENA aux investisseurs régionaux pour dynamiser le deal flow early-stage.",
+    hx_role:"Product Designer",
+    hx_p:"Gestion de la livraison produit de bout en bout, en optimisant la scalabilité et le time-to-market.",
+    vm_co:"Recherche sur les Modèles de Valorisation", vm_role:"Analyste de Recherche",
+    vm_p:"Conception de cadres de valorisation pour les startups algériennes en adaptant les modèles établis au contexte des marchés émergents.",
+    ru_role:"Débuts & Conseil",
+    ru_p:"Conseil aux directions clientes sur les roadmaps produit et les stratégies de rétention, avec un impact direct sur le chiffre d'affaires et le positionnement.",
+    edu_label:"Formation",
+    ed1_d:"Master en Commerce International & Business", ed2_d:"Licence en Marketing & Gestion d'Entreprise", ed3_d:"Licence en Algèbre & Cryptographie",
+    lang_label:"Langues", lv_bi:"Bilingue", lv_adv:"Avancé", lv_int:"Intermédiaire", lv_nat:"Natif",
+    contact_label:"Contact", contact_h:"Construisons quelque chose qui mérite de grandir.",
+    foot:"Madrid, Espagne · Opérations & Stratégie"
+  }
+};
+
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    const val = I18N[lang] && I18N[lang][key];
+    if(val===undefined) return;
+    // preserve trailing dots widget inside language level spans
+    const dots = el.querySelector('.dots');
+    if(dots){ el.innerHTML = val + dots.outerHTML; }
+    else { el.innerHTML = val; }
+  });
+  document.querySelectorAll('.lang-toggle button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang===lang);
+  });
+}
+
+document.querySelectorAll('.lang-toggle button').forEach(b=>{
+  b.addEventListener('click',()=>setLang(b.dataset.lang));
+});
+
+// crypto decode reveal
+const CH="ABCDEF0123456789!<>-_/[]{}=+*#@§";
+function scramble(el){
+  const text=el.dataset.text, settle=[];
+  for(let i=0;i<text.length;i++) settle[i]=Math.floor(Math.random()*10)+i*3;
+  const max=Math.max(...settle); let f=0;
+  clearInterval(el._id);
+  el._id=setInterval(()=>{
+    let o='';
+    for(let i=0;i<text.length;i++){
+      if(text[i]===' '){o+=' ';continue;}
+      o += f>=settle[i] ? text[i] : CH[Math.floor(Math.random()*CH.length)];
+    }
+    el.textContent=o; f++;
+    if(f>max+1){clearInterval(el._id); el.textContent=text;}
+  },42);
+}
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.decode').forEach((el,i)=> setTimeout(()=>scramble(el), 200+i*170));
+});
+document.querySelectorAll('h1.name .decode').forEach(el=>{
+  el.addEventListener('mouseenter',()=>scramble(el));
+});
+
+// scroll progress (analytical)
+const prog=document.getElementById('progress');
+addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  prog.style.width=(h>0?scrollY/h*100:0)+'%';
+});
+
+// secret thinking panel
+const tt=document.getElementById('think-trigger');
+const tov=document.getElementById('think-overlay');
+const tp=document.getElementById('think-panel');
+const openPanel=()=>{tov.classList.add('open');tp.classList.add('open');tp.setAttribute('aria-hidden','false');};
+const closePanel=()=>{tov.classList.remove('open');tp.classList.remove('open');tp.setAttribute('aria-hidden','true');};
+tt.addEventListener('click',openPanel);
+tov.addEventListener('click',closePanel);
+document.getElementById('think-close').addEventListener('click',closePanel);
+addEventListener('keydown',e=>{ if(e.key==='Escape') closePanel(); });
+
+// konami easter egg → blueprint mode
+const seq=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+let ki=0; const overlay=document.getElementById('grid-overlay'), toast=document.getElementById('toast'); let toastT;
+function showToast(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>toast.classList.remove('show'),2600);}
+addEventListener('keydown',e=>{
+  const k=e.key.length===1?e.key.toLowerCase():e.key;
+  ki=(k===seq[ki])?ki+1:(k===seq[0]?1:0);
+  if(ki===seq.length){
+    ki=0;
+    overlay.classList.toggle('on');
+    const lang=document.documentElement.lang||'en';
+    showToast((I18N[lang]||I18N.en).konami_toast);
+  }
+});
+
+// work filter
+const filterBtns = document.querySelectorAll('.filters button');
+const cards = document.querySelectorAll('.work-grid .card');
+filterBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    filterBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    cards.forEach(c=>{
+      const show = f==='all' || c.dataset.cat===f;
+      c.classList.toggle('hide', !show);
+    });
+  });
+});
+
+// scroll reveal
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay = (Math.min(i,4)*60)+'ms';
+  io.observe(el);
+});
+
+// nav border on scroll
+const nav = document.getElementById('nav');
+addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', scrollY>20); });
+
+setLang('en');
+</script>
+</body>
+</html>
