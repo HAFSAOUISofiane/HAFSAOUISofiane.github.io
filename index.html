@@ -196,14 +196,39 @@
   .principle p{font-size:14px;color:#444;font-weight:300}
 
   /* ===== brain mind-map ===== */
-  #brain-btn{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:58;display:flex;align-items:center;gap:10px;
-    background:var(--ink);color:#fff;border:0;cursor:pointer;font-family:inherit;font-size:13px;letter-spacing:.04em;
-    padding:11px 20px 11px 15px;border-radius:999px;box-shadow:0 12px 34px -14px rgba(0,0,0,.55);transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s}
-  #brain-btn:hover{transform:translateX(-50%) translateY(-3px);box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
-  #brain-btn svg{width:21px;height:21px;stroke:#fff;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-  #brain-btn .bb-pulse{position:absolute;left:15px;width:21px;height:21px;border-radius:50%;border:1px solid rgba(255,255,255,.5);animation:bbpulse 2.6s infinite}
+  #dock{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:58;display:flex;gap:12px;align-items:center}
+  .dock-btn{position:relative;display:flex;align-items:center;gap:9px;cursor:pointer;font-family:inherit;font-size:13px;letter-spacing:.04em;
+    padding:11px 19px 11px 15px;border-radius:999px;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s,background .3s,border-color .3s}
+  .dock-btn svg{width:20px;height:20px;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  .dock-btn:hover{transform:translateY(-3px)}
+  #brain-btn{background:var(--ink);color:#fff;border:0;box-shadow:0 12px 34px -14px rgba(0,0,0,.55)}
+  #brain-btn:hover{box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+  #brain-btn svg{stroke:#fff}
+  #tools-btn{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 12px 30px -16px rgba(0,0,0,.4)}
+  #tools-btn:hover{border-color:var(--ink)}
+  #tools-btn svg{stroke:var(--ink)}
+  .bb-pulse{position:absolute;left:15px;width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,.5);animation:bbpulse 2.6s infinite;pointer-events:none}
   @keyframes bbpulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(2.1);opacity:0}100%{opacity:0}}
-  @media(max-width:600px){#brain-btn .bb-label{display:none}#brain-btn{padding:13px;left:auto;right:24px;transform:none}#brain-btn:hover{transform:translateY(-3px)}#brain-btn .bb-pulse{left:13px}}
+  @media(max-width:600px){.dock-btn .bb-label{display:none}.dock-btn{padding:13px}.bb-pulse{left:13px}}
+
+  /* tools overlay */
+  #tools-overlay{position:fixed;inset:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .5s;display:flex;flex-direction:column}
+  #tools-overlay.open{opacity:1;pointer-events:auto}
+  #tools-close{border:1px solid var(--line);background:#fff;width:44px;height:44px;border-radius:50%;font-size:24px;line-height:1;cursor:pointer;color:var(--muted);flex:0 0 auto;transition:.25s}
+  #tools-close:hover{border-color:var(--ink);color:var(--ink);transform:rotate(90deg)}
+  #tools-stage{flex:1;overflow-y:auto;padding:16px 38px 44px;display:flex;flex-direction:column;gap:32px}
+  .tgroup{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+  #tools-stage.play .tgroup{opacity:1;transform:none}
+  .tgroup-h{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:14px}
+  .tool{display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 12px;border:1px solid var(--line);border-radius:14px;background:#fff;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s,border-color .3s}
+  .tool:hover{transform:translateY(-4px);box-shadow:0 16px 40px -24px rgba(0,0,0,.4);border-color:#dcdcdc}
+  .tool-ic{width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+  .tool-ic img{width:36px;height:36px;filter:grayscale(1);opacity:.5;transition:filter .35s,opacity .35s}
+  .tool:hover .tool-ic img{filter:none;opacity:1}
+  .tool .mono{width:36px;height:36px;border-radius:8px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--muted)}
+  .tool span{font-size:12.5px;color:#555;text-align:center}
+  @media(max-width:600px){#tools-stage{padding:14px 20px 38px}.tgrid{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}}
 
   #brain-overlay{position:fixed;inset:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(7px);
     opacity:0;pointer-events:none;transition:opacity .5s;display:flex;flex-direction:column}
@@ -244,6 +269,14 @@
   #net-stage .node-g.on .dotc{fill:var(--hl,#1a1a1a)}
   #net-stage .node-g.on .icn{stroke:var(--hl,#1a1a1a)}
   #net-stage .node-g.on .lbl{fill:var(--ink)}
+  /* guide rings + halo + flow */
+  .gring{fill:none;stroke:#ececec;stroke-width:1;stroke-dasharray:3 8;opacity:0;transition:opacity .9s ease}
+  #net-stage.play .gring{opacity:1}
+  #net-stage.dim .gring{opacity:.5}
+  .core-g .halo{fill:#1a1a1a;opacity:.05;transform-origin:0 0;animation:halo 3.6s ease-in-out infinite}
+  @keyframes halo{0%,100%{transform:scale(1);opacity:.04}50%{transform:scale(1.16);opacity:.11}}
+  #net-stage .edge.on{stroke-dasharray:7 7;animation:flow 1.1s linear infinite}
+  @keyframes flow{to{stroke-dashoffset:-14}}
 
   @media(max-width:820px){
     .nav-links a:not(.lang-wrap){display:none}
@@ -554,11 +587,17 @@
   <div class="principle"><span class="n">04</span><div><h3 data-i18n="tp4_h">Ship, measure, iterate</h3><p data-i18n="tp4_p">Momentum beats perfection. Launch, read the signal, and adjust quickly.</p></div></div>
 </aside>
 
-<button id="brain-btn" aria-label="Open mind map">
-  <span class="bb-pulse"></span>
-  <svg viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/></svg>
-  <span class="bb-label" data-i18n="brain_lbl">Mind map</span>
-</button>
+<div id="dock">
+  <button id="brain-btn" class="dock-btn" aria-label="Open Polymath">
+    <span class="bb-pulse"></span>
+    <svg viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/></svg>
+    <span class="bb-label" data-i18n="brain_lbl">Polymath</span>
+  </button>
+  <button id="tools-btn" class="dock-btn" aria-label="Open Tools">
+    <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+    <span class="bb-label" data-i18n="tools_lbl">Tools</span>
+  </button>
+</div>
 <div id="brain-overlay" aria-hidden="true">
   <div class="bo-head">
     <div>
@@ -569,6 +608,17 @@
     <button id="brain-close" aria-label="Close">&times;</button>
   </div>
   <div id="net-stage"></div>
+</div>
+<div id="tools-overlay" aria-hidden="true">
+  <div class="bo-head">
+    <div>
+      <p class="sec-label" data-i18n="tools_eyebrow">The Toolkit</p>
+      <h2 data-i18n="tools_title">Tools I build with.</h2>
+      <p class="net-hint" data-i18n="tools_hint">Hover a logo to bring it to life.</p>
+    </div>
+    <button id="tools-close" aria-label="Close">&times;</button>
+  </div>
+  <div id="tools-stage"></div>
 </div>
 
 <script>
@@ -596,9 +646,12 @@ const I18N = {
     tp3_h:"Systems over screens", tp3_p:"I design the mechanism, not just the surface — the screen is the last ten percent.",
     tp4_h:"Ship, measure, iterate", tp4_p:"Momentum beats perfection. Launch, read the signal, and adjust quickly.",
     konami_toast:"Blueprint mode — this is how I see structure.",
-    brain_lbl:"Mind map", net_eyebrow:"The Mind Map",
+    brain_lbl:"Polymath", net_eyebrow:"Polymath",
     net_title:"How everything I do connects.",
     net_hint:"Hover any node to trace its connections.",
+    ex_fin:"Financial Modeling", ex_pitch:"Pitch Decks", ex_research:"User Research", ex_dsys:"Design Systems", ex_prompt:"Prompt Engineering", ex_rag:"RAG & Agents",
+    tools_lbl:"Tools", tools_eyebrow:"The Toolkit", tools_title:"Tools I build with.", tools_hint:"Hover a logo to bring it to life.",
+    tcat_adobe:"Adobe Creative", tcat_ai:"AI & LLMs", tcat_auto:"Automation", tcat_office:"Microsoft Office", tcat_design:"Design & No-Code", tcat_dev:"Dev & Collaboration",
     hero_eyebrow:"Strategy · Product · Operations",
     hero_role:"Business strategist and product designer bridging quantitative rigor with founder instinct — building, valuing and scaling startups across MENA and Europe.",
     hero_cta1:"Get in touch", hero_cta2:"Download CV",
@@ -653,9 +706,12 @@ const I18N = {
     tp3_h:"Sistemas, no pantallas", tp3_p:"Diseño el mecanismo, no solo la superficie — la pantalla es el último diez por ciento.",
     tp4_h:"Lanzar, medir, iterar", tp4_p:"El impulso supera a la perfección. Lanza, lee la señal y ajusta rápido.",
     konami_toast:"Modo plano — así veo la estructura.",
-    brain_lbl:"Mapa mental", net_eyebrow:"Mapa mental",
+    brain_lbl:"Polímata", net_eyebrow:"Polímata",
     net_title:"Cómo se conecta todo lo que hago.",
     net_hint:"Pasa el cursor por un nodo para ver sus conexiones.",
+    ex_fin:"Modelización Financiera", ex_pitch:"Pitch Decks", ex_research:"Investigación de Usuarios", ex_dsys:"Sistemas de Diseño", ex_prompt:"Ingeniería de Prompts", ex_rag:"RAG y Agentes",
+    tools_lbl:"Herramientas", tools_eyebrow:"El Kit", tools_title:"Herramientas con las que construyo.", tools_hint:"Pasa el cursor por un logo para darle vida.",
+    tcat_adobe:"Adobe Creative", tcat_ai:"IA y LLMs", tcat_auto:"Automatización", tcat_office:"Microsoft Office", tcat_design:"Diseño y No-Code", tcat_dev:"Desarrollo y Colaboración",
     hero_eyebrow:"Estrategia · Producto · Operaciones",
     hero_role:"Estratega de negocio y diseñador de producto que une el rigor cuantitativo con el instinto de fundador — creando, valorando y escalando startups en MENA y Europa.",
     hero_cta1:"Contactar", hero_cta2:"Descargar CV",
@@ -710,9 +766,12 @@ const I18N = {
     tp3_h:"Systèmes plutôt qu'écrans", tp3_p:"Je conçois le mécanisme, pas seulement la surface — l'écran, ce sont les derniers dix pour cent.",
     tp4_h:"Lancer, mesurer, itérer", tp4_p:"L'élan vaut mieux que la perfection. Lance, lis le signal et ajuste vite.",
     konami_toast:"Mode plan — voici comment je vois la structure.",
-    brain_lbl:"Carte mentale", net_eyebrow:"Carte mentale",
+    brain_lbl:"Polymathe", net_eyebrow:"Polymathe",
     net_title:"Comment tout ce que je fais se connecte.",
     net_hint:"Survolez un nœud pour tracer ses connexions.",
+    ex_fin:"Modélisation Financière", ex_pitch:"Pitch Decks", ex_research:"Recherche Utilisateur", ex_dsys:"Design Systems", ex_prompt:"Prompt Engineering", ex_rag:"RAG & Agents",
+    tools_lbl:"Outils", tools_eyebrow:"La Boîte à Outils", tools_title:"Les outils avec lesquels je construis.", tools_hint:"Survolez un logo pour l'animer.",
+    tcat_adobe:"Adobe Creative", tcat_ai:"IA & LLMs", tcat_auto:"Automatisation", tcat_office:"Microsoft Office", tcat_design:"Design & No-Code", tcat_dev:"Dev & Collaboration",
     hero_eyebrow:"Stratégie · Produit · Opérations",
     hero_role:"Stratège business et designer produit alliant rigueur quantitative et instinct de fondateur — créant, valorisant et faisant croître des startups au MENA et en Europe.",
     hero_cta1:"Me contacter", hero_cta2:"Télécharger le CV",
@@ -761,6 +820,7 @@ function setLang(lang){
     b.classList.toggle('active', b.dataset.lang===lang);
   });
   if(window._netOpen && typeof buildNet==='function') buildNet(lang);
+  if(window._toolsOpen && typeof buildTools==='function') buildTools(lang);
 }
 
 document.querySelectorAll('.lang-toggle button').forEach(b=>{
@@ -862,13 +922,14 @@ const NET_ICONS={
 const NET_DATA={
   cats:[
     {id:'invest',key:'sk1_h',cat:'invest',icon:'trend',ang:90,
-     skills:[['s1a','sk1_a'],['s1b','sk1_b'],['s1c','sk1_c'],['s1d','sk1_d'],['s1e','sk1_e'],['s1f','sk1_f']]},
+     skills:[['s1a','sk1_a'],['s1b','sk1_b'],['s1c','sk1_c'],['s1d','sk1_d'],['s1e','sk1_e'],['s1f','sk1_f'],['s1g','ex_fin'],['s1h','ex_pitch']]},
     {id:'product',key:'sk2_h',cat:'product',icon:'grid',ang:210,
-     skills:[['s2a','sk2_a'],['s2b','sk2_b'],['s2c','sk2_c'],['s2d','sk2_d'],['s2e','sk2_e']]},
+     skills:[['s2a','sk2_a'],['s2b','sk2_b'],['s2c','sk2_c'],['s2d','sk2_d'],['s2e','sk2_e'],['s2f','ex_research'],['s2g','ex_dsys']]},
     {id:'ai',key:'sk3_h',cat:'ai',icon:'cpu',ang:330,
-     skills:[['s3a','sk3_a'],['s3b','sk3_b'],['s3c','sk3_c'],['s3d','sk3_d'],['s3e','sk3_e']]}
+     skills:[['s3a','sk3_a'],['s3b','sk3_b'],['s3c','sk3_c'],['s3d','sk3_d'],['s3e','sk3_e'],['s3f','ex_prompt'],['s3g','ex_rag']]}
   ],
-  cross:[['s3c','s3e'],['s3e','s1f'],['s3b','s3a'],['s3a','s2d'],['s2a','s2e'],['s2e','s1e'],['s1a','s1c'],['s1c','s1d'],['s2b','s2a'],['s1b','s1e']]
+  cross:[['s3c','s3e'],['s3e','s1f'],['s3b','s3a'],['s3a','s2d'],['s2a','s2e'],['s2e','s1e'],['s1a','s1c'],['s1c','s1d'],['s2b','s2a'],['s1b','s1e'],
+    ['s1g','s1a'],['s1h','s1d'],['s2f','s2b'],['s2g','s2b'],['s3f','s3b'],['s3g','s3b'],['s3g','s3a'],['s2g','s2a'],['s1g','s1e'],['s3f','s2d']]
 };
 const NET_COLORS={invest:'#2f7a72',product:'#5a63b8',ai:'#b9722f',core:'#1a1a1a'};
 const CX=500,CY=500,R_CAT=160,R_SKILL=312;
@@ -907,7 +968,7 @@ function buildNet(lang){
     if(e.type==='main') di=0.18+i*0.05;
     else if(e.type==='skill') di=0.5+i*0.018;
     else di=1.05+i*0.03;
-    edgesSvg+=`<line class="edge ${e.type==='cross'?'cross':''}" data-a="${e.a}" data-b="${e.b}" x1="${A.x}" y1="${A.y}" x2="${B.x}" y2="${B.y}" style="--len:${len.toFixed(1)};transition-delay:${e.type==='cross'?di.toFixed(2)+'s':'0s'};stroke-dashoffset:${len.toFixed(1)}"></line>`;
+    edgesSvg+=`<line class="edge ${e.type==='cross'?'cross':''}" data-a="${e.a}" data-b="${e.b}" x1="${A.x}" y1="${A.y}" x2="${B.x}" y2="${B.y}" style="--len:${len.toFixed(1)};transition-delay:${e.type==='cross'?di.toFixed(2)+'s':'0s'}"></line>`;
   });
   // re-apply stagger delay for draw via inline (dashoffset transition needs delay)
   // build nodes svg
@@ -918,7 +979,7 @@ function buildNet(lang){
     const R=isCore?34:(isCat?26:6.5);
     let delay = isCore?0.05 : (isCat?0.32:0.62);
     if(isCat) delay += NET_DATA.cats.findIndex(c=>c.id===id)*0.08;
-    let inner=`<circle class="ring" r="${R}"></circle>`;
+    let inner = isCore ? `<circle class="halo" r="48"></circle><circle class="ring" r="${R}"></circle>` : `<circle class="ring" r="${R}"></circle>`;
     if(isCore||isCat){
       const ic=isCore?NET_ICONS.brain:NET_ICONS[nd.icon];
       const sc=isCore?1.15:0.92;
@@ -943,7 +1004,8 @@ function buildNet(lang){
     nodes[id]._delay=delay;
   });
 
-  stage.innerHTML=`<svg viewBox="-180 0 1360 1000" preserveAspectRatio="xMidYMid meet"><g class="edges">${edgesSvg}</g><g class="nodes">${nodesSvg}</g></svg>`;
+  const ringsSvg=[R_CAT,(R_CAT+R_SKILL)/2,R_SKILL,R_SKILL+58].map((r,i)=>`<circle class="gring" cx="${CX}" cy="${CY}" r="${r}" style="transition-delay:${(0.1+i*0.08).toFixed(2)}s"></circle>`).join('');
+  stage.innerHTML=`<svg viewBox="-180 0 1360 1000" preserveAspectRatio="xMidYMid meet"><g class="rings">${ringsSvg}</g><g class="edges">${edgesSvg}</g><g class="nodes">${nodesSvg}</g></svg>`;
 
   // apply per-node opacity delay + edge draw delay
   stage.querySelectorAll('.node-g').forEach(g=>{ g.style.transitionDelay=(nodes[g.dataset.id]._delay)+'s'; });
@@ -984,6 +1046,39 @@ brainBtn.addEventListener('click',()=>{buildNet();bOverlay.classList.add('open')
 function closeNet(){bOverlay.classList.remove('open');bOverlay.setAttribute('aria-hidden','true');window._netOpen=false;}
 document.getElementById('brain-close').addEventListener('click',closeNet);
 addEventListener('keydown',e=>{if(e.key==='Escape')closeNet();});
+
+// ===== tools showcase =====
+const TOOLS_DATA=[
+  {key:'tcat_adobe',items:[['Photoshop','adobephotoshop'],['Illustrator','adobeillustrator'],['InDesign','adobeindesign'],['Premiere Pro','adobepremierepro'],['After Effects','adobeaftereffects'],['Lightroom','adobelightroom'],['Adobe XD','adobexd']]},
+  {key:'tcat_ai',items:[['ChatGPT','openai'],['Claude','claude'],['Gemini','googlegemini'],['Midjourney','midjourney'],['Perplexity','perplexity'],['ElevenLabs','elevenlabs'],['Hugging Face','huggingface']]},
+  {key:'tcat_auto',items:[['n8n','n8n'],['Zapier','zapier'],['Make','make'],['Airtable','airtable']]},
+  {key:'tcat_office',items:[['Word','microsoftword'],['Excel','microsoftexcel'],['PowerPoint','microsoftpowerpoint'],['Outlook','microsoftoutlook'],['Teams','microsoftteams']]},
+  {key:'tcat_design',items:[['Figma','figma'],['Framer','framer'],['Notion','notion'],['Webflow','webflow'],['Canva','canva']]},
+  {key:'tcat_dev',items:[['GitHub','github'],['VS Code','visualstudiocode'],['Slack','slack'],['Google Drive','googledrive']]}
+];
+function buildTools(lang){
+  lang=lang||document.documentElement.lang||'en';
+  const D=I18N[lang]||I18N.en;
+  const stage=document.getElementById('tools-stage');
+  let html='';
+  TOOLS_DATA.forEach((g,gi)=>{
+    let tiles='';
+    g.items.forEach(([name,slug])=>{
+      const init=name[0];
+      tiles+=`<div class="tool"><div class="tool-ic"><img src="https://cdn.simpleicons.org/${slug}" alt="${name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'mono',textContent:'${init}'}))"></div><span>${name}</span></div>`;
+    });
+    html+=`<div class="tgroup" style="transition-delay:${(gi*0.07).toFixed(2)}s"><div class="tgroup-h">${D[g.key]||g.key}</div><div class="tgrid">${tiles}</div></div>`;
+  });
+  stage.innerHTML=html;
+  stage.classList.remove('play'); void stage.offsetWidth;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>stage.classList.add('play')));
+}
+const toolsBtn=document.getElementById('tools-btn');
+const tOverlay=document.getElementById('tools-overlay');
+toolsBtn.addEventListener('click',()=>{buildTools();tOverlay.classList.add('open');tOverlay.setAttribute('aria-hidden','false');window._toolsOpen=true;});
+function closeTools(){tOverlay.classList.remove('open');tOverlay.setAttribute('aria-hidden','true');window._toolsOpen=false;}
+document.getElementById('tools-close').addEventListener('click',closeTools);
+addEventListener('keydown',e=>{if(e.key==='Escape')closeTools();});
 
 setLang('en');
 </script>
