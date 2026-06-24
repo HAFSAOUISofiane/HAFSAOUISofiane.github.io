@@ -166,7 +166,7 @@
     background-size:170px 170px}
 
   /* toast */
-  #toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(18px);
+  #toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(18px);
     background:var(--ink);color:#fff;font-size:13px;letter-spacing:.04em;padding:13px 22px;border-radius:999px;
     z-index:95;opacity:0;pointer-events:none;transition:opacity .4s,transform .4s;white-space:nowrap}
   #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -194,6 +194,56 @@
   .principle .n{font-size:12px;color:var(--muted);padding-top:6px;letter-spacing:.1em}
   .principle h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:3px}
   .principle p{font-size:14px;color:#444;font-weight:300}
+
+  /* ===== brain mind-map ===== */
+  #brain-btn{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:58;display:flex;align-items:center;gap:10px;
+    background:var(--ink);color:#fff;border:0;cursor:pointer;font-family:inherit;font-size:13px;letter-spacing:.04em;
+    padding:11px 20px 11px 15px;border-radius:999px;box-shadow:0 12px 34px -14px rgba(0,0,0,.55);transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s}
+  #brain-btn:hover{transform:translateX(-50%) translateY(-3px);box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+  #brain-btn svg{width:21px;height:21px;stroke:#fff;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+  #brain-btn .bb-pulse{position:absolute;left:15px;width:21px;height:21px;border-radius:50%;border:1px solid rgba(255,255,255,.5);animation:bbpulse 2.6s infinite}
+  @keyframes bbpulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(2.1);opacity:0}100%{opacity:0}}
+  @media(max-width:600px){#brain-btn .bb-label{display:none}#brain-btn{padding:13px;left:auto;right:24px;transform:none}#brain-btn:hover{transform:translateY(-3px)}#brain-btn .bb-pulse{left:13px}}
+
+  #brain-overlay{position:fixed;inset:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(7px);
+    opacity:0;pointer-events:none;transition:opacity .5s;display:flex;flex-direction:column}
+  #brain-overlay.open{opacity:1;pointer-events:auto}
+  .bo-head{display:flex;justify-content:space-between;align-items:flex-start;padding:30px 38px 0;gap:20px}
+  .bo-head .sec-label{margin-bottom:8px}
+  .bo-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,42px);font-weight:600;line-height:1.04}
+  .bo-head .net-hint{font-size:13px;color:var(--muted);margin-top:10px;letter-spacing:.02em}
+  #brain-close{border:1px solid var(--line);background:#fff;width:44px;height:44px;border-radius:50%;font-size:24px;line-height:1;cursor:pointer;color:var(--muted);flex:0 0 auto;transition:.25s}
+  #brain-close:hover{border-color:var(--ink);color:var(--ink);transform:rotate(90deg)}
+  #net-stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:6px 18px 26px}
+  #net-stage svg{width:100%;height:100%;max-width:1040px;overflow:visible}
+
+  .edge{--len:0;fill:none;stroke:#dadada;stroke-width:1.2;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);
+    transition:stroke-dashoffset .9s cubic-bezier(.16,1,.3,1),stroke .35s,stroke-width .35s,opacity .35s}
+  .edge.cross{stroke-dasharray:2 6;stroke-dashoffset:0;opacity:0;transition:opacity .6s ease,stroke .35s,stroke-width .35s}
+  .node-g{opacity:0;cursor:pointer}
+  .node-g .np{transform:scale(0);transform-origin:0 0;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+  .node-g .ring{fill:#fff;stroke:#c4c4c4;stroke-width:1.4;transition:stroke .35s,stroke-width .35s}
+  .node-g .dotc{fill:#c4c4c4;transition:fill .35s}
+  .node-g .lbl{font-family:'Inter',sans-serif;fill:#8c8c8c;font-weight:400;transition:fill .35s}
+  .node-g .icn{stroke:#777;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .35s}
+  .cat-g .ring{stroke:#a6a6a6}
+  .cat-g .lbl{fill:#4a4a4a;font-weight:500}
+  .core-g .ring{fill:#1a1a1a;stroke:#1a1a1a}
+  .core-g .icn{stroke:#fff}
+  /* play */
+  #net-stage.play .edge{stroke-dashoffset:0}
+  #net-stage.play .edge.cross{opacity:.5}
+  #net-stage.play .node-g{opacity:1;transition:opacity .5s}
+  #net-stage.play .node-g .np{transform:scale(1)}
+  /* dim + highlight (declared after play to win) */
+  #net-stage.dim .edge{opacity:.1}
+  #net-stage.dim .node-g{opacity:.22;transition:opacity .3s}
+  #net-stage .edge.on{stroke:var(--hl,#1a1a1a);stroke-width:2;opacity:1}
+  #net-stage .node-g.on{opacity:1}
+  #net-stage .node-g.on .ring{stroke:var(--hl,#1a1a1a);stroke-width:2.4}
+  #net-stage .node-g.on .dotc{fill:var(--hl,#1a1a1a)}
+  #net-stage .node-g.on .icn{stroke:var(--hl,#1a1a1a)}
+  #net-stage .node-g.on .lbl{fill:var(--ink)}
 
   @media(max-width:820px){
     .nav-links a:not(.lang-wrap){display:none}
@@ -504,6 +554,23 @@
   <div class="principle"><span class="n">04</span><div><h3 data-i18n="tp4_h">Ship, measure, iterate</h3><p data-i18n="tp4_p">Momentum beats perfection. Launch, read the signal, and adjust quickly.</p></div></div>
 </aside>
 
+<button id="brain-btn" aria-label="Open mind map">
+  <span class="bb-pulse"></span>
+  <svg viewBox="0 0 24 24"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/></svg>
+  <span class="bb-label" data-i18n="brain_lbl">Mind map</span>
+</button>
+<div id="brain-overlay" aria-hidden="true">
+  <div class="bo-head">
+    <div>
+      <p class="sec-label" data-i18n="net_eyebrow">The Mind Map</p>
+      <h2 data-i18n="net_title">How everything I do connects.</h2>
+      <p class="net-hint" data-i18n="net_hint">Hover any node to trace its connections.</p>
+    </div>
+    <button id="brain-close" aria-label="Close">&times;</button>
+  </div>
+  <div id="net-stage"></div>
+</div>
+
 <script>
 const I18N = {
   en:{
@@ -529,6 +596,9 @@ const I18N = {
     tp3_h:"Systems over screens", tp3_p:"I design the mechanism, not just the surface — the screen is the last ten percent.",
     tp4_h:"Ship, measure, iterate", tp4_p:"Momentum beats perfection. Launch, read the signal, and adjust quickly.",
     konami_toast:"Blueprint mode — this is how I see structure.",
+    brain_lbl:"Mind map", net_eyebrow:"The Mind Map",
+    net_title:"How everything I do connects.",
+    net_hint:"Hover any node to trace its connections.",
     hero_eyebrow:"Strategy · Product · Operations",
     hero_role:"Business strategist and product designer bridging quantitative rigor with founder instinct — building, valuing and scaling startups across MENA and Europe.",
     hero_cta1:"Get in touch", hero_cta2:"Download CV",
@@ -583,6 +653,9 @@ const I18N = {
     tp3_h:"Sistemas, no pantallas", tp3_p:"Diseño el mecanismo, no solo la superficie — la pantalla es el último diez por ciento.",
     tp4_h:"Lanzar, medir, iterar", tp4_p:"El impulso supera a la perfección. Lanza, lee la señal y ajusta rápido.",
     konami_toast:"Modo plano — así veo la estructura.",
+    brain_lbl:"Mapa mental", net_eyebrow:"Mapa mental",
+    net_title:"Cómo se conecta todo lo que hago.",
+    net_hint:"Pasa el cursor por un nodo para ver sus conexiones.",
     hero_eyebrow:"Estrategia · Producto · Operaciones",
     hero_role:"Estratega de negocio y diseñador de producto que une el rigor cuantitativo con el instinto de fundador — creando, valorando y escalando startups en MENA y Europa.",
     hero_cta1:"Contactar", hero_cta2:"Descargar CV",
@@ -637,6 +710,9 @@ const I18N = {
     tp3_h:"Systèmes plutôt qu'écrans", tp3_p:"Je conçois le mécanisme, pas seulement la surface — l'écran, ce sont les derniers dix pour cent.",
     tp4_h:"Lancer, mesurer, itérer", tp4_p:"L'élan vaut mieux que la perfection. Lance, lis le signal et ajuste vite.",
     konami_toast:"Mode plan — voici comment je vois la structure.",
+    brain_lbl:"Carte mentale", net_eyebrow:"Carte mentale",
+    net_title:"Comment tout ce que je fais se connecte.",
+    net_hint:"Survolez un nœud pour tracer ses connexions.",
     hero_eyebrow:"Stratégie · Produit · Opérations",
     hero_role:"Stratège business et designer produit alliant rigueur quantitative et instinct de fondateur — créant, valorisant et faisant croître des startups au MENA et en Europe.",
     hero_cta1:"Me contacter", hero_cta2:"Télécharger le CV",
@@ -684,6 +760,7 @@ function setLang(lang){
   document.querySelectorAll('.lang-toggle button').forEach(b=>{
     b.classList.toggle('active', b.dataset.lang===lang);
   });
+  if(window._netOpen && typeof buildNet==='function') buildNet(lang);
 }
 
 document.querySelectorAll('.lang-toggle button').forEach(b=>{
@@ -774,6 +851,139 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{
 // nav border on scroll
 const nav = document.getElementById('nav');
 addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', scrollY>20); });
+
+// ===== brain mind-map network =====
+const NET_ICONS={
+  trend:'<polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/>',
+  grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>',
+  cpu:'<rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M19 9h3M19 14h3M2 9h3M2 14h3"/>',
+  brain:'<path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/>'
+};
+const NET_DATA={
+  cats:[
+    {id:'invest',key:'sk1_h',cat:'invest',icon:'trend',ang:90,
+     skills:[['s1a','sk1_a'],['s1b','sk1_b'],['s1c','sk1_c'],['s1d','sk1_d'],['s1e','sk1_e'],['s1f','sk1_f']]},
+    {id:'product',key:'sk2_h',cat:'product',icon:'grid',ang:210,
+     skills:[['s2a','sk2_a'],['s2b','sk2_b'],['s2c','sk2_c'],['s2d','sk2_d'],['s2e','sk2_e']]},
+    {id:'ai',key:'sk3_h',cat:'ai',icon:'cpu',ang:330,
+     skills:[['s3a','sk3_a'],['s3b','sk3_b'],['s3c','sk3_c'],['s3d','sk3_d'],['s3e','sk3_e']]}
+  ],
+  cross:[['s3c','s3e'],['s3e','s1f'],['s3b','s3a'],['s3a','s2d'],['s2a','s2e'],['s2e','s1e'],['s1a','s1c'],['s1c','s1d'],['s2b','s2a'],['s1b','s1e']]
+};
+const NET_COLORS={invest:'#2f7a72',product:'#5a63b8',ai:'#b9722f',core:'#1a1a1a'};
+const CX=500,CY=500,R_CAT=160,R_SKILL=312;
+function netPos(ang,R){const r=ang*Math.PI/180;return[CX+R*Math.cos(r),CY-R*Math.sin(r)];}
+function svgEl(s){const d=document.createElementNS('http://www.w3.org/2000/svg','g');d.innerHTML=s;return d.innerHTML;}
+
+function buildNet(lang){
+  lang=lang||document.documentElement.lang||'en';
+  const D=I18N[lang]||I18N.en;
+  const stage=document.getElementById('net-stage');
+  const nodes={}; // id -> {x,y,cat}
+  let edges=[], edgesSvg='', nodesSvg='';
+
+  // core
+  nodes['core']={x:CX,y:CY,cat:'core'};
+  // categories + skills
+  NET_DATA.cats.forEach(c=>{
+    const [cx,cy]=netPos(c.ang,R_CAT);
+    nodes[c.id]={x:cx,y:cy,cat:c.cat};
+    edges.push({a:'core',b:c.id,type:'main'});
+    const n=c.skills.length, spread=104, start=c.ang-spread/2, step=n>1?spread/(n-1):0;
+    c.skills.forEach((s,i)=>{
+      const a=start+step*i;const[sx,sy]=netPos(a,R_SKILL);
+      nodes[s[0]]={x:sx,y:sy,cat:c.cat,label:D[s[1]]||s[1]};
+      edges.push({a:c.id,b:s[0],type:'skill'});
+    });
+    nodes[c.id].label=D[c.key]||c.key; nodes[c.id].icon=c.icon;
+  });
+  NET_DATA.cross.forEach(p=>edges.push({a:p[0],b:p[1],type:'cross'}));
+
+  // build edges svg with stagger
+  let di;
+  edges.forEach((e,i)=>{
+    const A=nodes[e.a],B=nodes[e.b];
+    const len=Math.hypot(B.x-A.x,B.y-A.y);
+    if(e.type==='main') di=0.18+i*0.05;
+    else if(e.type==='skill') di=0.5+i*0.018;
+    else di=1.05+i*0.03;
+    edgesSvg+=`<line class="edge ${e.type==='cross'?'cross':''}" data-a="${e.a}" data-b="${e.b}" x1="${A.x}" y1="${A.y}" x2="${B.x}" y2="${B.y}" style="--len:${len.toFixed(1)};transition-delay:${e.type==='cross'?di.toFixed(2)+'s':'0s'};stroke-dashoffset:${len.toFixed(1)}"></line>`;
+  });
+  // re-apply stagger delay for draw via inline (dashoffset transition needs delay)
+  // build nodes svg
+  let order=Object.keys(nodes);
+  order.forEach((id)=>{
+    const nd=nodes[id]; const isCore=id==='core'; const isCat=!!nd.icon&&!isCore;
+    const cls=isCore?'core-g':(isCat?'cat-g':'');
+    const R=isCore?34:(isCat?26:6.5);
+    let delay = isCore?0.05 : (isCat?0.32:0.62);
+    if(isCat) delay += NET_DATA.cats.findIndex(c=>c.id===id)*0.08;
+    let inner=`<circle class="ring" r="${R}"></circle>`;
+    if(isCore||isCat){
+      const ic=isCore?NET_ICONS.brain:NET_ICONS[nd.icon];
+      const sc=isCore?1.15:0.92;
+      inner+=`<g class="icn" transform="translate(${(-12*sc).toFixed(1)},${(-12*sc).toFixed(1)}) scale(${sc})">${ic}</g>`;
+    } else {
+      inner+=`<circle class="dotc" r="2.6"></circle>`;
+    }
+    // label
+    if(!isCore){
+      if(isCat){
+        // label toward center, below/above
+        const dir = nd.y<CY ? 1 : -1; // top cat -> label below (dir down); bottom -> above
+        const ly = nd.y<CY ? R+22 : -(R+14);
+        inner+=`<text class="lbl" x="0" y="${ly}" text-anchor="middle" font-size="19">${nd.label}</text>`;
+      } else {
+        const right = nd.x>=CX;
+        const lx = right ? R+9 : -(R+9);
+        inner+=`<text class="lbl" x="${lx}" y="4.5" text-anchor="${right?'start':'end'}" font-size="15.5">${nd.label}</text>`;
+      }
+    }
+    nodesSvg+=`<g class="node-g ${cls}" data-id="${id}" data-cat="${nd.cat}" transform="translate(${nd.x.toFixed(1)},${nd.y.toFixed(1)})"><g class="np" style="transition-delay:${delay.toFixed(2)}s">${inner}</g></g>`;
+    nodes[id]._delay=delay;
+  });
+
+  stage.innerHTML=`<svg viewBox="-180 0 1360 1000" preserveAspectRatio="xMidYMid meet"><g class="edges">${edgesSvg}</g><g class="nodes">${nodesSvg}</g></svg>`;
+
+  // apply per-node opacity delay + edge draw delay
+  stage.querySelectorAll('.node-g').forEach(g=>{ g.style.transitionDelay=(nodes[g.dataset.id]._delay)+'s'; });
+  stage.querySelectorAll('.edge:not(.cross)').forEach((ln,i)=>{ ln.style.transitionDelay=(0.2+i*0.02)+'s'; });
+
+  // play
+  stage.classList.remove('play');
+  void stage.offsetWidth;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>stage.classList.add('play')));
+
+  wireNet(stage);
+}
+
+function wireNet(stage){
+  const nodes=[...stage.querySelectorAll('.node-g')];
+  const edges=[...stage.querySelectorAll('.edge')];
+  function clearF(){stage.classList.remove('dim');nodes.forEach(n=>n.classList.remove('on'));edges.forEach(e=>e.classList.remove('on'));}
+  function focusF(id,cat){
+    stage.style.setProperty('--hl',NET_COLORS[cat]||'#1a1a1a');
+    stage.classList.add('dim');
+    nodes.forEach(n=>n.classList.remove('on'));edges.forEach(e=>e.classList.remove('on'));
+    const nb=new Set([id]);
+    edges.forEach(e=>{const a=e.dataset.a,b=e.dataset.b;if(a===id||b===id){e.classList.add('on');nb.add(a);nb.add(b);}});
+    nodes.forEach(n=>{if(nb.has(n.dataset.id))n.classList.add('on');});
+  }
+  nodes.forEach(n=>{
+    n.addEventListener('mouseenter',()=>focusF(n.dataset.id,n.dataset.cat));
+    n.addEventListener('mouseleave',clearF);
+    n.addEventListener('click',e=>{e.stopPropagation();focusF(n.dataset.id,n.dataset.cat);});
+  });
+  stage.querySelector('svg').addEventListener('click',clearF);
+}
+
+// open / close
+const brainBtn=document.getElementById('brain-btn');
+const bOverlay=document.getElementById('brain-overlay');
+brainBtn.addEventListener('click',()=>{buildNet();bOverlay.classList.add('open');bOverlay.setAttribute('aria-hidden','false');window._netOpen=true;});
+function closeNet(){bOverlay.classList.remove('open');bOverlay.setAttribute('aria-hidden','true');window._netOpen=false;}
+document.getElementById('brain-close').addEventListener('click',closeNet);
+addEventListener('keydown',e=>{if(e.key==='Escape')closeNet();});
 
 setLang('en');
 </script>
