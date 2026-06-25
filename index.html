@@ -226,10 +226,32 @@
   .tool-ic{width:40px;height:40px;display:flex;align-items:center;justify-content:center}
   .tool-ic img{width:37px;height:37px;transition:transform .35s cubic-bezier(.16,1,.3,1)}
   .tool:hover .tool-ic img{transform:scale(1.1)}
-  .tool .mono{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:15px;letter-spacing:.01em;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+  .tool-ic svg{width:37px;height:37px;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+  .tool:hover .tool-ic svg{transform:scale(1.1)}
+  .mono{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:15px;letter-spacing:.01em;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+  .mono.adobe{background:#15191f}
   .tool:hover .mono{transform:scale(1.1)}
+  .tool{cursor:pointer}
   .tool .tname{font-size:12.5px;color:#555;text-align:center}
   @media(max-width:600px){#tools-stage{padding:14px 20px 38px}.tgrid{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}}
+
+  /* tool actions popover */
+  #tool-pop-overlay{position:fixed;inset:0;z-index:110;background:rgba(20,20,20,.3);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .35s;display:flex;align-items:center;justify-content:center;padding:24px}
+  #tool-pop-overlay.open{opacity:1;pointer-events:auto}
+  #tool-pop{width:min(380px,92vw);background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 30px 28px;box-shadow:0 30px 80px -30px rgba(0,0,0,.5);transform:translateY(16px) scale(.97);transition:transform .45s cubic-bezier(.16,1,.3,1);position:relative}
+  #tool-pop-overlay.open #tool-pop{transform:none}
+  #tool-pop .tp-close{position:absolute;top:15px;right:18px;border:0;background:none;font-size:23px;color:var(--muted);cursor:pointer;line-height:1;transition:.25s}
+  #tool-pop .tp-close:hover{color:var(--ink);transform:rotate(90deg)}
+  #tool-pop .tp-head{display:flex;align-items:center;gap:15px}
+  #tool-pop .tp-ic{width:48px;height:48px;flex:0 0 auto;display:flex;align-items:center;justify-content:center}
+  #tool-pop .tp-ic img,#tool-pop .tp-ic svg{width:44px;height:44px}
+  #tool-pop .tp-ic .mono{width:46px;height:46px;border-radius:12px;font-size:18px}
+  #tool-pop h3{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;line-height:1.1}
+  #tool-pop .tp-sub{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
+  #tool-pop ul{list-style:none}
+  #tool-pop li{display:flex;align-items:flex-start;gap:11px;padding:10px 0;border-top:1px solid var(--line);font-size:14.5px;color:#3a3a3a;font-weight:300}
+  #tool-pop li:first-child{border-top:0}
+  #tool-pop li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--tp-c,#1a1a1a);margin-top:7px;flex:0 0 auto}
 
   #brain-overlay{position:fixed;inset:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(7px);
     opacity:0;pointer-events:none;transition:opacity .5s;display:flex;flex-direction:column}
@@ -621,6 +643,14 @@
   </div>
   <div id="tools-stage"></div>
 </div>
+<div id="tool-pop-overlay" aria-hidden="true">
+  <div id="tool-pop" role="dialog">
+    <button class="tp-close" aria-label="Close">&times;</button>
+    <div class="tp-head"><div class="tp-ic"></div><h3></h3></div>
+    <p class="tp-sub" data-i18n="tool_uses">What I do with it</p>
+    <ul id="tp-list"></ul>
+  </div>
+</div>
 
 <script>
 const I18N = {
@@ -651,7 +681,7 @@ const I18N = {
     net_title:"How everything I do connects.",
     net_hint:"Hover any node to trace its connections.",
     ex_fin:"Financial Modeling", ex_pitch:"Pitch Decks", ex_research:"User Research", ex_dsys:"Design Systems", ex_prompt:"Prompt Engineering", ex_rag:"RAG & Agents",
-    tools_lbl:"Tools", tools_eyebrow:"The Toolkit", tools_title:"Tools I build with.", tools_hint:"Hover a logo to bring it to life.",
+    tools_lbl:"Tools", tools_eyebrow:"The Toolkit", tools_title:"Tools I build with.", tools_hint:"Click any tool to see what I do with it.", tool_uses:"What I do with it",
     tcat_adobe:"Adobe Creative", tcat_ai:"AI & LLMs", tcat_auto:"Automation", tcat_office:"Microsoft Office", tcat_design:"Design & No-Code", tcat_dev:"Dev & Collaboration",
     hero_eyebrow:"Strategy · Product · Operations",
     hero_role:"Business strategist and product designer bridging quantitative rigor with founder instinct — building, valuing and scaling startups across MENA and Europe.",
@@ -711,7 +741,7 @@ const I18N = {
     net_title:"Cómo se conecta todo lo que hago.",
     net_hint:"Pasa el cursor por un nodo para ver sus conexiones.",
     ex_fin:"Modelización Financiera", ex_pitch:"Pitch Decks", ex_research:"Investigación de Usuarios", ex_dsys:"Sistemas de Diseño", ex_prompt:"Ingeniería de Prompts", ex_rag:"RAG y Agentes",
-    tools_lbl:"Herramientas", tools_eyebrow:"El Kit", tools_title:"Herramientas con las que construyo.", tools_hint:"Pasa el cursor por un logo para darle vida.",
+    tools_lbl:"Herramientas", tools_eyebrow:"El Kit", tools_title:"Herramientas con las que construyo.", tools_hint:"Haz clic en una herramienta para ver para qué la uso.", tool_uses:"Para qué la uso",
     tcat_adobe:"Adobe Creative", tcat_ai:"IA y LLMs", tcat_auto:"Automatización", tcat_office:"Microsoft Office", tcat_design:"Diseño y No-Code", tcat_dev:"Desarrollo y Colaboración",
     hero_eyebrow:"Estrategia · Producto · Operaciones",
     hero_role:"Estratega de negocio y diseñador de producto que une el rigor cuantitativo con el instinto de fundador — creando, valorando y escalando startups en MENA y Europa.",
@@ -771,7 +801,7 @@ const I18N = {
     net_title:"Comment tout ce que je fais se connecte.",
     net_hint:"Survolez un nœud pour tracer ses connexions.",
     ex_fin:"Modélisation Financière", ex_pitch:"Pitch Decks", ex_research:"Recherche Utilisateur", ex_dsys:"Design Systems", ex_prompt:"Prompt Engineering", ex_rag:"RAG & Agents",
-    tools_lbl:"Outils", tools_eyebrow:"La Boîte à Outils", tools_title:"Les outils avec lesquels je construis.", tools_hint:"Survolez un logo pour l'animer.",
+    tools_lbl:"Outils", tools_eyebrow:"La Boîte à Outils", tools_title:"Les outils avec lesquels je construis.", tools_hint:"Cliquez sur un outil pour voir ce que j'en fais.", tool_uses:"Ce que j'en fais",
     tcat_adobe:"Adobe Creative", tcat_ai:"IA & LLMs", tcat_auto:"Automatisation", tcat_office:"Microsoft Office", tcat_design:"Design & No-Code", tcat_dev:"Dev & Collaboration",
     hero_eyebrow:"Stratégie · Produit · Opérations",
     hero_role:"Stratège business et designer produit alliant rigueur quantitative et instinct de fondateur — créant, valorisant et faisant croître des startups au MENA et en Europe.",
@@ -1072,6 +1102,51 @@ const TOOLS_DATA=[
     ['GitHub','github','Gh','181717'],['VS Code','visualstudiocode','Vs','007ACC'],
     ['Slack','slack','Sl','4A154B'],['Google Drive','googledrive','Dr','0066DA']]}
 ];
+// inline logos for tools the CDN doesn't carry
+const LOGOS_SVG={
+  'ChatGPT':'<svg viewBox="0 0 24 24" fill="#0D0D0D"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.998-2.9 6.056 6.056 0 0 0-.748-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.142-.08 4.778-2.758a.795.795 0 0 0 .393-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.495 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062l-4.838 2.795a4.5 4.5 0 0 1-6.142-1.65zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.677l5.815 3.354-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855-5.844-3.369 2.02-1.167a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.401-.683zm2.011-3.023-.142-.085-4.778-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zM8.307 12.863l-2.02-1.167a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.795.795 0 0 0-.393.681zm1.097-2.365 2.602-1.5 2.607 1.5v2.999l-2.601 1.5-2.607-1.5z"/></svg>',
+  'Midjourney':'<svg viewBox="0 0 24 24" fill="#111"><path d="M12 2.3c-2.5 3.1-4 7-4.1 11.2 2.7.6 5.5.6 8.2 0C16 9.3 14.5 5.4 12 2.3z"/><path d="M2.4 16.1c2.9 1.6 6.1 2.5 9.6 2.5s6.7-.9 9.6-2.5L18.9 21H5.1L2.4 16.1z"/><circle cx="12" cy="6.6" r="1.05" fill="#fff"/></svg>'
+};
+function toolIcon(catKey,name,slug,mono,color){
+  if(LOGOS_SVG[name]) return LOGOS_SVG[name];
+  if(catKey==='tcat_adobe') return `<span class="mono adobe" style="color:#${color}">${mono}</span>`;
+  if(catKey==='tcat_office'||!slug) return `<span class="mono" style="background:#${color}">${mono}</span>`;
+  return `<img src="https://cdn.simpleicons.org/${slug}/${color}" alt="${name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'mono',style:'background:#${color}',textContent:'${mono}'}))">`;
+}
+const ACTIONS={
+  'Photoshop':['Photo retouching & compositing','UI & social mockups','Digital painting','Image clean-up'],
+  'Illustrator':['Logo & vector design','Icon sets','Brand assets','Illustration'],
+  'InDesign':['Pitch decks & brochures','Editorial layout','Print-ready PDFs','Multi-page documents'],
+  'Premiere Pro':['Video editing','Promo & reel cuts','Color grading','Subtitling'],
+  'After Effects':['Motion graphics','Logo & UI animation','Visual effects','Animated explainers'],
+  'Lightroom':['Photo grading','Batch editing','Custom presets','Catalog management'],
+  'Adobe XD':['Wireframes','Interactive prototypes','Design specs','Click-through demos'],
+  'ChatGPT':['Drafting & copywriting','Research & ideation','Code assistance','Quick analysis'],
+  'Claude':['Long-form writing','Deep analysis','Coding & agents','Document work'],
+  'Gemini':['Multimodal research','Summaries','Drafting','Data exploration'],
+  'Midjourney':['Concept art','Moodboards','Brand visuals','Mockup imagery'],
+  'Perplexity':['Sourced research','Market scans','Fact-checking','Fast summaries'],
+  'ElevenLabs':['Voiceovers','Narration','Dubbing','Audio prototypes'],
+  'Hugging Face':['Model exploration','Datasets','Inference APIs','Fine-tuning'],
+  'n8n':['Workflow automation','API integrations','AI agent pipelines','Data syncing'],
+  'Zapier':['App-to-app automation','Lead routing','Notifications','No-code workflows'],
+  'Make':['Visual scenarios','Multi-step automation','Webhooks','Data orchestration'],
+  'Airtable':['Custom databases','Lightweight CRMs','Trackers','Built-in automations'],
+  'Word':['Reports & proposals','Documentation','Letters','Formatted documents'],
+  'Excel':['Financial models','Dashboards','Data analysis','Trackers'],
+  'PowerPoint':['Pitch & investor decks','Workshops','Reports','Visual storytelling'],
+  'Outlook':['Email','Scheduling','Calendar management','Coordination'],
+  'Teams':['Meetings','Team collaboration','File sharing','Channels'],
+  'Figma':['UI design','Prototyping','Design systems','Developer handoff'],
+  'Framer':['Landing pages','Interactive sites','Animations','CMS'],
+  'Notion':['Docs & wikis','Project management','Databases','Knowledge bases'],
+  'Webflow':['Websites','Visual CMS','Responsive design','Hosting'],
+  'Canva':['Social graphics','Quick visuals','Presentations','Templates'],
+  'GitHub':['Version control','Repositories','Pages hosting','Collaboration'],
+  'VS Code':['Coding','Debugging','Extensions','Git workflows'],
+  'Slack':['Team comms','Channels','Integrations','Notifications'],
+  'Google Drive':['File storage','Sharing','Docs & sheets','Collaboration']
+};
 function buildTools(lang){
   lang=lang||document.documentElement.lang||'en';
   const D=I18N[lang]||I18N.en;
@@ -1080,23 +1155,37 @@ function buildTools(lang){
   TOOLS_DATA.forEach((g,gi)=>{
     let tiles='';
     g.items.forEach(([name,slug,mono,color])=>{
-      const ic = slug
-        ? `<img src="https://cdn.simpleicons.org/${slug}/${color}" alt="${name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'mono',style:'background:#${color}',textContent:'${mono}'}))">`
-        : `<span class="mono" style="background:#${color}">${mono}</span>`;
-      tiles+=`<div class="tool"><div class="tool-ic">${ic}</div><span class="tname">${name}</span></div>`;
+      const ic=toolIcon(g.key,name,slug,mono,color);
+      tiles+=`<div class="tool" data-name="${name}" data-color="${color}"><div class="tool-ic">${ic}</div><span class="tname">${name}</span></div>`;
     });
     html+=`<div class="tgroup" style="transition-delay:${(gi*0.07).toFixed(2)}s"><div class="tgroup-h">${D[g.key]||g.key}</div><div class="tgrid">${tiles}</div></div>`;
   });
   stage.innerHTML=html;
+  stage.querySelectorAll('.tool').forEach(t=>t.addEventListener('click',()=>openToolPop(t)));
   stage.classList.remove('play'); void stage.offsetWidth;
   requestAnimationFrame(()=>requestAnimationFrame(()=>stage.classList.add('play')));
 }
+// tool actions popover
+const tPop=document.getElementById('tool-pop-overlay');
+function openToolPop(tile){
+  const name=tile.dataset.name, color=tile.dataset.color;
+  const acts=ACTIONS[name]||[];
+  const pop=document.getElementById('tool-pop');
+  pop.style.setProperty('--tp-c','#'+color);
+  pop.querySelector('.tp-ic').innerHTML=tile.querySelector('.tool-ic').innerHTML;
+  pop.querySelector('h3').textContent=name;
+  pop.querySelector('#tp-list').innerHTML=acts.map(a=>`<li>${a}</li>`).join('');
+  tPop.classList.add('open'); tPop.setAttribute('aria-hidden','false');
+}
+function closeToolPop(){tPop.classList.remove('open');tPop.setAttribute('aria-hidden','true');}
+tPop.addEventListener('click',e=>{if(e.target===tPop)closeToolPop();});
+document.querySelector('#tool-pop .tp-close').addEventListener('click',closeToolPop);
 const toolsBtn=document.getElementById('tools-btn');
 const tOverlay=document.getElementById('tools-overlay');
 toolsBtn.addEventListener('click',()=>{buildTools();tOverlay.classList.add('open');tOverlay.setAttribute('aria-hidden','false');window._toolsOpen=true;});
 function closeTools(){tOverlay.classList.remove('open');tOverlay.setAttribute('aria-hidden','true');window._toolsOpen=false;}
 document.getElementById('tools-close').addEventListener('click',closeTools);
-addEventListener('keydown',e=>{if(e.key==='Escape')closeTools();});
+addEventListener('keydown',e=>{if(e.key==='Escape'){ if(tPop.classList.contains('open')) closeToolPop(); else closeTools(); }});
 
 setLang('en');
 </script>
