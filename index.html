@@ -109,6 +109,24 @@
   .dots i{width:7px;height:7px;border-radius:50%;background:var(--line)}
   .dots i.on{background:var(--ink)}
 
+  /* ARTICLES */
+  .art-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .art-feat{grid-column:1/-1}
+  .art-card{
+    border:1px solid var(--line);border-radius:16px;padding:30px 30px 26px;
+    background:#fff;display:flex;flex-direction:column;min-height:200px;
+    transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .35s;
+  }
+  .art-card:hover{transform:translateY(-4px);box-shadow:0 18px 50px -28px rgba(0,0,0,.28);border-color:#dcdcdc}
+  .art-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+  .art-cat{font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--soft);color:var(--muted);padding:4px 11px;border-radius:999px;border:1px solid var(--line)}
+  .art-date,.art-time{font-size:12.5px;color:var(--muted)}
+  .art-sep{font-size:12.5px;color:var(--line)}
+  .art-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.12;margin-bottom:12px}
+  .art-feat h3{font-size:clamp(28px,3.8vw,40px)}
+  .art-card p{font-size:14.5px;color:#444;font-weight:300;flex:1;margin-bottom:16px}
+  .art-feat p{max-width:680px}
+
   /* CONTACT */
   .contact-h{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(34px,6vw,68px);line-height:1.02;letter-spacing:-.5px;margin-bottom:34px}
   .contact-links{display:flex;flex-wrap:wrap;gap:14px}
@@ -321,6 +339,7 @@
     .nav-links a:not(.lang-wrap){display:none}
     .skill-grid{grid-template-columns:1fr}
     .work-grid{grid-template-columns:1fr}
+    .art-grid{grid-template-columns:1fr}
     .two{grid-template-columns:1fr;gap:40px}
     .exp{flex-direction:column;gap:8px}
     .exp .when{flex-basis:auto}
@@ -390,6 +409,7 @@
       <a href="#about" data-i18n="nav_about">About</a>
       <a href="#skills" data-i18n="nav_skills">Expertise</a>
       <a href="#work" data-i18n="nav_work">Work</a>
+      <a href="#articles" data-i18n="nav_articles">Articles</a>
       <a href="#experience" data-i18n="nav_exp">Experience</a>
       <a href="#contact" data-i18n="nav_contact">Contact</a>
       <div class="lang-toggle" role="group" aria-label="Language">
@@ -612,6 +632,15 @@
   </div>
 </section>
 
+<section id="articles">
+  <div class="wrap">
+    <p class="sec-label reveal" data-i18n="art_label">Writing</p>
+    <h2 class="title reveal" data-i18n="art_title">Thoughts on strategy, product and building.</h2>
+
+    <div class="art-grid" id="art-grid"></div>
+  </div>
+</section>
+
 <section id="education">
   <div class="wrap">
     <div class="two">
@@ -726,7 +755,7 @@
 <script>
 const I18N = {
   en:{
-    nav_about:"About", nav_skills:"Expertise", nav_work:"Work", nav_exp:"Experience", nav_contact:"Contact",
+    nav_about:"About", nav_skills:"Expertise", nav_work:"Work", nav_articles:"Articles", nav_exp:"Experience", nav_contact:"Contact",
     work_label:"Selected Work", work_title:"Selected work from my portfolio.",
     filt_all:"All", filt_product:"Product & UX", filt_web:"Web Apps", filt_landing:"Landing Pages", filt_brand:"Branding",
     view_live:"View live →",
@@ -763,6 +792,18 @@ const I18N = {
     sk1_h:"Investment & Strategy", sk1_a:"Startup Valuations", sk1_b:"Market Sizing", sk1_c:"Due Diligence", sk1_d:"Deal Sourcing", sk1_e:"Business Model Analysis", sk1_f:"Market Research",
     sk2_h:"Product & Tech", sk2_a:"Product Strategy", sk2_b:"UI/UX & Prototyping", sk2_c:"Competitive Benchmarking", sk2_d:"No-Code Development", sk2_e:"Roadmapping",
     sk3_h:"Automation & AI", sk3_a:"Automation Systems & Tools", sk3_b:"AI Agents", sk3_c:"Dashboarding", sk3_d:"Workflow Design", sk3_e:"Data Visualization",
+    art_label:"Writing", art_title:"Thoughts on strategy, product and building.",
+    art_cat_strategy:"Strategy", art_cat_product:"Product", art_cat_growth:"Growth",
+    art_read:"Read article →",
+    art1_h:"Why African Startups Need Different Valuation Models",
+    art1_p:"Standard DCF and VC methods break down in high-uncertainty, low-liquidity emerging markets. Here's the framework I built for Algerian startups and why the assumptions always matter more than the model.",
+    art1_time:"8 min read",
+    art2_h:"The PMF Illusion in Emerging Markets",
+    art2_p:"Early traction isn't proof of product-market fit. A framework for separating novelty from real, scalable demand — and the signals that actually matter.",
+    art2_time:"5 min read",
+    art3_h:"25,000 Users in 5 Days: A Go-to-Market Story",
+    art3_p:"What actually happened when we launched A9RA — the moves that worked, the ones that didn't, and what I'd do differently with better runway.",
+    art3_time:"4 min read",
     exp_label:"Experience", exp_title:"A track record of building.",
     present:"Present", current:"Current",
     vex_role:"Operations, Marketing & Business Strategy Intern",
@@ -786,7 +827,7 @@ const I18N = {
     foot:"Madrid, Spain · Operations & Strategy"
   },
   es:{
-    nav_about:"Perfil", nav_skills:"Experiencia", nav_work:"Proyectos", nav_exp:"Trayectoria", nav_contact:"Contacto",
+    nav_about:"Perfil", nav_skills:"Experiencia", nav_work:"Proyectos", nav_articles:"Artículos", nav_exp:"Trayectoria", nav_contact:"Contacto",
     work_label:"Proyectos seleccionados", work_title:"Una selección de mi portafolio.",
     filt_all:"Todos", filt_product:"Producto y UX", filt_web:"Apps Web", filt_landing:"Landing Pages", filt_brand:"Marca",
     view_live:"Ver en vivo →",
@@ -823,6 +864,18 @@ const I18N = {
     sk1_h:"Inversión y Estrategia", sk1_a:"Valoración de Startups", sk1_b:"Dimensionamiento de Mercado", sk1_c:"Due Diligence", sk1_d:"Originación de Operaciones", sk1_e:"Análisis de Modelos de Negocio", sk1_f:"Investigación de Mercado",
     sk2_h:"Producto y Tecnología", sk2_a:"Estrategia de Producto", sk2_b:"UI/UX y Prototipado", sk2_c:"Benchmarking Competitivo", sk2_d:"Desarrollo No-Code", sk2_e:"Hojas de Ruta",
     sk3_h:"Automatización e IA", sk3_a:"Sistemas y Herramientas de Automatización", sk3_b:"Agentes de IA", sk3_c:"Dashboards", sk3_d:"Diseño de Flujos", sk3_e:"Visualización de Datos",
+    art_label:"Escritura", art_title:"Reflexiones sobre estrategia, producto y construcción.",
+    art_cat_strategy:"Estrategia", art_cat_product:"Producto", art_cat_growth:"Crecimiento",
+    art_read:"Leer artículo →",
+    art1_h:"Por qué las startups africanas necesitan modelos de valoración distintos",
+    art1_p:"Los métodos DCF y VC estándar fallan en mercados emergentes de alta incertidumbre y baja liquidez. Aquí está el framework que construí para startups argelinas y por qué los supuestos siempre importan más que el modelo.",
+    art1_time:"8 min de lectura",
+    art2_h:"La ilusión del PMF en mercados emergentes",
+    art2_p:"La tracción temprana no es prueba de product-market fit. Un framework para separar la novedad de la demanda real y escalable — y las señales que realmente importan.",
+    art2_time:"5 min de lectura",
+    art3_h:"25.000 usuarios en 5 días: una historia de go-to-market",
+    art3_p:"Lo que realmente pasó cuando lanzamos A9RA — los movimientos que funcionaron, los que no, y lo que haría diferente con mejor runway.",
+    art3_time:"4 min de lectura",
     exp_label:"Trayectoria", exp_title:"Una trayectoria construyendo.",
     present:"Actualidad", current:"Actual",
     vex_role:"Becario de Operaciones, Marketing y Estrategia de Negocio",
@@ -846,7 +899,7 @@ const I18N = {
     foot:"Madrid, España · Operaciones y Estrategia"
   },
   fr:{
-    nav_about:"Profil", nav_skills:"Expertise", nav_work:"Projets", nav_exp:"Parcours", nav_contact:"Contact",
+    nav_about:"Profil", nav_skills:"Expertise", nav_work:"Projets", nav_articles:"Articles", nav_exp:"Parcours", nav_contact:"Contact",
     work_label:"Réalisations", work_title:"Une sélection de mon portfolio.",
     filt_all:"Tout", filt_product:"Produit & UX", filt_web:"Apps Web", filt_landing:"Landing Pages", filt_brand:"Identité",
     view_live:"Voir le site →",
@@ -883,6 +936,18 @@ const I18N = {
     sk1_h:"Investissement & Stratégie", sk1_a:"Valorisation de Startups", sk1_b:"Dimensionnement de Marché", sk1_c:"Due Diligence", sk1_d:"Sourcing de Deals", sk1_e:"Analyse de Business Model", sk1_f:"Étude de Marché",
     sk2_h:"Produit & Tech", sk2_a:"Stratégie Produit", sk2_b:"UI/UX & Prototypage", sk2_c:"Benchmark Concurrentiel", sk2_d:"Développement No-Code", sk2_e:"Roadmapping",
     sk3_h:"Automatisation & IA", sk3_a:"Systèmes & Outils d'Automatisation", sk3_b:"Agents IA", sk3_c:"Dashboards", sk3_d:"Conception de Workflows", sk3_e:"Visualisation de Données",
+    art_label:"Écrits", art_title:"Réflexions sur la stratégie, le produit et la construction.",
+    art_cat_strategy:"Stratégie", art_cat_product:"Produit", art_cat_growth:"Croissance",
+    art_read:"Lire l'article →",
+    art1_h:"Pourquoi les startups africaines ont besoin de modèles de valorisation différents",
+    art1_p:"Les méthodes DCF et VC standard s'effondrent dans les marchés émergents à haute incertitude et faible liquidité. Voici le cadre que j'ai construit pour les startups algériennes — et pourquoi les hypothèses comptent toujours plus que le modèle.",
+    art1_time:"8 min de lecture",
+    art2_h:"L'illusion du PMF dans les marchés émergents",
+    art2_p:"La traction précoce n'est pas une preuve d'adéquation produit-marché. Un cadre pour distinguer la nouveauté d'une demande réelle et scalable — et les signaux qui comptent vraiment.",
+    art2_time:"5 min de lecture",
+    art3_h:"25 000 utilisateurs en 5 jours : une histoire de go-to-market",
+    art3_p:"Ce qui s'est vraiment passé lors du lancement d'A9RA — les mouvements qui ont fonctionné, ceux qui n'ont pas marché, et ce que je ferais différemment avec plus de runway.",
+    art3_time:"4 min de lecture",
     exp_label:"Parcours", exp_title:"Un parcours de bâtisseur.",
     present:"Aujourd'hui", current:"En cours",
     vex_role:"Stagiaire Opérations, Marketing & Stratégie d'Entreprise",
@@ -1266,6 +1331,7 @@ const NARR={
     ["I'm becoming a polymath:","fluent across strategy, product & AI.","I learn fast, and I go deep."],
     ["I connect dots others keep apart —","strategy, design, automation.","Range is my advantage."],
     ["I don't just plan. I ship.","From valuations to live products.","A builder, end to end."],
+    ["I also write about what I learn.","Strategy, product, building in MENA.","Thinking out loud, in public."],
     ["Founder instinct, analyst rigor.","25,000 users in 5 days — I move fast.","I adapt to whatever comes next."],
     ["Algebra, cryptography, business —","I'm curious about almost everything.","Always learning, always building."],
     ["Let's build something worth scaling.","I'd genuinely love to talk.","I'm one message away."]
@@ -1275,6 +1341,7 @@ const NARR={
     ["Voy camino a ser un polímata:","fluido en estrategia, producto e IA.","Aprendo rápido y voy a fondo."],
     ["Conecto puntos que otros separan —","estrategia, diseño, automatización.","Mi ventaja es la versatilidad."],
     ["No solo planifico. Construyo.","De valoraciones a productos reales.","Builder, de principio a fin."],
+    ["También escribo sobre lo que aprendo.","Estrategia, producto, negocios en MENA.","Pensando en voz alta, en público."],
     ["Instinto de fundador, rigor de analista.","25.000 usuarios en 5 días — voy rápido.","Me adapto a lo que venga."],
     ["Álgebra, criptografía, negocios —","siento curiosidad por casi todo.","Siempre aprendiendo, siempre creando."],
     ["Construyamos algo que valga la pena escalar.","Me encantaría conversar.","Estoy a un mensaje de distancia."]
@@ -1284,6 +1351,7 @@ const NARR={
     ["Je deviens un polymathe :","à l'aise en stratégie, produit & IA.","J'apprends vite, et en profondeur."],
     ["Je relie ce que d'autres séparent —","stratégie, design, automatisation.","La polyvalence est mon atout."],
     ["Je ne fais pas que planifier. Je crée.","Des valorisations aux produits livrés.","Builder, du début à la fin."],
+    ["J'écris aussi sur ce que j'apprends.","Stratégie, produit, MENA.","Réflexions à voix haute, en public."],
     ["Instinct de fondateur, rigueur d'analyste.","25 000 utilisateurs en 5 jours — je vais vite.","Je m'adapte à tout ce qui vient."],
     ["Algèbre, cryptographie, business —","curieux de presque tout.","Toujours en train d'apprendre et de créer."],
     ["Construisons quelque chose qui mérite de grandir.","J'adorerais échanger.","À un message près."]
@@ -1309,7 +1377,7 @@ function nrShow(idx){
 }
 window._nrRender=()=>nrShow(nrIdx);
 (function initNarr(){
-  const ids=['top','about','skills','work','experience','education','contact'];
+  const ids=['top','about','skills','work','articles','experience','education','contact'];
   const els=ids.map(id=>document.getElementById(id)).filter(Boolean);
   const ratios=new Map(); let cur=-1;
   const obs=new IntersectionObserver(entries=>{
@@ -1322,6 +1390,69 @@ window._nrRender=()=>nrShow(nrIdx);
   document.getElementById('narrator').addEventListener('click',()=>{cur=(nrIdx+1)%((NARR.en).length);nrShow(cur);});
   nrShow(0);
 })();
+
+// ===== articles grid =====
+const SEED_ARTICLES = [
+  {
+    id:'seed-1', slug:'why-african-startups-need-different-valuation-models',
+    title:'Why African Startups Need Different Valuation Models',
+    category:'Strategy', date:'Mar 2026', dateISO:'2026-03-01', readTime:'8 min read',
+    excerpt:'Standard DCF and VC methods break down in high-uncertainty, low-liquidity emerging markets. Here\'s the framework I built for Algerian startups and why the assumptions always matter more than the model.',
+    content:`# Why African Startups Need Different Valuation Models\n\nStandard valuation models — DCF, VC method, comparable multiples — were designed for environments with predictable cashflows, liquid exit markets, and stable currencies. Those conditions rarely exist in African startup ecosystems.\n\n## The Problem with Standard Models\n\nDCF requires reliable revenue forecasts. The VC method assumes a comparable exit multiple exists. Both break down when:\n\n- Currency risk is extreme (DZD, EGP, NGN all carry significant devaluation risk)\n- Comparable exits are scarce or private\n- Regulatory environments shift rapidly\n- Consumer behavior differs significantly from Western models\n\n## What Actually Works\n\nAfter studying Algerian startup valuations, here's what I found works better:\n\n**1. Scenario-weighted valuation** — instead of a single DCF, build 3 scenarios (bear, base, bull) and weight by probability. This forces honest thinking about risk.\n\n**2. Milestone-based tranching** — value the company at each key milestone rather than trying to forecast 5 years out.\n\n**3. Comparable adjustments** — take US/EU multiples and apply a country-risk discount (typically 30–50% for MENA markets).\n\n> Edit this article with your full content in the [CMS](cms.html).`,
+    createdAt:3, updatedAt:3
+  },
+  {
+    id:'seed-2', slug:'pmf-illusion-in-emerging-markets',
+    title:'The PMF Illusion in Emerging Markets',
+    category:'Product', date:'Feb 2026', dateISO:'2026-02-01', readTime:'5 min read',
+    excerpt:'Early traction isn\'t proof of product-market fit. A framework for separating novelty from real, scalable demand — and the signals that actually matter.',
+    content:`# The PMF Illusion in Emerging Markets\n\nWhen a product goes viral in an emerging market, founders celebrate. Press coverage follows. Investors notice. But traction and product-market fit are not the same thing — and confusing the two is one of the most dangerous mistakes a founder can make.\n\n## Why Traction Lies\n\nIn markets with limited alternatives, users will try almost anything new. This creates a **PMF illusion**: adoption metrics look strong, but retention collapses within weeks.\n\nI've seen this pattern repeatedly. A new app launches in Algeria, reaches 50,000 downloads in a week, and the founders raise a round. Six months later, DAU is down 80%.\n\n## The Signals That Actually Matter\n\nInstead of downloads or signups, focus on:\n\n- **D7 and D30 retention** — are users coming back?\n- **Organic referral rate** — are users telling friends without prompting?\n- **Willingness to pay** — even in freemium, does a subset pay?\n- **Qualitative pull** — do users get upset when the product goes down?\n\n> Edit this article with your full content in the [CMS](cms.html).`,
+    createdAt:2, updatedAt:2
+  },
+  {
+    id:'seed-3', slug:'25000-users-in-5-days-a-go-to-market-story',
+    title:'25,000 Users in 5 Days: A Go-to-Market Story',
+    category:'Growth', date:'Dec 2025', dateISO:'2025-12-01', readTime:'4 min read',
+    excerpt:'What actually happened when we launched A9RA — the moves that worked, the ones that didn\'t, and what I\'d do differently with better runway.',
+    content:`# 25,000 Users in 5 Days: A Go-to-Market Story\n\nIn late 2024, we launched A9RA — an EdTech platform built for Algerian students. Within 5 days of the public beta going live, we had 25,000 registered users.\n\nHere's exactly what happened.\n\n## The Setup\n\nWe spent 3 weeks before launch building distribution, not product. The product was an MVP. Distribution was the bet.\n\n## What Worked\n\n**Community seeding** — we identified 40 student group admins across universities and gave them early access a week before launch. They became the first wave of evangelists.\n\n**Timing** — we launched on a Sunday night, right before exam season. Timing relative to the user's calendar mattered enormously.\n\n**Referral mechanics** — users got bonus features for inviting 3 friends. Simple, but effective in a social-first market.\n\n## What I'd Do Differently\n\nWith better runway, I would have invested more in onboarding. We acquired users fast but lost too many in the first week because the product wasn't polished enough to retain them.\n\nAcquisition is easy. Retention is the hard part.\n\n> Edit this article with your full content in the [CMS](cms.html).`,
+    createdAt:1, updatedAt:1
+  }
+];
+
+function getArticleStore(){
+  try{ return JSON.parse(localStorage.getItem('sh_articles')||'[]'); }
+  catch{ return []; }
+}
+
+function renderArticlesGrid(){
+  let arts = getArticleStore();
+  if(!arts.length){
+    localStorage.setItem('sh_articles', JSON.stringify(SEED_ARTICLES));
+    arts = SEED_ARTICLES;
+  }
+  arts = [...arts].sort((a,b)=>(b.dateISO||'').localeCompare(a.dateISO||'')).slice(0,3);
+  const grid = document.getElementById('art-grid');
+  if(!grid) return;
+  grid.innerHTML = arts.map((art,i) => {
+    const feat = i===0;
+    return `<div class="art-card${feat?' art-feat':''} reveal">
+      <div class="art-meta">
+        <span class="art-cat">${art.category||''}</span>
+        ${art.date?`<span class="art-date">${art.date}</span>`:''}
+        ${art.readTime?`<span class="art-sep">·</span><span class="art-time">${art.readTime}</span>`:''}
+      </div>
+      <h3>${art.title}</h3>
+      <p>${art.excerpt||''}</p>
+      <a href="article.html?slug=${art.slug}" class="live">Read article →</a>
+    </div>`;
+  }).join('');
+  grid.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(Math.min(i,4)*60)+'ms';
+    io.observe(el);
+  });
+}
+
+renderArticlesGrid();
 
 setLang('en');
 </script>
