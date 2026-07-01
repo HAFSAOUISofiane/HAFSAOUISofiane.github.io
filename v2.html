@@ -158,7 +158,7 @@
 </style>
 </head>
 <body>
-<div id="root"><div style="min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:sans-serif;color:#9a9a9a;font-size:14px;padding:24px;text-align:center">Loading the animated preview… if it doesn't appear, your current site is still live at <a href="./" style="color:#1a1a1a;margin-left:5px">the homepage</a>.</div></div>
+<div id="root"><div id="boot" style="min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:sans-serif;color:#9a9a9a;font-size:14px;padding:24px;text-align:center">Loading the animated preview… if it doesn't appear, your current site is still live at <a href="./" style="color:#1a1a1a;margin-left:5px">the homepage</a>.</div></div>
 
 <script>
 window.I18N_DATA = {
@@ -348,378 +348,749 @@ window.I18N_DATA = {
   "framer-motion": "https://esm.sh/framer-motion@11.11.17?external=react"
 }}
 </script>
-<script src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
-<script type="text/babel" data-type="module" data-presets="react">
+<script>
+function _boot_err(msg){var b=document.getElementById("boot");if(b){document.getElementById("root").innerHTML="<div style=\"padding:40px;font-family:ui-monospace,monospace;font-size:13px;color:#b00020;white-space:pre-wrap;line-height:1.5\">Preview error — please copy this to Sofiane's assistant:\n\n"+msg+"</div>";}}
+window.addEventListener("error",function(e){_boot_err((e.error&&e.error.stack)||e.message||(e.filename+":"+e.lineno)||"unknown error");});
+window.addEventListener("unhandledrejection",function(e){_boot_err("(promise) "+((e.reason&&e.reason.stack)||e.reason||"unknown"));});
+</script>
+<script type="module">
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 import React, { useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion, useMotionValue } from "framer-motion";
-
 const I18N = window.I18N_DATA;
-
-const SPRING = { type:"spring", stiffness:90, damping:18, mass:0.8 };
-const SOFT = { type:"spring", stiffness:80, damping:16 };
-
-function Reveal({ children, tag="div", className, delay=0, y=24, ...rest }){
+const SPRING = {
+  type: "spring",
+  stiffness: 90,
+  damping: 18,
+  mass: 0.8
+};
+const SOFT = {
+  type: "spring",
+  stiffness: 80,
+  damping: 16
+};
+function Reveal({
+  children,
+  tag = "div",
+  className,
+  delay = 0,
+  y = 24,
+  ...rest
+}) {
   const rm = useReducedMotion();
   const M = motion[tag] || motion.div;
-  return (
-    <M className={className}
-       initial={rm ? false : { opacity:0, y }}
-       whileInView={{ opacity:1, y:0 }}
-       viewport={{ once:true, margin:"-8% 0px" }}
-       transition={rm ? { duration:0 } : { ...SPRING, delay }}
-       {...rest}>{children}</M>
-  );
+  return /*#__PURE__*/React.createElement(M, _extends({
+    className: className,
+    initial: rm ? false : {
+      opacity: 0,
+      y
+    },
+    whileInView: {
+      opacity: 1,
+      y: 0
+    },
+    viewport: {
+      once: true,
+      margin: "-8% 0px"
+    },
+    transition: rm ? {
+      duration: 0
+    } : {
+      ...SPRING,
+      delay
+    }
+  }, rest), children);
 }
-
-function Title({ children }){
+function Title({
+  children
+}) {
   const rm = useReducedMotion();
   const [inview, setInview] = useState(false);
-  return (
-    <motion.h2 className={"title" + (inview ? " in" : "")}
-      initial={rm ? false : { opacity:0, y:20 }}
-      whileInView={{ opacity:1, y:0 }}
-      viewport={{ once:true, margin:"-8% 0px" }}
-      transition={rm ? { duration:0 } : SPRING}
-      onViewportEnter={() => setInview(true)}>{children}</motion.h2>
-  );
+  return /*#__PURE__*/React.createElement(motion.h2, {
+    className: "title" + (inview ? " in" : ""),
+    initial: rm ? false : {
+      opacity: 0,
+      y: 20
+    },
+    whileInView: {
+      opacity: 1,
+      y: 0
+    },
+    viewport: {
+      once: true,
+      margin: "-8% 0px"
+    },
+    transition: rm ? {
+      duration: 0
+    } : SPRING,
+    onViewportEnter: () => setInview(true)
+  }, children);
 }
-
-function Magnetic({ children, className, href, target, onClick }){
+function Magnetic({
+  children,
+  className,
+  href,
+  target,
+  onClick
+}) {
   const rm = useReducedMotion();
   const ref = useRef(null);
-  const x = useMotionValue(0), y = useMotionValue(0);
-  const sx = useSpring(x, { stiffness:220, damping:16 });
-  const sy = useSpring(y, { stiffness:220, damping:16 });
-  function move(e){
-    if(rm || !ref.current) return;
+  const x = useMotionValue(0),
+    y = useMotionValue(0);
+  const sx = useSpring(x, {
+    stiffness: 220,
+    damping: 16
+  });
+  const sy = useSpring(y, {
+    stiffness: 220,
+    damping: 16
+  });
+  function move(e) {
+    if (rm || !ref.current) return;
     const r = ref.current.getBoundingClientRect();
-    x.set((e.clientX - (r.left + r.width/2)) * 0.28);
-    y.set((e.clientY - (r.top + r.height/2)) * 0.28);
+    x.set((e.clientX - (r.left + r.width / 2)) * 0.28);
+    y.set((e.clientY - (r.top + r.height / 2)) * 0.28);
   }
-  function leave(){ x.set(0); y.set(0); }
-  return (
-    <motion.a ref={ref} href={href} target={target} onClick={onClick}
-      className={className} style={{ x:sx, y:sy }}
-      onMouseMove={move} onMouseLeave={leave}
-      whileTap={{ scale:0.96 }}>{children}</motion.a>
-  );
+  function leave() {
+    x.set(0);
+    y.set(0);
+  }
+  return /*#__PURE__*/React.createElement(motion.a, {
+    ref: ref,
+    href: href,
+    target: target,
+    onClick: onClick,
+    className: className,
+    style: {
+      x: sx,
+      y: sy
+    },
+    onMouseMove: move,
+    onMouseLeave: leave,
+    whileTap: {
+      scale: 0.96
+    }
+  }, children);
 }
-
 const CH = "ABCDEF0123456789!<>-_/[]{}=+*#@§";
-function Decode({ text }){
+function Decode({
+  text
+}) {
   const rm = useReducedMotion();
   const [out, setOut] = useState(text);
   const idRef = useRef(null);
-  function run(){
-    if(rm){ setOut(text); return; }
+  function run() {
+    if (rm) {
+      setOut(text);
+      return;
+    }
     clearInterval(idRef.current);
     const settle = [];
-    for(let i=0;i<text.length;i++) settle[i] = Math.floor(Math.random()*10) + i*3;
-    const max = Math.max(...settle); let f = 0;
+    for (let i = 0; i < text.length; i++) settle[i] = Math.floor(Math.random() * 10) + i * 3;
+    const max = Math.max(...settle);
+    let f = 0;
     idRef.current = setInterval(() => {
       let o = "";
-      for(let i=0;i<text.length;i++){
-        if(text[i]===" "){ o+=" "; continue; }
-        o += f>=settle[i] ? text[i] : CH[Math.floor(Math.random()*CH.length)];
+      for (let i = 0; i < text.length; i++) {
+        if (text[i] === " ") {
+          o += " ";
+          continue;
+        }
+        o += f >= settle[i] ? text[i] : CH[Math.floor(Math.random() * CH.length)];
       }
-      setOut(o); f++;
-      if(f > max+1){ clearInterval(idRef.current); setOut(text); }
+      setOut(o);
+      f++;
+      if (f > max + 1) {
+        clearInterval(idRef.current);
+        setOut(text);
+      }
     }, 42);
   }
-  useEffect(() => { const t = setTimeout(run, 220); return () => { clearTimeout(t); clearInterval(idRef.current); }; }, []);
-  return <span className="decode" onMouseEnter={run}>{out}</span>;
+  useEffect(() => {
+    const t = setTimeout(run, 220);
+    return () => {
+      clearTimeout(t);
+      clearInterval(idRef.current);
+    };
+  }, []);
+  return /*#__PURE__*/React.createElement("span", {
+    className: "decode",
+    onMouseEnter: run
+  }, out);
 }
-
-function Nav({ lang, setLang, t }){
+function Nav({
+  lang,
+  setLang,
+  t
+}) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const f = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", f); f();
+    window.addEventListener("scroll", f);
+    f();
     return () => window.removeEventListener("scroll", f);
   }, []);
-  const links = [["about","nav_about"],["skills","nav_skills"],["work","nav_work"],["articles","nav_articles"],["experience","nav_exp"],["contact","nav_contact"]];
-  return (
-    <nav className={scrolled ? "scrolled" : ""}>
-      <div className="wrap nav-inner">
-        <a href="#top" className="brand">Sofiane Hafsaoui</a>
-        <div className="nav-links">
-          {links.map(([id,k]) => <a key={id} href={"#"+id}>{t(k)}</a>)}
-          <div className="lang-toggle" role="group" aria-label="Language">
-            {["en","es","fr"].map(l => (
-              <button key={l} className={lang===l ? "active" : ""} onClick={() => setLang(l)}>{l.toUpperCase()}</button>
-            ))}
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
+  const links = [["about", "nav_about"], ["skills", "nav_skills"], ["work", "nav_work"], ["articles", "nav_articles"], ["experience", "nav_exp"], ["contact", "nav_contact"]];
+  return /*#__PURE__*/React.createElement("nav", {
+    className: scrolled ? "scrolled" : ""
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap nav-inner"
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "#top",
+    className: "brand"
+  }, "Sofiane Hafsaoui"), /*#__PURE__*/React.createElement("div", {
+    className: "nav-links"
+  }, links.map(([id, k]) => /*#__PURE__*/React.createElement("a", {
+    key: id,
+    href: "#" + id
+  }, t(k))), /*#__PURE__*/React.createElement("div", {
+    className: "lang-toggle",
+    role: "group",
+    "aria-label": "Language"
+  }, ["en", "es", "fr"].map(l => /*#__PURE__*/React.createElement("button", {
+    key: l,
+    className: lang === l ? "active" : "",
+    onClick: () => setLang(l)
+  }, l.toUpperCase()))))));
 }
-
-function Hero({ t }){
+function Hero({
+  t
+}) {
   const rm = useReducedMotion();
-  const container = { hidden:{}, show:{ transition:{ staggerChildren:0.12, delayChildren:0.08 } } };
-  const item = { hidden:{ opacity:0, y:28 }, show:{ opacity:1, y:0, transition:SOFT } };
-  return (
-    <header className="hero" id="top">
-      <div className="wrap">
-        <motion.div variants={rm ? undefined : container} initial={rm ? false : "hidden"} animate={rm ? false : "show"}>
-          <motion.p className="eyebrow" variants={item}>{t("hero_eyebrow")}</motion.p>
-          <motion.h1 className="name" variants={item}><Decode text="Sofiane" /><br /><Decode text="Hafsaoui" /></motion.h1>
-          <motion.p className="role" variants={item}>{t("hero_role")}</motion.p>
-          <motion.div className="cta-row" variants={item}>
-            <Magnetic className="btn solid" href="#contact">{t("hero_cta1")}</Magnetic>
-            <Magnetic className="btn ghost" href="Sofiane Hafsaoui CV English.pdf" target="_blank">{t("hero_cta2")}</Magnetic>
-          </motion.div>
-        </motion.div>
-      </div>
-    </header>
-  );
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.08
+      }
+    }
+  };
+  const item = {
+    hidden: {
+      opacity: 0,
+      y: 28
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: SOFT
+    }
+  };
+  return /*#__PURE__*/React.createElement("header", {
+    className: "hero",
+    id: "top"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement(motion.div, {
+    variants: rm ? undefined : container,
+    initial: rm ? false : "hidden",
+    animate: rm ? false : "show"
+  }, /*#__PURE__*/React.createElement(motion.p, {
+    className: "eyebrow",
+    variants: item
+  }, t("hero_eyebrow")), /*#__PURE__*/React.createElement(motion.h1, {
+    className: "name",
+    variants: item
+  }, /*#__PURE__*/React.createElement(Decode, {
+    text: "Sofiane"
+  }), /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement(Decode, {
+    text: "Hafsaoui"
+  })), /*#__PURE__*/React.createElement(motion.p, {
+    className: "role",
+    variants: item
+  }, t("hero_role")), /*#__PURE__*/React.createElement(motion.div, {
+    className: "cta-row",
+    variants: item
+  }, /*#__PURE__*/React.createElement(Magnetic, {
+    className: "btn solid",
+    href: "#contact"
+  }, t("hero_cta1")), /*#__PURE__*/React.createElement(Magnetic, {
+    className: "btn ghost",
+    href: "Sofiane Hafsaoui CV English.pdf",
+    target: "_blank"
+  }, t("hero_cta2"))))));
 }
-
-function About({ t }){
-  return (
-    <section id="about">
-      <div className="wrap">
-        <Reveal tag="p" className="sec-label">{t("about_label")}</Reveal>
-        <Reveal tag="p" className="lead" delay={0.05} dangerouslySetInnerHTML={{ __html: t("about_text") }} />
-      </div>
-    </section>
-  );
+function About({
+  t
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    id: "about"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    tag: "p",
+    className: "sec-label"
+  }, t("about_label")), /*#__PURE__*/React.createElement(Reveal, {
+    tag: "p",
+    className: "lead",
+    delay: 0.05,
+    dangerouslySetInnerHTML: {
+      __html: t("about_text")
+    }
+  })));
 }
-
-const SKILLS = [
-  { num:"01", h:"sk1_h", tags:["sk1_a","sk1_b","sk1_c","sk1_d","sk1_e","sk1_f"] },
-  { num:"02", h:"sk2_h", tags:["sk2_a","sk2_b","sk2_c","sk2_d","sk2_e"] },
-  { num:"03", h:"sk3_h", tags:["sk3_a","sk3_b","sk3_c","sk3_d","sk3_e"] }
-];
-function Skills({ t }){
+const SKILLS = [{
+  num: "01",
+  h: "sk1_h",
+  tags: ["sk1_a", "sk1_b", "sk1_c", "sk1_d", "sk1_e", "sk1_f"]
+}, {
+  num: "02",
+  h: "sk2_h",
+  tags: ["sk2_a", "sk2_b", "sk2_c", "sk2_d", "sk2_e"]
+}, {
+  num: "03",
+  h: "sk3_h",
+  tags: ["sk3_a", "sk3_b", "sk3_c", "sk3_d", "sk3_e"]
+}];
+function Skills({
+  t
+}) {
   const rm = useReducedMotion();
-  return (
-    <section id="skills">
-      <div className="wrap">
-        <Reveal tag="p" className="sec-label">{t("skills_label")}</Reveal>
-        <Title>{t("skills_title")}</Title>
-        <motion.div className="skill-grid"
-          initial={rm ? false : "hidden"} whileInView="show" viewport={{ once:true, margin:"-6% 0px" }}
-          variants={{ hidden:{}, show:{ transition:{ staggerChildren:0.1 } } }}>
-          {SKILLS.map(s => (
-            <motion.div className="skill-cell" key={s.num}
-              variants={{ hidden:{ opacity:0, y:22 }, show:{ opacity:1, y:0, transition:SPRING } }}>
-              <span className="num">{s.num}</span>
-              <h3>{t(s.h)}</h3>
-              <div className="tags">{s.tags.map(tag => <span key={tag}>{t(tag)}</span>)}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
+  return /*#__PURE__*/React.createElement("section", {
+    id: "skills"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    tag: "p",
+    className: "sec-label"
+  }, t("skills_label")), /*#__PURE__*/React.createElement(Title, null, t("skills_title")), /*#__PURE__*/React.createElement(motion.div, {
+    className: "skill-grid",
+    initial: rm ? false : "hidden",
+    whileInView: "show",
+    viewport: {
+      once: true,
+      margin: "-6% 0px"
+    },
+    variants: {
+      hidden: {},
+      show: {
+        transition: {
+          staggerChildren: 0.1
+        }
+      }
+    }
+  }, SKILLS.map(s => /*#__PURE__*/React.createElement(motion.div, {
+    className: "skill-cell",
+    key: s.num,
+    variants: {
+      hidden: {
+        opacity: 0,
+        y: 22
+      },
+      show: {
+        opacity: 1,
+        y: 0,
+        transition: SPRING
+      }
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "num"
+  }, s.num), /*#__PURE__*/React.createElement("h3", null, t(s.h)), /*#__PURE__*/React.createElement("div", {
+    className: "tags"
+  }, s.tags.map(tag => /*#__PURE__*/React.createElement("span", {
+    key: tag
+  }, t(tag)))))))));
 }
-
-const EXP = [
-  { when:"2026 — ", present:true, co:"Valtier Real Estate", badge:true, role:"vex_role", p:"vex_p" },
-  { when:"2024 — ", present:true, co:"A9RA", role:"a9_role", p:"a9_p" },
-  { when:"12/2025 — ", present:true, co:"Moustachir", role:"mo_role", p:"mo_p" },
-  { when:"01/2025 — 09/2025", co:"Positive Agency", role:"pa_role", p:"pa_p" },
-  { when:"2024 — 2025", co:"Hexaee", role:"hx_role", p:"hx_p" },
-  { when:"2024 — 2025", coKey:"vm_co", role:"vm_role", p:"vm_p" },
-  { when:"2022 — 2023", co:"Ruina Studio & Itihad Group", role:"ru_role", p:"ru_p" }
-];
-function Experience({ t }){
-  return (
-    <section id="experience">
-      <div className="wrap">
-        <Reveal tag="p" className="sec-label">{t("exp_label")}</Reveal>
-        <Title>{t("exp_title")}</Title>
-        {EXP.map((e,i) => (
-          <Reveal className="exp" key={i} delay={Math.min(i,4)*0.04}>
-            <div className="when">{e.when}{e.present ? t("present") : ""}</div>
-            <div className="body">
-              <h3>{e.coKey ? t(e.coKey) : e.co}{e.badge && <span className="badge">{t("current")}</span>}</h3>
-              <div className="co-role">{t(e.role)}</div>
-              <p>{t(e.p)}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
+const EXP = [{
+  when: "2026 — ",
+  present: true,
+  co: "Valtier Real Estate",
+  badge: true,
+  role: "vex_role",
+  p: "vex_p"
+}, {
+  when: "2024 — ",
+  present: true,
+  co: "A9RA",
+  role: "a9_role",
+  p: "a9_p"
+}, {
+  when: "12/2025 — ",
+  present: true,
+  co: "Moustachir",
+  role: "mo_role",
+  p: "mo_p"
+}, {
+  when: "01/2025 — 09/2025",
+  co: "Positive Agency",
+  role: "pa_role",
+  p: "pa_p"
+}, {
+  when: "2024 — 2025",
+  co: "Hexaee",
+  role: "hx_role",
+  p: "hx_p"
+}, {
+  when: "2024 — 2025",
+  coKey: "vm_co",
+  role: "vm_role",
+  p: "vm_p"
+}, {
+  when: "2022 — 2023",
+  co: "Ruina Studio & Itihad Group",
+  role: "ru_role",
+  p: "ru_p"
+}];
+function Experience({
+  t
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    id: "experience"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    tag: "p",
+    className: "sec-label"
+  }, t("exp_label")), /*#__PURE__*/React.createElement(Title, null, t("exp_title")), EXP.map((e, i) => /*#__PURE__*/React.createElement(Reveal, {
+    className: "exp",
+    key: i,
+    delay: Math.min(i, 4) * 0.04
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "when"
+  }, e.when, e.present ? t("present") : ""), /*#__PURE__*/React.createElement("div", {
+    className: "body"
+  }, /*#__PURE__*/React.createElement("h3", null, e.coKey ? t(e.coKey) : e.co, e.badge && /*#__PURE__*/React.createElement("span", {
+    className: "badge"
+  }, t("current"))), /*#__PURE__*/React.createElement("div", {
+    className: "co-role"
+  }, t(e.role)), /*#__PURE__*/React.createElement("p", null, t(e.p)))))));
 }
-
-const WORK = [
-  { name:"Moustachir V4", yr:"2025", cat:"product", desc:"pj_moustachir", chips:["t_uiux","t_web"] },
-  { name:"Angel East", yr:"2025", cat:"web", desc:"pj_angel", chips:["t_web","t_landing"], live:"https://conclusive-anything-025785.framer.app/" },
-  { name:"Positive Agency", yr:"2025", cat:"landing", desc:"pj_positive", chips:["t_landing","t_brand"], live:"https://positiveagency.co/" },
-  { name:"A9RA", yr:"2024", cat:"landing", desc:"pj_a9ra", chips:["t_landing","t_brand"] },
-  { name:"Dash BI", yr:"2024", cat:"product", desc:"pj_dashbi", chips:["t_uiux","t_dash"] },
-  { name:"Studiit", yr:"2024", cat:"web", desc:"pj_studiit", chips:["t_uiux","t_web"] },
-  { name:"Nusuk", yr:"2024", cat:"product", desc:"pj_nusuk", chips:["t_uiux","t_landing"] },
-  { name:"Genelin", yr:"2024", cat:"brand", desc:"pj_genelin", chips:["t_brand","t_graphic"] },
-  { name:"Actile Platform", yr:"2023", cat:"web", desc:"pj_actile", chips:["t_uiux","t_web"] },
-  { name:"Web Services Platform", yr:"2023", cat:"web", desc:"pj_webserv", chips:["t_uiux","t_web"] }
-];
-const FILTERS = [["all","filt_all"],["product","filt_product"],["web","filt_web"],["landing","filt_landing"],["brand","filt_brand"]];
-function Work({ t }){
+const WORK = [{
+  name: "Moustachir V4",
+  yr: "2025",
+  cat: "product",
+  desc: "pj_moustachir",
+  chips: ["t_uiux", "t_web"]
+}, {
+  name: "Angel East",
+  yr: "2025",
+  cat: "web",
+  desc: "pj_angel",
+  chips: ["t_web", "t_landing"],
+  live: "https://conclusive-anything-025785.framer.app/"
+}, {
+  name: "Positive Agency",
+  yr: "2025",
+  cat: "landing",
+  desc: "pj_positive",
+  chips: ["t_landing", "t_brand"],
+  live: "https://positiveagency.co/"
+}, {
+  name: "A9RA",
+  yr: "2024",
+  cat: "landing",
+  desc: "pj_a9ra",
+  chips: ["t_landing", "t_brand"]
+}, {
+  name: "Dash BI",
+  yr: "2024",
+  cat: "product",
+  desc: "pj_dashbi",
+  chips: ["t_uiux", "t_dash"]
+}, {
+  name: "Studiit",
+  yr: "2024",
+  cat: "web",
+  desc: "pj_studiit",
+  chips: ["t_uiux", "t_web"]
+}, {
+  name: "Nusuk",
+  yr: "2024",
+  cat: "product",
+  desc: "pj_nusuk",
+  chips: ["t_uiux", "t_landing"]
+}, {
+  name: "Genelin",
+  yr: "2024",
+  cat: "brand",
+  desc: "pj_genelin",
+  chips: ["t_brand", "t_graphic"]
+}, {
+  name: "Actile Platform",
+  yr: "2023",
+  cat: "web",
+  desc: "pj_actile",
+  chips: ["t_uiux", "t_web"]
+}, {
+  name: "Web Services Platform",
+  yr: "2023",
+  cat: "web",
+  desc: "pj_webserv",
+  chips: ["t_uiux", "t_web"]
+}];
+const FILTERS = [["all", "filt_all"], ["product", "filt_product"], ["web", "filt_web"], ["landing", "filt_landing"], ["brand", "filt_brand"]];
+function Work({
+  t
+}) {
   const rm = useReducedMotion();
   const [f, setF] = useState("all");
-  const items = WORK.filter(w => f==="all" || w.cat===f);
-  return (
-    <section id="work">
-      <div className="wrap">
-        <Reveal tag="p" className="sec-label">{t("work_label")}</Reveal>
-        <Title>{t("work_title")}</Title>
-        <Reveal className="filters">
-          {FILTERS.map(([id,k]) => (
-            <button key={id} className={f===id ? "active" : ""} onClick={() => setF(id)}>{t(k)}</button>
-          ))}
-        </Reveal>
-        <motion.div className="work-grid" layout>
-          <AnimatePresence mode="popLayout">
-            {items.map(w => (
-              <motion.div className="card" key={w.name} layout
-                initial={rm ? false : { opacity:0, scale:0.94 }}
-                animate={{ opacity:1, scale:1 }}
-                exit={rm ? { opacity:0 } : { opacity:0, scale:0.94 }}
-                transition={SPRING}
-                whileHover={rm ? undefined : { y:-4, boxShadow:"0 18px 50px -28px rgba(0,0,0,.28)" }}>
-                <div className="card-top"><h3>{w.name}</h3><span className="yr">{w.yr}</span></div>
-                <p>{t(w.desc)}</p>
-                <div className="chips">{w.chips.map(c => <span key={c}>{t(c)}</span>)}</div>
-                {w.live && <a className="live" href={w.live} target="_blank">{t("view_live")}</a>}
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </div>
-    </section>
-  );
+  const items = WORK.filter(w => f === "all" || w.cat === f);
+  return /*#__PURE__*/React.createElement("section", {
+    id: "work"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    tag: "p",
+    className: "sec-label"
+  }, t("work_label")), /*#__PURE__*/React.createElement(Title, null, t("work_title")), /*#__PURE__*/React.createElement(Reveal, {
+    className: "filters"
+  }, FILTERS.map(([id, k]) => /*#__PURE__*/React.createElement("button", {
+    key: id,
+    className: f === id ? "active" : "",
+    onClick: () => setF(id)
+  }, t(k)))), /*#__PURE__*/React.createElement(motion.div, {
+    className: "work-grid",
+    layout: true
+  }, /*#__PURE__*/React.createElement(AnimatePresence, {
+    mode: "popLayout"
+  }, items.map(w => /*#__PURE__*/React.createElement(motion.div, {
+    className: "card",
+    key: w.name,
+    layout: true,
+    initial: rm ? false : {
+      opacity: 0,
+      scale: 0.94
+    },
+    animate: {
+      opacity: 1,
+      scale: 1
+    },
+    exit: rm ? {
+      opacity: 0
+    } : {
+      opacity: 0,
+      scale: 0.94
+    },
+    transition: SPRING,
+    whileHover: rm ? undefined : {
+      y: -4,
+      boxShadow: "0 18px 50px -28px rgba(0,0,0,.28)"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card-top"
+  }, /*#__PURE__*/React.createElement("h3", null, w.name), /*#__PURE__*/React.createElement("span", {
+    className: "yr"
+  }, w.yr)), /*#__PURE__*/React.createElement("p", null, t(w.desc)), /*#__PURE__*/React.createElement("div", {
+    className: "chips"
+  }, w.chips.map(c => /*#__PURE__*/React.createElement("span", {
+    key: c
+  }, t(c)))), w.live && /*#__PURE__*/React.createElement("a", {
+    className: "live",
+    href: w.live,
+    target: "_blank"
+  }, t("view_live"))))))));
 }
-
-const ARTS = [
-  { h:"art1_h", p:"art1_p", time:"art1_time", cat:"art_cat_strategy", date:"2025", feat:true },
-  { h:"art2_h", p:"art2_p", time:"art2_time", cat:"art_cat_product", date:"2025" },
-  { h:"art3_h", p:"art3_p", time:"art3_time", cat:"art_cat_growth", date:"2024" }
-];
-function Articles({ t }){
-  return (
-    <section id="articles">
-      <div className="wrap">
-        <Reveal tag="p" className="sec-label">{t("art_label")}</Reveal>
-        <Title>{t("art_title")}</Title>
-        <div className="art-grid">
-          {ARTS.map((a,i) => (
-            <Reveal className={"art-card" + (a.feat ? " art-feat" : "")} key={i} delay={Math.min(i,3)*0.06}
-              whileHover={{ y:-4, boxShadow:"0 18px 50px -28px rgba(0,0,0,.28)", borderColor:"#dcdcdc" }}>
-              <div className="art-meta">
-                <span className="art-cat">{t(a.cat)}</span>
-                <span className="art-date">{a.date}</span>
-                <span className="art-sep">/</span>
-                <span className="art-time">{t(a.time)}</span>
-              </div>
-              <h3>{t(a.h)}</h3>
-              <p>{t(a.p)}</p>
-              <a className="art-read" href="#">{t("art_read")}</a>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+const ARTS = [{
+  h: "art1_h",
+  p: "art1_p",
+  time: "art1_time",
+  cat: "art_cat_strategy",
+  date: "2025",
+  feat: true
+}, {
+  h: "art2_h",
+  p: "art2_p",
+  time: "art2_time",
+  cat: "art_cat_product",
+  date: "2025"
+}, {
+  h: "art3_h",
+  p: "art3_p",
+  time: "art3_time",
+  cat: "art_cat_growth",
+  date: "2024"
+}];
+function Articles({
+  t
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    id: "articles"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    tag: "p",
+    className: "sec-label"
+  }, t("art_label")), /*#__PURE__*/React.createElement(Title, null, t("art_title")), /*#__PURE__*/React.createElement("div", {
+    className: "art-grid"
+  }, ARTS.map((a, i) => /*#__PURE__*/React.createElement(Reveal, {
+    className: "art-card" + (a.feat ? " art-feat" : ""),
+    key: i,
+    delay: Math.min(i, 3) * 0.06,
+    whileHover: {
+      y: -4,
+      boxShadow: "0 18px 50px -28px rgba(0,0,0,.28)",
+      borderColor: "#dcdcdc"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "art-meta"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "art-cat"
+  }, t(a.cat)), /*#__PURE__*/React.createElement("span", {
+    className: "art-date"
+  }, a.date), /*#__PURE__*/React.createElement("span", {
+    className: "art-sep"
+  }, "/"), /*#__PURE__*/React.createElement("span", {
+    className: "art-time"
+  }, t(a.time))), /*#__PURE__*/React.createElement("h3", null, t(a.h)), /*#__PURE__*/React.createElement("p", null, t(a.p)), /*#__PURE__*/React.createElement("a", {
+    className: "art-read",
+    href: "#"
+  }, t("art_read")))))));
 }
-
-const EDU = [
-  { d:"ed1_d", school:"ESIC, Madrid", yr:"Sep 2025 — ", present:true },
-  { d:"ed2_d", school:"ISG, Algiers", yr:"2022 — 2025" },
-  { d:"ed3_d", school:"USTHB, Algiers", yr:"2020 — 2022" }
-];
-const LANGS = [
-  { l:"English", k:"lv_bi", n:5 },
-  { l:"Français", k:"lv_adv", n:4 },
-  { l:"Español", k:"lv_int", n:3 },
-  { l:"العربية", k:"lv_nat", n:5 }
-];
-function Education({ t }){
-  return (
-    <section id="education">
-      <div className="wrap">
-        <div className="two">
-          <Reveal>
-            <p className="sec-label">{t("edu_label")}</p>
-            {EDU.map((e,i) => (
-              <div className="edu-item" key={i}>
-                <h3>{t(e.d)}</h3>
-                <div className="school">{e.school}</div>
-                <div className="yr">{e.yr}{e.present ? t("present") : ""}</div>
-              </div>
-            ))}
-          </Reveal>
-          <Reveal delay={0.08}>
-            <p className="sec-label">{t("lang_label")}</p>
-            {LANGS.map((lg,i) => (
-              <div className="lang-row" key={i}>
-                <span className="l">{lg.l}</span>
-                <span className="lvl">{t(lg.k)}
-                  <span className="dots">{[0,1,2,3,4].map(d => <i key={d} className={d<lg.n ? "on" : ""} />)}</span>
-                </span>
-              </div>
-            ))}
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  );
+const EDU = [{
+  d: "ed1_d",
+  school: "ESIC, Madrid",
+  yr: "Sep 2025 — ",
+  present: true
+}, {
+  d: "ed2_d",
+  school: "ISG, Algiers",
+  yr: "2022 — 2025"
+}, {
+  d: "ed3_d",
+  school: "USTHB, Algiers",
+  yr: "2020 — 2022"
+}];
+const LANGS = [{
+  l: "English",
+  k: "lv_bi",
+  n: 5
+}, {
+  l: "Français",
+  k: "lv_adv",
+  n: 4
+}, {
+  l: "Español",
+  k: "lv_int",
+  n: 3
+}, {
+  l: "العربية",
+  k: "lv_nat",
+  n: 5
+}];
+function Education({
+  t
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    id: "education"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "two"
+  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("p", {
+    className: "sec-label"
+  }, t("edu_label")), EDU.map((e, i) => /*#__PURE__*/React.createElement("div", {
+    className: "edu-item",
+    key: i
+  }, /*#__PURE__*/React.createElement("h3", null, t(e.d)), /*#__PURE__*/React.createElement("div", {
+    className: "school"
+  }, e.school), /*#__PURE__*/React.createElement("div", {
+    className: "yr"
+  }, e.yr, e.present ? t("present") : "")))), /*#__PURE__*/React.createElement(Reveal, {
+    delay: 0.08
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "sec-label"
+  }, t("lang_label")), LANGS.map((lg, i) => /*#__PURE__*/React.createElement("div", {
+    className: "lang-row",
+    key: i
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "l"
+  }, lg.l), /*#__PURE__*/React.createElement("span", {
+    className: "lvl"
+  }, t(lg.k), /*#__PURE__*/React.createElement("span", {
+    className: "dots"
+  }, [0, 1, 2, 3, 4].map(d => /*#__PURE__*/React.createElement("i", {
+    key: d,
+    className: d < lg.n ? "on" : ""
+  }))))))))));
 }
-
-function Contact({ t }){
-  return (
-    <section id="contact" style={{ borderBottom:"0" }}>
-      <div className="wrap">
-        <Reveal tag="p" className="sec-label">{t("contact_label")}</Reveal>
-        <Reveal><h2 className="contact-h">{t("contact_h")}</h2></Reveal>
-        <Reveal className="contact-links" delay={0.05}>
-          <Magnetic className="btn solid" href="mailto:sofiane7hafsaoui@gmail.com">sofiane7hafsaoui@gmail.com</Magnetic>
-          <Magnetic className="btn ghost" href="https://www.linkedin.com/in/sofiane-hafsaoui" target="_blank">LinkedIn</Magnetic>
-          <Magnetic className="btn ghost" href="tel:+34662316895">+34 662 316 895</Magnetic>
-          <Magnetic className="btn ghost" href="Sofiane Hafsaoui CV English.pdf" target="_blank">{t("hero_cta2")}</Magnetic>
-        </Reveal>
-      </div>
-    </section>
-  );
+function Contact({
+  t
+}) {
+  return /*#__PURE__*/React.createElement("section", {
+    id: "contact",
+    style: {
+      borderBottom: "0"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    tag: "p",
+    className: "sec-label"
+  }, t("contact_label")), /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("h2", {
+    className: "contact-h"
+  }, t("contact_h"))), /*#__PURE__*/React.createElement(Reveal, {
+    className: "contact-links",
+    delay: 0.05
+  }, /*#__PURE__*/React.createElement(Magnetic, {
+    className: "btn solid",
+    href: "mailto:sofiane7hafsaoui@gmail.com"
+  }, "sofiane7hafsaoui@gmail.com"), /*#__PURE__*/React.createElement(Magnetic, {
+    className: "btn ghost",
+    href: "https://www.linkedin.com/in/sofiane-hafsaoui",
+    target: "_blank"
+  }, "LinkedIn"), /*#__PURE__*/React.createElement(Magnetic, {
+    className: "btn ghost",
+    href: "tel:+34662316895"
+  }, "+34 662 316 895"), /*#__PURE__*/React.createElement(Magnetic, {
+    className: "btn ghost",
+    href: "Sofiane Hafsaoui CV English.pdf",
+    target: "_blank"
+  }, t("hero_cta2")))));
 }
-
-function Progress(){
-  const { scrollYProgress } = useScroll();
-  const sx = useSpring(scrollYProgress, { stiffness:120, damping:30, mass:0.4 });
-  return <motion.div id="progress" style={{ scaleX:sx }} />;
+function Progress() {
+  const {
+    scrollYProgress
+  } = useScroll();
+  const sx = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    mass: 0.4
+  });
+  return /*#__PURE__*/React.createElement(motion.div, {
+    id: "progress",
+    style: {
+      scaleX: sx
+    }
+  });
 }
-
-function App(){
+function App() {
   const [lang, setLangState] = useState("en");
-  const setLang = (l) => { setLangState(l); document.documentElement.lang = l; };
-  const t = (k) => (I18N[lang] && I18N[lang][k] !== undefined) ? I18N[lang][k] : ((I18N.en[k] !== undefined) ? I18N.en[k] : k);
-  return (
-    <React.Fragment>
-      <Progress />
-      <Nav lang={lang} setLang={setLang} t={t} />
-      <Hero t={t} />
-      <About t={t} />
-      <Skills t={t} />
-      <Experience t={t} />
-      <Work t={t} />
-      <Articles t={t} />
-      <Education t={t} />
-      <Contact t={t} />
-      <footer className="wrap">
-        <span>© 2026 Sofiane Hafsaoui</span>
-        <span>{t("foot")}</span>
-      </footer>
-      <div className="v2-badge">Motion preview</div>
-    </React.Fragment>
-  );
+  const setLang = l => {
+    setLangState(l);
+    document.documentElement.lang = l;
+  };
+  const t = k => I18N[lang] && I18N[lang][k] !== undefined ? I18N[lang][k] : I18N.en[k] !== undefined ? I18N.en[k] : k;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Progress, null), /*#__PURE__*/React.createElement(Nav, {
+    lang: lang,
+    setLang: setLang,
+    t: t
+  }), /*#__PURE__*/React.createElement(Hero, {
+    t: t
+  }), /*#__PURE__*/React.createElement(About, {
+    t: t
+  }), /*#__PURE__*/React.createElement(Skills, {
+    t: t
+  }), /*#__PURE__*/React.createElement(Experience, {
+    t: t
+  }), /*#__PURE__*/React.createElement(Work, {
+    t: t
+  }), /*#__PURE__*/React.createElement(Articles, {
+    t: t
+  }), /*#__PURE__*/React.createElement(Education, {
+    t: t
+  }), /*#__PURE__*/React.createElement(Contact, {
+    t: t
+  }), /*#__PURE__*/React.createElement("footer", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Sofiane Hafsaoui"), /*#__PURE__*/React.createElement("span", null, t("foot"))), /*#__PURE__*/React.createElement("div", {
+    className: "v2-badge"
+  }, "Motion preview"));
 }
+createRoot(document.getElementById("root")).render(/*#__PURE__*/React.createElement(App, null));
 
-createRoot(document.getElementById("root")).render(<App />);
+
 </script>
 </body>
 </html>
