@@ -155,6 +155,12 @@
     .cta-row{flex-direction:column}
     .cta-row .btn{width:100%;justify-content:center}
   }
+  .cursor-ring{position:fixed;top:0;left:0;width:26px;height:26px;margin:-13px 0 0 -13px;border:1.5px solid var(--ink);border-radius:50%;pointer-events:none;z-index:9999}
+  @media(pointer:coarse){.cursor-ring{display:none}}
+  .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;background:var(--bg)}
+  .marquee-track{display:flex;white-space:nowrap;width:max-content}
+  .marquee span{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;font-size:clamp(26px,5vw,52px);color:var(--ink);letter-spacing:-.01em}
+  @media(max-width:600px){.marquee{padding:18px 0}}
 </style>
 </head>
 <body>
@@ -359,7 +365,7 @@ window.addEventListener("unhandledrejection",function(e){_boot_err("(promise) "+
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 import React, { useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
-import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion, useMotionValue } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion, useMotionValue, useTransform } from "framer-motion";
 const I18N = window.I18N_DATA;
 const SPRING = {
   type: "spring",
@@ -409,15 +415,18 @@ function Title({
 }) {
   const rm = useReducedMotion();
   const [inview, setInview] = useState(false);
-  return /*#__PURE__*/React.createElement(motion.h2, {
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      overflow: "hidden",
+      paddingBottom: "18px"
+    }
+  }, /*#__PURE__*/React.createElement(motion.h2, {
     className: "title" + (inview ? " in" : ""),
     initial: rm ? false : {
-      opacity: 0,
-      y: 20
+      y: "115%"
     },
     whileInView: {
-      opacity: 1,
-      y: 0
+      y: "0%"
     },
     viewport: {
       once: true,
@@ -425,9 +434,16 @@ function Title({
     },
     transition: rm ? {
       duration: 0
-    } : SPRING,
-    onViewportEnter: () => setInview(true)
-  }, children);
+    } : {
+      type: "spring",
+      stiffness: 70,
+      damping: 16
+    },
+    onViewportEnter: () => setInview(true),
+    style: {
+      marginBottom: 0
+    }
+  }, children));
 }
 function Magnetic({
   children,
@@ -521,6 +537,79 @@ function Decode({
     onMouseEnter: run
   }, out);
 }
+function Cursor() {
+  const rm = useReducedMotion();
+  const x = useMotionValue(-100),
+    y = useMotionValue(-100);
+  const sx = useSpring(x, {
+    stiffness: 350,
+    damping: 28,
+    mass: 0.5
+  });
+  const sy = useSpring(y, {
+    stiffness: 350,
+    damping: 28,
+    mass: 0.5
+  });
+  const [hover, setHover] = useState(false);
+  const [on, setOn] = useState(false);
+  useEffect(() => {
+    if (rm) return;
+    if (!window.matchMedia || !window.matchMedia("(pointer:fine)").matches) return;
+    setOn(true);
+    const move = e => {
+      x.set(e.clientX);
+      y.set(e.clientY);
+    };
+    const over = e => {
+      const t = e.target;
+      setHover(!!(t && t.closest && t.closest("a,button,.card,.tool,.skill-cell,.filters button")));
+    };
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseover", over);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseover", over);
+    };
+  }, []);
+  if (!on) return null;
+  return /*#__PURE__*/React.createElement(motion.div, {
+    className: "cursor-ring",
+    style: {
+      x: sx,
+      y: sy
+    },
+    animate: {
+      scale: hover ? 1.9 : 1,
+      opacity: hover ? 0.5 : 0.85
+    },
+    transition: {
+      type: "spring",
+      stiffness: 250,
+      damping: 20
+    },
+    "aria-hidden": "true"
+  });
+}
+function Marquee() {
+  const rm = useReducedMotion();
+  const chunk = "Strategy — Product — AI Agents — Automation — Dashboarding — Valuations — No-Code — Prompt Engineering — ";
+  const row = chunk + chunk;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "marquee",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement(motion.div, {
+    className: "marquee-track",
+    animate: rm ? {} : {
+      x: ["0%", "-50%"]
+    },
+    transition: rm ? {} : {
+      duration: 28,
+      repeat: Infinity,
+      ease: "linear"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, row), /*#__PURE__*/React.createElement("span", null, row)));
+}
 function Nav({
   lang,
   setLang,
@@ -560,6 +649,10 @@ function Hero({
   t
 }) {
   const rm = useReducedMotion();
+  const {
+    scrollY
+  } = useScroll();
+  const heroY = useTransform(scrollY, [0, 700], [0, -80]);
   const container = {
     hidden: {},
     show: {
@@ -586,6 +679,9 @@ function Hero({
   }, /*#__PURE__*/React.createElement("div", {
     className: "wrap"
   }, /*#__PURE__*/React.createElement(motion.div, {
+    style: rm ? undefined : {
+      y: heroY
+    },
     variants: rm ? undefined : container,
     initial: rm ? false : "hidden",
     animate: rm ? false : "show"
@@ -1064,13 +1160,13 @@ function App() {
     document.documentElement.lang = l;
   };
   const t = k => I18N[lang] && I18N[lang][k] !== undefined ? I18N[lang][k] : I18N.en[k] !== undefined ? I18N.en[k] : k;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Progress, null), /*#__PURE__*/React.createElement(Nav, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Progress, null), /*#__PURE__*/React.createElement(Nav, {
     lang: lang,
     setLang: setLang,
     t: t
   }), /*#__PURE__*/React.createElement(Hero, {
     t: t
-  }), /*#__PURE__*/React.createElement(About, {
+  }), /*#__PURE__*/React.createElement(Marquee, null), /*#__PURE__*/React.createElement(About, {
     t: t
   }), /*#__PURE__*/React.createElement(Skills, {
     t: t
