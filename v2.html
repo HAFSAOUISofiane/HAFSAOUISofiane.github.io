@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sofiane Hafsaoui</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{ --bg:#ffffff; --ink:#1a1a1a; --muted:#6b6b6b; --line:#e8e8e8; --soft:#f6f6f4; --accent:#1a1a1a; --max:1080px; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s, background .3s}
+  nav.scrolled{border-color:var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:.5px}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-size:13px;letter-spacing:.04em;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .lang-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .lang-toggle button{border:0;background:transparent;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:.06em;padding:7px 13px;color:var(--muted);transition:all .25s}
+  .lang-toggle button.active{background:var(--ink);color:#fff}
+
+  header.hero{padding:190px 0 110px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+  h1.name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(52px,9vw,104px);line-height:.98;letter-spacing:-.5px}
+  .role{font-size:clamp(17px,2.4vw,22px);color:var(--muted);margin-top:24px;max-width:640px;font-weight:300}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:42px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-size:13px;letter-spacing:.04em;border:1px solid var(--ink);transition:background .25s,color .25s;cursor:pointer}
+  .btn.solid{background:var(--ink);color:#fff}
+  .btn.solid:hover{background:#000}
+  .btn.ghost:hover{background:var(--soft)}
+
+  section{padding:96px 0;border-bottom:1px solid var(--line)}
+  .sec-label{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:38px}
+  h2.title{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(30px,4.5vw,46px);line-height:1.08;letter-spacing:-.3px;margin-bottom:30px;position:relative}
+  h2.title::after{content:"";position:absolute;left:0;bottom:-14px;height:2px;width:52px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.16,1,.3,1) .1s}
+  h2.title.in::after{transform:scaleX(1)}
+  .lead{font-size:19px;font-weight:300;color:#333;max-width:760px}
+  .lead b{font-weight:500;color:var(--ink)}
+
+  .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .skill-cell{background:var(--bg);padding:32px 28px;transition:background .3s}
+  .skill-cell:hover{background:var(--soft)}
+  .skill-cell h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;margin-bottom:16px}
+  .skill-cell .num{font-size:12px;color:var(--muted);letter-spacing:.1em;display:block;margin-bottom:14px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{font-size:12.5px;color:#444;border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:#fff}
+
+  .exp{display:flex;gap:40px;padding:30px 0;border-top:1px solid var(--line);align-items:flex-start}
+  .exp:first-of-type{border-top:0}
+  .exp .when{flex:0 0 150px;font-size:13px;color:var(--muted);letter-spacing:.03em;padding-top:5px}
+  .exp .body{flex:1}
+  .exp h3{font-family:'Cormorant Garamond',serif;font-size:27px;font-weight:600;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .exp .co-role{font-size:14px;color:var(--muted);margin:4px 0 12px}
+  .exp p{font-size:15.5px;color:#3a3a3a;font-weight:300;max-width:680px}
+  .badge{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:#fff;padding:3px 10px;border-radius:999px;font-family:'Inter',sans-serif;font-weight:500}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  .edu-item{padding:22px 0;border-top:1px solid var(--line)}
+  .edu-item:first-child{border-top:0}
+  .edu-item h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600}
+  .edu-item .school{font-size:14px;color:var(--muted);margin-top:2px}
+  .edu-item .yr{font-size:12.5px;color:var(--muted);margin-top:6px;letter-spacing:.05em}
+  .lang-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid var(--line)}
+  .lang-row:first-of-type{border-top:0}
+  .lang-row .l{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600}
+  .lang-row .lvl{font-size:12.5px;color:var(--muted);letter-spacing:.04em;display:inline-flex;align-items:center}
+  .dots{display:inline-flex;gap:5px;margin-left:14px}
+  .dots i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+  .dots i.on{background:var(--ink)}
+
+  .art-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .art-feat{grid-column:1/-1}
+  .art-card{border:1px solid var(--line);border-radius:16px;padding:30px 30px 26px;background:#fff;display:flex;flex-direction:column;min-height:200px}
+  .art-meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+  .art-cat{font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--soft);color:var(--muted);padding:4px 11px;border-radius:999px;border:1px solid var(--line)}
+  .art-date,.art-time{font-size:12.5px;color:var(--muted)}
+  .art-sep{font-size:12.5px;color:var(--line)}
+  .art-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.12;margin-bottom:12px}
+  .art-feat h3{font-size:clamp(28px,3.8vw,40px)}
+  .art-card p{font-size:14.5px;color:#444;font-weight:300;flex:1;margin-bottom:16px}
+  .art-feat p{max-width:680px}
+  .art-read{font-size:12.5px;letter-spacing:.04em;color:var(--ink);display:inline-flex;align-items:center;gap:6px;align-self:flex-start;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:gap .25s}
+  .art-read:hover{gap:11px}
+
+  .contact-h{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(34px,6vw,68px);line-height:1.02;letter-spacing:-.5px;margin-bottom:34px}
+  .contact-links{display:flex;flex-wrap:wrap;gap:14px}
+  footer{padding:48px 0;color:var(--muted);font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:42px}
+  .filters button{border:1px solid var(--line);background:#fff;cursor:pointer;font-family:inherit;font-size:12.5px;letter-spacing:.04em;color:var(--muted);padding:9px 18px;border-radius:999px;transition:all .25s}
+  .filters button:hover{border-color:#cfcfcf;color:var(--ink)}
+  .filters button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .card{border:1px solid var(--line);border-radius:16px;padding:30px 30px 26px;background:#fff;display:flex;flex-direction:column;min-height:210px;box-shadow:0 0 0 rgba(0,0,0,0)}
+  .card-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  .card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.1}
+  .card .yr{font-size:12px;color:var(--muted);letter-spacing:.06em;white-space:nowrap}
+  .card p{font-size:14.5px;color:#444;font-weight:300;margin-top:12px;flex:1}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+  .chips span{font-size:11px;letter-spacing:.05em;color:#555;background:var(--soft);border-radius:999px;padding:4px 11px}
+  .card .live{margin-top:16px;font-size:12.5px;letter-spacing:.04em;color:var(--ink);display:inline-flex;align-items:center;gap:6px;align-self:flex-start;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:gap .25s}
+  .card .live:hover{gap:11px}
+
+  #progress{position:fixed;top:0;left:0;height:2px;background:var(--ink);z-index:60;width:100%;transform-origin:0 50%}
+  .decode{display:inline-block;font-variant-ligatures:none;cursor:pointer}
+
+  .v2-badge{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:60;background:var(--ink);color:#fff;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-radius:999px;box-shadow:0 10px 30px -12px rgba(0,0,0,.5);opacity:.9}
+
+  @media(max-width:820px){
+    .nav-links a{display:none}
+    .skill-grid{grid-template-columns:1fr}
+    .work-grid{grid-template-columns:1fr}
+    .art-grid{grid-template-columns:1fr}
+    .two{grid-template-columns:1fr;gap:40px}
+    .exp{flex-direction:column;gap:8px}
+    .exp .when{flex-basis:auto}
+    header.hero{padding:150px 0 80px}
+    .wrap{padding:0 26px}
+    section{padding:78px 0}
+  }
+  @media(max-width:600px){
+    .wrap{padding:0 20px}
+    .nav-inner{height:60px}
+    .brand{font-size:18px}
+    .lang-toggle button{padding:8px 13px}
+    header.hero{padding:114px 0 56px}
+    .eyebrow{margin-bottom:20px;font-size:11px;letter-spacing:.24em}
+    h1.name{font-size:clamp(42px,12.5vw,60px);line-height:1}
+    .role{font-size:16px;margin-top:18px;line-height:1.55}
+    .cta-row{margin-top:30px;gap:10px}
+    section{padding:58px 0}
+    .sec-label{margin-bottom:26px}
+    h2.title{font-size:27px;margin-bottom:24px}
+    .lead{font-size:16.5px}
+    .skill-cell{padding:26px 22px}
+    .skill-cell h3{font-size:22px}
+    .exp{padding:24px 0}
+    .exp h3{font-size:23px}
+    .card h3{font-size:24px}
+    .edu-item h3{font-size:20px}
+    .contact-h{font-size:clamp(32px,9vw,44px);margin-bottom:28px}
+    .contact-links{flex-direction:column;gap:10px}
+    .contact-links .btn{width:100%;justify-content:center}
+    footer{padding:34px 0 80px;font-size:12px}
+  }
+  @media(max-width:430px){
+    h1.name{font-size:clamp(38px,12vw,52px)}
+    .cta-row{flex-direction:column}
+    .cta-row .btn{width:100%;justify-content:center}
+  }
+</style>
+</head>
+<body>
+<div id="root"><div style="min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:sans-serif;color:#9a9a9a;font-size:14px;padding:24px;text-align:center">Loading the animated preview… if it doesn't appear, your current site is still live at <a href="./" style="color:#1a1a1a;margin-left:5px">the homepage</a>.</div></div>
+
+<script>
+window.I18N_DATA = {
+  en:{
+    nav_about:"About", nav_skills:"Expertise", nav_work:"Work", nav_articles:"Articles", nav_exp:"Experience", nav_contact:"Contact",
+    work_label:"Selected Work", work_title:"Selected work from my portfolio.",
+    filt_all:"All", filt_product:"Product & UX", filt_web:"Web Apps", filt_landing:"Landing Pages", filt_brand:"Branding",
+    view_live:"View live →",
+    t_uiux:"UI/UX", t_web:"Web App", t_brand:"Branding", t_landing:"Landing Page", t_dash:"Dashboard", t_graphic:"Graphic Design",
+    pj_moustachir:"Strategic redesign of Moustachir into the region's first fully integrated digital consulting marketplace.",
+    pj_angel:"A platform connecting MENA founders with regional investors to accelerate early-stage deal flow.",
+    pj_positive:"Brand and landing page for Positive Agency, a product and design studio.",
+    pj_a9ra:"Brand identity and landing page for an EdTech venture that reached 25,000+ users in 5 days.",
+    pj_dashbi:"Interface design for a business-intelligence dashboard and reporting tool.",
+    pj_studiit:"End-to-end product design for a student-focused web platform.",
+    pj_nusuk:"A vertical redesign exploration reimagining the Nusuk booking experience.",
+    pj_genelin:"Full brand identity and graphic design system for Genelin.",
+    pj_actile:"Internal operations platform designed for scalability and speed.",
+    pj_webserv:"User and admin interfaces for a web-services marketplace.",
+    hero_eyebrow:"Strategy · Product · Operations",
+    hero_role:"Business strategist and product designer bridging quantitative rigor with founder instinct — building, valuing and scaling startups across MENA and Europe.",
+    hero_cta1:"Get in touch", hero_cta2:"Download CV",
+    about_label:"Profile",
+    about_text:"An aspiring analyst combining a <b>technical background in Algebra & Cryptography</b> with hands-on founder experience. Currently pursuing a Master in International Trade & Business at ESIC Madrid, and serving as an <b>Operations, Marketing & Business Strategy Intern at Valtier Real Estate</b>. I leverage product strategy and quantitative discipline to assess product-market fit, structure deals, and turn ideas into scalable ventures.",
+    skills_label:"What I do", skills_title:"Expertise across strategy, product and automation.",
+    sk1_h:"Investment & Strategy", sk1_a:"Startup Valuations", sk1_b:"Market Sizing", sk1_c:"Due Diligence", sk1_d:"Deal Sourcing", sk1_e:"Business Model Analysis", sk1_f:"Market Research",
+    sk2_h:"Product & Tech", sk2_a:"Product Strategy", sk2_b:"UI/UX & Prototyping", sk2_c:"Competitive Benchmarking", sk2_d:"No-Code Development", sk2_e:"Roadmapping",
+    sk3_h:"Automation & AI", sk3_a:"Automation Systems & Tools", sk3_b:"AI Agents", sk3_c:"Dashboarding", sk3_d:"Workflow Design", sk3_e:"Data Visualization",
+    art_label:"Writing", art_title:"Thoughts on strategy, product and building.",
+    art_cat_strategy:"Strategy", art_cat_product:"Product", art_cat_growth:"Growth",
+    art_read:"Read article →",
+    art1_h:"Why African Startups Need Different Valuation Models",
+    art1_p:"Standard DCF and VC methods break down in high-uncertainty, low-liquidity emerging markets. Here's the framework I built for Algerian startups and why the assumptions always matter more than the model.",
+    art1_time:"8 min read",
+    art2_h:"The PMF Illusion in Emerging Markets",
+    art2_p:"Early traction isn't proof of product-market fit. A framework for separating novelty from real, scalable demand — and the signals that actually matter.",
+    art2_time:"5 min read",
+    art3_h:"25,000 Users in 5 Days: A Go-to-Market Story",
+    art3_p:"What actually happened when we launched A9RA — the moves that worked, the ones that didn't, and what I'd do differently with better runway.",
+    art3_time:"4 min read",
+    exp_label:"Experience", exp_title:"A track record of building.",
+    present:"Present", current:"Current",
+    vex_role:"Operations, Marketing & Business Strategy Intern",
+    vex_p:"Driving operational efficiency and go-to-market initiatives — building automation systems, AI-assisted workflows and performance dashboards to support strategic decision-making.",
+    a9_role:"Co-founder",
+    a9_p:"Executed the go-to-market strategy that acquired 25,000+ users within 5 days of public beta. Ran competitive landscape analysis to identify EdTech market gaps and built the investor pitch deck and financial projections for the pre-seed round.",
+    mo_role:"Lead Product Designer",
+    mo_p:"Leading the strategic redesign of Moustachir V4, transforming the product into the region's first fully integrated digital consulting marketplace.",
+    pa_role:"Product Designer",
+    pa_p:"Developed product roadmap strategy for clients, boosting retention and feedback. Directed the creation of \"AngelEast,\" a platform linking MENA founders with regional investors to enhance early-stage deal flow.",
+    hx_role:"Product Designer",
+    hx_p:"Managed end-to-end product delivery, optimizing for scalability and time-to-market.",
+    vm_co:"Valuation Models Research", vm_role:"Research Analyst",
+    vm_p:"Developed valuation frameworks for Algerian startups by adapting established models to the emerging-market context.",
+    ru_role:"Early Career & Consulting",
+    ru_p:"Advised client leadership on product roadmap and retention strategies, directly impacting revenue and market positioning.",
+    edu_label:"Education",
+    ed1_d:"Master in International Trade & Business", ed2_d:"Bachelor's in Marketing & Business Management", ed3_d:"Bachelor's in Algebra & Cryptography",
+    lang_label:"Languages", lv_bi:"Bilingual", lv_adv:"Advanced", lv_int:"Intermediate", lv_nat:"Native",
+    contact_label:"Contact", contact_h:"Let's build something worth scaling.",
+    foot:"Madrid, Spain · Operations & Strategy"
+  },
+  es:{
+    nav_about:"Perfil", nav_skills:"Experiencia", nav_work:"Proyectos", nav_articles:"Artículos", nav_exp:"Trayectoria", nav_contact:"Contacto",
+    work_label:"Proyectos seleccionados", work_title:"Una selección de mi portafolio.",
+    filt_all:"Todos", filt_product:"Producto y UX", filt_web:"Apps Web", filt_landing:"Landing Pages", filt_brand:"Marca",
+    view_live:"Ver en vivo →",
+    t_uiux:"UI/UX", t_web:"App Web", t_brand:"Marca", t_landing:"Landing Page", t_dash:"Dashboard", t_graphic:"Diseño Gráfico",
+    pj_moustachir:"Rediseño estratégico de Moustachir hacia el primer marketplace de consultoría digital totalmente integrado de la región.",
+    pj_angel:"Una plataforma que conecta a fundadores de MENA con inversores regionales para acelerar el deal flow en etapas tempranas.",
+    pj_positive:"Marca y landing page para Positive Agency, un estudio de producto y diseño.",
+    pj_a9ra:"Identidad de marca y landing page para un proyecto EdTech que alcanzó más de 25.000 usuarios en 5 días.",
+    pj_dashbi:"Diseño de interfaz para un dashboard de inteligencia de negocio y reporting.",
+    pj_studiit:"Diseño de producto de extremo a extremo para una plataforma web orientada a estudiantes.",
+    pj_nusuk:"Una exploración de rediseño vertical reimaginando la experiencia de reservas de Nusuk.",
+    pj_genelin:"Identidad de marca completa y sistema de diseño gráfico para Genelin.",
+    pj_actile:"Plataforma de operaciones interna diseñada para la escalabilidad y la velocidad.",
+    pj_webserv:"Interfaces de usuario y administración para un marketplace de servicios web.",
+    hero_eyebrow:"Estrategia · Producto · Operaciones",
+    hero_role:"Estratega de negocio y diseñador de producto que une el rigor cuantitativo con el instinto de fundador — creando, valorando y escalando startups en MENA y Europa.",
+    hero_cta1:"Contactar", hero_cta2:"Descargar CV",
+    about_label:"Perfil",
+    about_text:"Analista en formación que combina una <b>base técnica en Álgebra y Criptografía</b> con experiencia real como fundador. Actualmente cursando un Máster en Comercio Internacional y Negocios en ESIC Madrid, y ejerciendo como <b>Becario de Operaciones, Marketing y Estrategia de Negocio en Valtier Real Estate</b>. Aplico la estrategia de producto y la disciplina cuantitativa para evaluar el ajuste producto-mercado, estructurar acuerdos y convertir ideas en proyectos escalables.",
+    skills_label:"Qué hago", skills_title:"Experiencia en estrategia, producto y automatización.",
+    sk1_h:"Inversión y Estrategia", sk1_a:"Valoración de Startups", sk1_b:"Dimensionamiento de Mercado", sk1_c:"Due Diligence", sk1_d:"Originación de Operaciones", sk1_e:"Análisis de Modelos de Negocio", sk1_f:"Investigación de Mercado",
+    sk2_h:"Producto y Tecnología", sk2_a:"Estrategia de Producto", sk2_b:"UI/UX y Prototipado", sk2_c:"Benchmarking Competitivo", sk2_d:"Desarrollo No-Code", sk2_e:"Hojas de Ruta",
+    sk3_h:"Automatización e IA", sk3_a:"Sistemas y Herramientas de Automatización", sk3_b:"Agentes de IA", sk3_c:"Dashboards", sk3_d:"Diseño de Flujos", sk3_e:"Visualización de Datos",
+    art_label:"Escritura", art_title:"Reflexiones sobre estrategia, producto y construcción.",
+    art_cat_strategy:"Estrategia", art_cat_product:"Producto", art_cat_growth:"Crecimiento",
+    art_read:"Leer artículo →",
+    art1_h:"Por qué las startups africanas necesitan modelos de valoración distintos",
+    art1_p:"Los métodos DCF y VC estándar fallan en mercados emergentes de alta incertidumbre y baja liquidez. Aquí está el framework que construí para startups argelinas y por qué los supuestos siempre importan más que el modelo.",
+    art1_time:"8 min de lectura",
+    art2_h:"La ilusión del PMF en mercados emergentes",
+    art2_p:"La tracción temprana no es prueba de product-market fit. Un framework para separar la novedad de la demanda real y escalable — y las señales que realmente importan.",
+    art2_time:"5 min de lectura",
+    art3_h:"25.000 usuarios en 5 días: una historia de go-to-market",
+    art3_p:"Lo que realmente pasó cuando lanzamos A9RA — los movimientos que funcionaron, los que no, y lo que haría diferente con mejor runway.",
+    art3_time:"4 min de lectura",
+    exp_label:"Trayectoria", exp_title:"Una trayectoria construyendo.",
+    present:"Actualidad", current:"Actual",
+    vex_role:"Becario de Operaciones, Marketing y Estrategia de Negocio",
+    vex_p:"Impulsando la eficiencia operativa y las iniciativas de salida al mercado — creando sistemas de automatización, flujos asistidos por IA y dashboards de rendimiento para apoyar la toma de decisiones estratégicas.",
+    a9_role:"Cofundador",
+    a9_p:"Ejecuté la estrategia de salida al mercado que captó más de 25.000 usuarios en los 5 primeros días de la beta pública. Realicé análisis competitivo para detectar oportunidades en EdTech y elaboré el pitch deck y las proyecciones financieras para la ronda pre-seed.",
+    mo_role:"Diseñador de Producto Principal",
+    mo_p:"Liderando el rediseño estratégico de Moustachir V4, transformando el producto en el primer marketplace de consultoría digital totalmente integrado de la región.",
+    pa_role:"Diseñador de Producto",
+    pa_p:"Desarrollé la estrategia de hoja de ruta de producto para clientes, mejorando la retención y el feedback. Dirigí la creación de \"AngelEast\", una plataforma que conecta a fundadores de MENA con inversores regionales para impulsar el flujo de operaciones en etapas tempranas.",
+    hx_role:"Diseñador de Producto",
+    hx_p:"Gestioné la entrega de producto de extremo a extremo, optimizando la escalabilidad y el time-to-market.",
+    vm_co:"Investigación de Modelos de Valoración", vm_role:"Analista de Investigación",
+    vm_p:"Desarrollé marcos de valoración para startups argelinas adaptando modelos establecidos al contexto de mercados emergentes.",
+    ru_role:"Inicios y Consultoría",
+    ru_p:"Asesoré a la dirección de clientes en hojas de ruta de producto y estrategias de retención, con impacto directo en ingresos y posicionamiento.",
+    edu_label:"Formación",
+    ed1_d:"Máster en Comercio Internacional y Negocios", ed2_d:"Grado en Marketing y Gestión de Empresas", ed3_d:"Grado en Álgebra y Criptografía",
+    lang_label:"Idiomas", lv_bi:"Bilingüe", lv_adv:"Avanzado", lv_int:"Intermedio", lv_nat:"Nativo",
+    contact_label:"Contacto", contact_h:"Construyamos algo que valga la pena escalar.",
+    foot:"Madrid, España · Operaciones y Estrategia"
+  },
+  fr:{
+    nav_about:"Profil", nav_skills:"Expertise", nav_work:"Projets", nav_articles:"Articles", nav_exp:"Parcours", nav_contact:"Contact",
+    work_label:"Réalisations", work_title:"Une sélection de mon portfolio.",
+    filt_all:"Tout", filt_product:"Produit & UX", filt_web:"Apps Web", filt_landing:"Landing Pages", filt_brand:"Identité",
+    view_live:"Voir le site →",
+    t_uiux:"UI/UX", t_web:"App Web", t_brand:"Identité", t_landing:"Landing Page", t_dash:"Dashboard", t_graphic:"Design Graphique",
+    pj_moustachir:"Refonte stratégique de Moustachir vers la première marketplace de conseil digital entièrement intégrée de la région.",
+    pj_angel:"Une plateforme reliant les fondateurs du MENA aux investisseurs régionaux pour accélérer le deal flow early-stage.",
+    pj_positive:"Identité de marque et landing page pour Positive Agency, un studio de produit et de design.",
+    pj_a9ra:"Identité de marque et landing page pour une startup EdTech ayant atteint plus de 25 000 utilisateurs en 5 jours.",
+    pj_dashbi:"Conception d'interface pour un dashboard de business intelligence et de reporting.",
+    pj_studiit:"Design produit de bout en bout pour une plateforme web dédiée aux étudiants.",
+    pj_nusuk:"Une exploration de refonte verticale réimaginant l'expérience de réservation Nusuk.",
+    pj_genelin:"Identité de marque complète et système de design graphique pour Genelin.",
+    pj_actile:"Plateforme d'opérations interne conçue pour la scalabilité et la rapidité.",
+    pj_webserv:"Interfaces utilisateur et administration pour une marketplace de services web.",
+    hero_eyebrow:"Stratégie · Produit · Opérations",
+    hero_role:"Stratège business et designer produit alliant rigueur quantitative et instinct de fondateur — créant, valorisant et faisant croître des startups au MENA et en Europe.",
+    hero_cta1:"Me contacter", hero_cta2:"Télécharger le CV",
+    about_label:"Profil",
+    about_text:"Analyste en devenir alliant un <b>socle technique en Algèbre & Cryptographie</b> à une véritable expérience de fondateur. Actuellement en Master de Commerce International et Business à l'ESIC Madrid, et <b>Stagiaire Opérations, Marketing & Stratégie d'Entreprise chez Valtier Real Estate</b>. J'applique la stratégie produit et la discipline quantitative pour évaluer l'adéquation produit-marché, structurer des deals et transformer des idées en projets scalables.",
+    skills_label:"Ce que je fais", skills_title:"Expertise en stratégie, produit et automatisation.",
+    sk1_h:"Investissement & Stratégie", sk1_a:"Valorisation de Startups", sk1_b:"Dimensionnement de Marché", sk1_c:"Due Diligence", sk1_d:"Sourcing de Deals", sk1_e:"Analyse de Business Model", sk1_f:"Étude de Marché",
+    sk2_h:"Produit & Tech", sk2_a:"Stratégie Produit", sk2_b:"UI/UX & Prototypage", sk2_c:"Benchmark Concurrentiel", sk2_d:"Développement No-Code", sk2_e:"Roadmapping",
+    sk3_h:"Automatisation & IA", sk3_a:"Systèmes & Outils d'Automatisation", sk3_b:"Agents IA", sk3_c:"Dashboards", sk3_d:"Conception de Workflows", sk3_e:"Visualisation de Données",
+    art_label:"Écrits", art_title:"Réflexions sur la stratégie, le produit et la construction.",
+    art_cat_strategy:"Stratégie", art_cat_product:"Produit", art_cat_growth:"Croissance",
+    art_read:"Lire l'article →",
+    art1_h:"Pourquoi les startups africaines ont besoin de modèles de valorisation différents",
+    art1_p:"Les méthodes DCF et VC standard s'effondrent dans les marchés émergents à haute incertitude et faible liquidité. Voici le cadre que j'ai construit pour les startups algériennes — et pourquoi les hypothèses comptent toujours plus que le modèle.",
+    art1_time:"8 min de lecture",
+    art2_h:"L'illusion du PMF dans les marchés émergents",
+    art2_p:"La traction précoce n'est pas une preuve d'adéquation produit-marché. Un cadre pour distinguer la nouveauté d'une demande réelle et scalable — et les signaux qui comptent vraiment.",
+    art2_time:"5 min de lecture",
+    art3_h:"25 000 utilisateurs en 5 jours : une histoire de go-to-market",
+    art3_p:"Ce qui s'est vraiment passé lors du lancement d'A9RA — les mouvements qui ont fonctionné, ceux qui n'ont pas marché, et ce que je ferais différemment avec plus de runway.",
+    art3_time:"4 min de lecture",
+    exp_label:"Parcours", exp_title:"Un parcours de bâtisseur.",
+    present:"Aujourd'hui", current:"En cours",
+    vex_role:"Stagiaire Opérations, Marketing & Stratégie d'Entreprise",
+    vex_p:"Pilotage de l'efficacité opérationnelle et des initiatives go-to-market — création de systèmes d'automatisation, de workflows assistés par IA et de dashboards de performance pour appuyer la décision stratégique.",
+    a9_role:"Cofondateur",
+    a9_p:"Exécution de la stratégie go-to-market ayant acquis plus de 25 000 utilisateurs en 5 jours après le lancement de la bêta publique. Analyse concurrentielle pour identifier les opportunités EdTech et création du pitch deck investisseurs et des projections financières du tour pre-seed.",
+    mo_role:"Lead Product Designer",
+    mo_p:"Pilotage de la refonte stratégique de Moustachir V4, transformant le produit en première marketplace de conseil digital entièrement intégrée de la région.",
+    pa_role:"Product Designer",
+    pa_p:"Élaboration de la stratégie de roadmap produit pour les clients, améliorant la rétention et les retours. Direction de la création d'« AngelEast », une plateforme reliant les fondateurs du MENA aux investisseurs régionaux pour dynamiser le deal flow early-stage.",
+    hx_role:"Product Designer",
+    hx_p:"Gestion de la livraison produit de bout en bout, en optimisant la scalabilité et le time-to-market.",
+    vm_co:"Recherche sur les Modèles de Valorisation", vm_role:"Analyste de Recherche",
+    vm_p:"Conception de cadres de valorisation pour les startups algériennes en adaptant les modèles établis au contexte des marchés émergents.",
+    ru_role:"Débuts & Conseil",
+    ru_p:"Conseil aux directions clientes sur les roadmaps produit et les stratégies de rétention, avec un impact direct sur le chiffre d'affaires et le positionnement.",
+    edu_label:"Formation",
+    ed1_d:"Master en Commerce International & Business", ed2_d:"Licence en Marketing & Gestion d'Entreprise", ed3_d:"Licence en Algèbre & Cryptographie",
+    lang_label:"Langues", lv_bi:"Bilingue", lv_adv:"Avancé", lv_int:"Intermédiaire", lv_nat:"Natif",
+    contact_label:"Contact", contact_h:"Construisons quelque chose qui mérite de grandir.",
+    foot:"Madrid, Espagne · Opérations & Stratégie"
+  }
+};
+</script>
+<script type="importmap">
+{ "imports": {
+  "react": "https://esm.sh/react@18.3.1",
+  "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+  "framer-motion": "https://esm.sh/framer-motion@11.11.17?external=react"
+}}
+</script>
+<script src="https://unpkg.com/@babel/standalone@7.25.6/babel.min.js"></script>
+<script type="text/babel" data-type="module" data-presets="react">
+import React, { useState, useEffect, useRef } from "react";
+import { createRoot } from "react-dom/client";
+import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion, useMotionValue } from "framer-motion";
+
+const I18N = window.I18N_DATA;
+
+const SPRING = { type:"spring", stiffness:90, damping:18, mass:0.8 };
+const SOFT = { type:"spring", stiffness:80, damping:16 };
+
+function Reveal({ children, tag="div", className, delay=0, y=24, ...rest }){
+  const rm = useReducedMotion();
+  const M = motion[tag] || motion.div;
+  return (
+    <M className={className}
+       initial={rm ? false : { opacity:0, y }}
+       whileInView={{ opacity:1, y:0 }}
+       viewport={{ once:true, margin:"-8% 0px" }}
+       transition={rm ? { duration:0 } : { ...SPRING, delay }}
+       {...rest}>{children}</M>
+  );
+}
+
+function Title({ children }){
+  const rm = useReducedMotion();
+  const [inview, setInview] = useState(false);
+  return (
+    <motion.h2 className={"title" + (inview ? " in" : "")}
+      initial={rm ? false : { opacity:0, y:20 }}
+      whileInView={{ opacity:1, y:0 }}
+      viewport={{ once:true, margin:"-8% 0px" }}
+      transition={rm ? { duration:0 } : SPRING}
+      onViewportEnter={() => setInview(true)}>{children}</motion.h2>
+  );
+}
+
+function Magnetic({ children, className, href, target, onClick }){
+  const rm = useReducedMotion();
+  const ref = useRef(null);
+  const x = useMotionValue(0), y = useMotionValue(0);
+  const sx = useSpring(x, { stiffness:220, damping:16 });
+  const sy = useSpring(y, { stiffness:220, damping:16 });
+  function move(e){
+    if(rm || !ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    x.set((e.clientX - (r.left + r.width/2)) * 0.28);
+    y.set((e.clientY - (r.top + r.height/2)) * 0.28);
+  }
+  function leave(){ x.set(0); y.set(0); }
+  return (
+    <motion.a ref={ref} href={href} target={target} onClick={onClick}
+      className={className} style={{ x:sx, y:sy }}
+      onMouseMove={move} onMouseLeave={leave}
+      whileTap={{ scale:0.96 }}>{children}</motion.a>
+  );
+}
+
+const CH = "ABCDEF0123456789!<>-_/[]{}=+*#@§";
+function Decode({ text }){
+  const rm = useReducedMotion();
+  const [out, setOut] = useState(text);
+  const idRef = useRef(null);
+  function run(){
+    if(rm){ setOut(text); return; }
+    clearInterval(idRef.current);
+    const settle = [];
+    for(let i=0;i<text.length;i++) settle[i] = Math.floor(Math.random()*10) + i*3;
+    const max = Math.max(...settle); let f = 0;
+    idRef.current = setInterval(() => {
+      let o = "";
+      for(let i=0;i<text.length;i++){
+        if(text[i]===" "){ o+=" "; continue; }
+        o += f>=settle[i] ? text[i] : CH[Math.floor(Math.random()*CH.length)];
+      }
+      setOut(o); f++;
+      if(f > max+1){ clearInterval(idRef.current); setOut(text); }
+    }, 42);
+  }
+  useEffect(() => { const t = setTimeout(run, 220); return () => { clearTimeout(t); clearInterval(idRef.current); }; }, []);
+  return <span className="decode" onMouseEnter={run}>{out}</span>;
+}
+
+function Nav({ lang, setLang, t }){
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const f = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", f); f();
+    return () => window.removeEventListener("scroll", f);
+  }, []);
+  const links = [["about","nav_about"],["skills","nav_skills"],["work","nav_work"],["articles","nav_articles"],["experience","nav_exp"],["contact","nav_contact"]];
+  return (
+    <nav className={scrolled ? "scrolled" : ""}>
+      <div className="wrap nav-inner">
+        <a href="#top" className="brand">Sofiane Hafsaoui</a>
+        <div className="nav-links">
+          {links.map(([id,k]) => <a key={id} href={"#"+id}>{t(k)}</a>)}
+          <div className="lang-toggle" role="group" aria-label="Language">
+            {["en","es","fr"].map(l => (
+              <button key={l} className={lang===l ? "active" : ""} onClick={() => setLang(l)}>{l.toUpperCase()}</button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+function Hero({ t }){
+  const rm = useReducedMotion();
+  const container = { hidden:{}, show:{ transition:{ staggerChildren:0.12, delayChildren:0.08 } } };
+  const item = { hidden:{ opacity:0, y:28 }, show:{ opacity:1, y:0, transition:SOFT } };
+  return (
+    <header className="hero" id="top">
+      <div className="wrap">
+        <motion.div variants={rm ? undefined : container} initial={rm ? false : "hidden"} animate={rm ? false : "show"}>
+          <motion.p className="eyebrow" variants={item}>{t("hero_eyebrow")}</motion.p>
+          <motion.h1 className="name" variants={item}><Decode text="Sofiane" /><br /><Decode text="Hafsaoui" /></motion.h1>
+          <motion.p className="role" variants={item}>{t("hero_role")}</motion.p>
+          <motion.div className="cta-row" variants={item}>
+            <Magnetic className="btn solid" href="#contact">{t("hero_cta1")}</Magnetic>
+            <Magnetic className="btn ghost" href="Sofiane Hafsaoui CV English.pdf" target="_blank">{t("hero_cta2")}</Magnetic>
+          </motion.div>
+        </motion.div>
+      </div>
+    </header>
+  );
+}
+
+function About({ t }){
+  return (
+    <section id="about">
+      <div className="wrap">
+        <Reveal tag="p" className="sec-label">{t("about_label")}</Reveal>
+        <Reveal tag="p" className="lead" delay={0.05} dangerouslySetInnerHTML={{ __html: t("about_text") }} />
+      </div>
+    </section>
+  );
+}
+
+const SKILLS = [
+  { num:"01", h:"sk1_h", tags:["sk1_a","sk1_b","sk1_c","sk1_d","sk1_e","sk1_f"] },
+  { num:"02", h:"sk2_h", tags:["sk2_a","sk2_b","sk2_c","sk2_d","sk2_e"] },
+  { num:"03", h:"sk3_h", tags:["sk3_a","sk3_b","sk3_c","sk3_d","sk3_e"] }
+];
+function Skills({ t }){
+  const rm = useReducedMotion();
+  return (
+    <section id="skills">
+      <div className="wrap">
+        <Reveal tag="p" className="sec-label">{t("skills_label")}</Reveal>
+        <Title>{t("skills_title")}</Title>
+        <motion.div className="skill-grid"
+          initial={rm ? false : "hidden"} whileInView="show" viewport={{ once:true, margin:"-6% 0px" }}
+          variants={{ hidden:{}, show:{ transition:{ staggerChildren:0.1 } } }}>
+          {SKILLS.map(s => (
+            <motion.div className="skill-cell" key={s.num}
+              variants={{ hidden:{ opacity:0, y:22 }, show:{ opacity:1, y:0, transition:SPRING } }}>
+              <span className="num">{s.num}</span>
+              <h3>{t(s.h)}</h3>
+              <div className="tags">{s.tags.map(tag => <span key={tag}>{t(tag)}</span>)}</div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+const EXP = [
+  { when:"2026 — ", present:true, co:"Valtier Real Estate", badge:true, role:"vex_role", p:"vex_p" },
+  { when:"2024 — ", present:true, co:"A9RA", role:"a9_role", p:"a9_p" },
+  { when:"12/2025 — ", present:true, co:"Moustachir", role:"mo_role", p:"mo_p" },
+  { when:"01/2025 — 09/2025", co:"Positive Agency", role:"pa_role", p:"pa_p" },
+  { when:"2024 — 2025", co:"Hexaee", role:"hx_role", p:"hx_p" },
+  { when:"2024 — 2025", coKey:"vm_co", role:"vm_role", p:"vm_p" },
+  { when:"2022 — 2023", co:"Ruina Studio & Itihad Group", role:"ru_role", p:"ru_p" }
+];
+function Experience({ t }){
+  return (
+    <section id="experience">
+      <div className="wrap">
+        <Reveal tag="p" className="sec-label">{t("exp_label")}</Reveal>
+        <Title>{t("exp_title")}</Title>
+        {EXP.map((e,i) => (
+          <Reveal className="exp" key={i} delay={Math.min(i,4)*0.04}>
+            <div className="when">{e.when}{e.present ? t("present") : ""}</div>
+            <div className="body">
+              <h3>{e.coKey ? t(e.coKey) : e.co}{e.badge && <span className="badge">{t("current")}</span>}</h3>
+              <div className="co-role">{t(e.role)}</div>
+              <p>{t(e.p)}</p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+const WORK = [
+  { name:"Moustachir V4", yr:"2025", cat:"product", desc:"pj_moustachir", chips:["t_uiux","t_web"] },
+  { name:"Angel East", yr:"2025", cat:"web", desc:"pj_angel", chips:["t_web","t_landing"], live:"https://conclusive-anything-025785.framer.app/" },
+  { name:"Positive Agency", yr:"2025", cat:"landing", desc:"pj_positive", chips:["t_landing","t_brand"], live:"https://positiveagency.co/" },
+  { name:"A9RA", yr:"2024", cat:"landing", desc:"pj_a9ra", chips:["t_landing","t_brand"] },
+  { name:"Dash BI", yr:"2024", cat:"product", desc:"pj_dashbi", chips:["t_uiux","t_dash"] },
+  { name:"Studiit", yr:"2024", cat:"web", desc:"pj_studiit", chips:["t_uiux","t_web"] },
+  { name:"Nusuk", yr:"2024", cat:"product", desc:"pj_nusuk", chips:["t_uiux","t_landing"] },
+  { name:"Genelin", yr:"2024", cat:"brand", desc:"pj_genelin", chips:["t_brand","t_graphic"] },
+  { name:"Actile Platform", yr:"2023", cat:"web", desc:"pj_actile", chips:["t_uiux","t_web"] },
+  { name:"Web Services Platform", yr:"2023", cat:"web", desc:"pj_webserv", chips:["t_uiux","t_web"] }
+];
+const FILTERS = [["all","filt_all"],["product","filt_product"],["web","filt_web"],["landing","filt_landing"],["brand","filt_brand"]];
+function Work({ t }){
+  const rm = useReducedMotion();
+  const [f, setF] = useState("all");
+  const items = WORK.filter(w => f==="all" || w.cat===f);
+  return (
+    <section id="work">
+      <div className="wrap">
+        <Reveal tag="p" className="sec-label">{t("work_label")}</Reveal>
+        <Title>{t("work_title")}</Title>
+        <Reveal className="filters">
+          {FILTERS.map(([id,k]) => (
+            <button key={id} className={f===id ? "active" : ""} onClick={() => setF(id)}>{t(k)}</button>
+          ))}
+        </Reveal>
+        <motion.div className="work-grid" layout>
+          <AnimatePresence mode="popLayout">
+            {items.map(w => (
+              <motion.div className="card" key={w.name} layout
+                initial={rm ? false : { opacity:0, scale:0.94 }}
+                animate={{ opacity:1, scale:1 }}
+                exit={rm ? { opacity:0 } : { opacity:0, scale:0.94 }}
+                transition={SPRING}
+                whileHover={rm ? undefined : { y:-4, boxShadow:"0 18px 50px -28px rgba(0,0,0,.28)" }}>
+                <div className="card-top"><h3>{w.name}</h3><span className="yr">{w.yr}</span></div>
+                <p>{t(w.desc)}</p>
+                <div className="chips">{w.chips.map(c => <span key={c}>{t(c)}</span>)}</div>
+                {w.live && <a className="live" href={w.live} target="_blank">{t("view_live")}</a>}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+const ARTS = [
+  { h:"art1_h", p:"art1_p", time:"art1_time", cat:"art_cat_strategy", date:"2025", feat:true },
+  { h:"art2_h", p:"art2_p", time:"art2_time", cat:"art_cat_product", date:"2025" },
+  { h:"art3_h", p:"art3_p", time:"art3_time", cat:"art_cat_growth", date:"2024" }
+];
+function Articles({ t }){
+  return (
+    <section id="articles">
+      <div className="wrap">
+        <Reveal tag="p" className="sec-label">{t("art_label")}</Reveal>
+        <Title>{t("art_title")}</Title>
+        <div className="art-grid">
+          {ARTS.map((a,i) => (
+            <Reveal className={"art-card" + (a.feat ? " art-feat" : "")} key={i} delay={Math.min(i,3)*0.06}
+              whileHover={{ y:-4, boxShadow:"0 18px 50px -28px rgba(0,0,0,.28)", borderColor:"#dcdcdc" }}>
+              <div className="art-meta">
+                <span className="art-cat">{t(a.cat)}</span>
+                <span className="art-date">{a.date}</span>
+                <span className="art-sep">/</span>
+                <span className="art-time">{t(a.time)}</span>
+              </div>
+              <h3>{t(a.h)}</h3>
+              <p>{t(a.p)}</p>
+              <a className="art-read" href="#">{t("art_read")}</a>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const EDU = [
+  { d:"ed1_d", school:"ESIC, Madrid", yr:"Sep 2025 — ", present:true },
+  { d:"ed2_d", school:"ISG, Algiers", yr:"2022 — 2025" },
+  { d:"ed3_d", school:"USTHB, Algiers", yr:"2020 — 2022" }
+];
+const LANGS = [
+  { l:"English", k:"lv_bi", n:5 },
+  { l:"Français", k:"lv_adv", n:4 },
+  { l:"Español", k:"lv_int", n:3 },
+  { l:"العربية", k:"lv_nat", n:5 }
+];
+function Education({ t }){
+  return (
+    <section id="education">
+      <div className="wrap">
+        <div className="two">
+          <Reveal>
+            <p className="sec-label">{t("edu_label")}</p>
+            {EDU.map((e,i) => (
+              <div className="edu-item" key={i}>
+                <h3>{t(e.d)}</h3>
+                <div className="school">{e.school}</div>
+                <div className="yr">{e.yr}{e.present ? t("present") : ""}</div>
+              </div>
+            ))}
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="sec-label">{t("lang_label")}</p>
+            {LANGS.map((lg,i) => (
+              <div className="lang-row" key={i}>
+                <span className="l">{lg.l}</span>
+                <span className="lvl">{t(lg.k)}
+                  <span className="dots">{[0,1,2,3,4].map(d => <i key={d} className={d<lg.n ? "on" : ""} />)}</span>
+                </span>
+              </div>
+            ))}
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact({ t }){
+  return (
+    <section id="contact" style={{ borderBottom:"0" }}>
+      <div className="wrap">
+        <Reveal tag="p" className="sec-label">{t("contact_label")}</Reveal>
+        <Reveal><h2 className="contact-h">{t("contact_h")}</h2></Reveal>
+        <Reveal className="contact-links" delay={0.05}>
+          <Magnetic className="btn solid" href="mailto:sofiane7hafsaoui@gmail.com">sofiane7hafsaoui@gmail.com</Magnetic>
+          <Magnetic className="btn ghost" href="https://www.linkedin.com/in/sofiane-hafsaoui" target="_blank">LinkedIn</Magnetic>
+          <Magnetic className="btn ghost" href="tel:+34662316895">+34 662 316 895</Magnetic>
+          <Magnetic className="btn ghost" href="Sofiane Hafsaoui CV English.pdf" target="_blank">{t("hero_cta2")}</Magnetic>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function Progress(){
+  const { scrollYProgress } = useScroll();
+  const sx = useSpring(scrollYProgress, { stiffness:120, damping:30, mass:0.4 });
+  return <motion.div id="progress" style={{ scaleX:sx }} />;
+}
+
+function App(){
+  const [lang, setLangState] = useState("en");
+  const setLang = (l) => { setLangState(l); document.documentElement.lang = l; };
+  const t = (k) => (I18N[lang] && I18N[lang][k] !== undefined) ? I18N[lang][k] : ((I18N.en[k] !== undefined) ? I18N.en[k] : k);
+  return (
+    <React.Fragment>
+      <Progress />
+      <Nav lang={lang} setLang={setLang} t={t} />
+      <Hero t={t} />
+      <About t={t} />
+      <Skills t={t} />
+      <Experience t={t} />
+      <Work t={t} />
+      <Articles t={t} />
+      <Education t={t} />
+      <Contact t={t} />
+      <footer className="wrap">
+        <span>© 2026 Sofiane Hafsaoui</span>
+        <span>{t("foot")}</span>
+      </footer>
+      <div className="v2-badge">Motion preview</div>
+    </React.Fragment>
+  );
+}
+
+createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
