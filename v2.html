@@ -288,6 +288,17 @@
   @media(max-width:600px){#tools-stage{padding:14px 20px 38px}.tgrid{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}#brain-close,#tools-close{width:40px;height:40px;font-size:22px}#net-stage{padding:4px 6px 18px}#net-stage .node-g:not(.cat-g):not(.core-g) .lbl{display:none}.cat-g .lbl{font-weight:600}#tool-pop{padding:26px 24px 24px}.bo-head{padding:22px 20px 0}.bo-head h2{font-size:25px}}
   @media(max-width:780px){#narrator{display:none}}
   @media(max-width:430px){.tgrid{grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:10px}.tool{padding:18px 8px}.tool .tname{font-size:12px}}
+  .edu-slider{overflow:hidden;margin-top:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .edu-track{display:flex;width:max-content;gap:8px}
+  .edu-chip{white-space:nowrap;font-size:11.5px;color:#555;border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:#fff}
+  .node-g .lbl{paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round}
+  .net-legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px}
+  .net-legend span[data-cat]{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);cursor:pointer;transition:color .2s}
+  .net-legend span[data-cat]:hover{color:var(--ink)}
+  .net-legend i{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+  .net-legend span[data-cat="invest"] i{background:#2f7a72}
+  .net-legend span[data-cat="product"] i{background:#5a63b8}
+  .net-legend span[data-cat="ai"] i{background:#b9722f}
 </style>
 </head>
 <body>
@@ -510,6 +521,11 @@ window.MODULES_HTML = `
       <p class="sec-label" data-i18n="net_eyebrow">Polymath</p>
       <h2 data-i18n="net_title">How everything I do connects.</h2>
       <p class="net-hint" data-i18n="net_hint">Hover any node to trace its connections.</p>
+      <div class="net-legend">
+        <span data-cat="invest"><i></i><span data-i18n="sk1_h">Investment & Strategy</span></span>
+        <span data-cat="product"><i></i><span data-i18n="sk2_h">Product & Tech</span></span>
+        <span data-cat="ai"><i></i><span data-i18n="sk3_h">Automation & AI</span></span>
+      </div>
     </div>
     <button id="brain-close" aria-label="Close">&times;</button>
   </div>
@@ -591,8 +607,10 @@ window.MODULES_HTML = `
       const R=isCore?34:(isCat?26:6.5);
       let delay = isCore?0.05 : (isCat?0.32:0.62);
       if(isCat) delay += NET_DATA.cats.findIndex(c=>c.id===id)*0.08;
-      let inner = isCore ? '<circle class="halo" r="48"></circle><circle class="ring" r="'+R+'"></circle>' : '<circle class="ring" r="'+R+'"></circle>';
-      if(isCore||isCat){ const ic=isCore?NET_ICONS.brain:NET_ICONS[nd.icon]; const sc=isCore?1.15:0.92; inner+='<g class="icn" transform="translate('+(-12*sc).toFixed(1)+','+(-12*sc).toFixed(1)+') scale('+sc+')">'+ic+'</g>'; }
+      const catCol = NET_COLORS[nd.cat] || '#1a1a1a';
+      const ringStyle = isCat ? ' style="stroke:'+catCol+'"' : '';
+      let inner = isCore ? '<circle class="halo" r="48"></circle><circle class="ring" r="'+R+'"></circle>' : '<circle class="ring" r="'+R+'"'+ringStyle+'></circle>';
+      if(isCore||isCat){ const ic=isCore?NET_ICONS.brain:NET_ICONS[nd.icon]; const sc=isCore?1.15:0.92; const icnStyle = isCat ? ' style="stroke:'+catCol+'"' : ''; inner+='<g class="icn"'+icnStyle+' transform="translate('+(-12*sc).toFixed(1)+','+(-12*sc).toFixed(1)+') scale('+sc+')">'+ic+'</g>'; }
       else { inner+='<circle class="dotc" r="2.6"></circle>'; }
       if(!isCore){
         if(isCat){ const ly = nd.y<CY ? R+22 : -(R+14); inner+='<text class="lbl" x="0" y="'+ly+'" text-anchor="middle" font-size="19">'+nd.label+'</text>'; }
@@ -1549,19 +1567,50 @@ function Articles({
     href: "#"
   }, t("art_read")))))));
 }
+const ESIC_MODS = ["Global Economic Environment", "Internationalization Strategy", "International Marketing", "Market Entry Strategies", "International Trade Law", "Trade Policy & Regulation", "Finance for Trade Business", "International Trade Finance", "Supply Chain & Operations", "Digital Trade", "Data & Analytics", "Sustainability & ESG", "Intercultural Leadership", "Market Research", "Demand Forecasting", "Project Management", "Business Strategy", "Final Master Project"];
+const ISG_MODS = ["Fundamentals of Marketing", "Market Research", "Consumer Behaviour", "International Commerce", "Business Economics", "Microeconomics", "Macroeconomics", "General Accounting", "Analytical Accounting", "Financial Management", "Commercial Law", "Labor Law", "Taxation", "Statistics", "Probability", "Applied Mathematics", "Logistics", "CRM", "Project Management", "Human Resources", "Digital Intelligence", "CSR", "Business English", "Spanish"];
+const USTHB_MODS = ["Algebra", "Linear Algebra", "Number Theory", "Cryptography", "Mathematical Analysis", "Probability & Statistics", "Discrete Mathematics", "Logic & Set Theory", "Group Theory", "Coding Theory", "Algorithmics", "Programming"];
+function EduSlider({
+  items,
+  dir = 1
+}) {
+  const rm = useReducedMotion();
+  const row = items.concat(items);
+  const dur = Math.max(20, items.length * 1.8);
+  return /*#__PURE__*/React.createElement("div", {
+    className: "edu-slider",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement(motion.div, {
+    className: "edu-track",
+    animate: rm ? {} : {
+      x: dir > 0 ? ["0%", "-50%"] : ["-50%", "0%"]
+    },
+    transition: rm ? {} : {
+      duration: dur,
+      repeat: Infinity,
+      ease: "linear"
+    }
+  }, row.map((m, i) => /*#__PURE__*/React.createElement("span", {
+    className: "edu-chip",
+    key: i
+  }, m))));
+}
 const EDU = [{
   d: "ed1_d",
   school: "ESIC, Madrid",
   yr: "Sep 2025 — ",
-  present: true
+  present: true,
+  mods: ESIC_MODS
 }, {
   d: "ed2_d",
   school: "ISG, Algiers",
-  yr: "2022 — 2025"
+  yr: "2022 — 2025",
+  mods: ISG_MODS
 }, {
   d: "ed3_d",
   school: "USTHB, Algiers",
-  yr: "2020 — 2022"
+  yr: "2020 — 2022",
+  mods: USTHB_MODS
 }];
 const LANGS = [{
   l: "English",
@@ -1598,7 +1647,10 @@ function Education({
     className: "school"
   }, e.school), /*#__PURE__*/React.createElement("div", {
     className: "yr"
-  }, e.yr, e.present ? t("present") : "")))), /*#__PURE__*/React.createElement(Reveal, {
+  }, e.yr, e.present ? t("present") : ""), e.mods && /*#__PURE__*/React.createElement(EduSlider, {
+    items: e.mods,
+    dir: i % 2 === 0 ? 1 : -1
+  })))), /*#__PURE__*/React.createElement(Reveal, {
     delay: 0.08
   }, /*#__PURE__*/React.createElement("p", {
     className: "sec-label"
