@@ -323,7 +323,7 @@ window.I18N_DATA = {
     pj_genelin:"Full brand identity and graphic design system for Genelin.",
     pj_actile:"Internal operations platform designed for scalability and speed.",
     pj_webserv:"User and admin interfaces for a web-services marketplace.",
-    hero_eyebrow:"Strategy · Product · Operations  <span style='display:inline-flex;align-items:center;gap:5px;font-size:11px;background:#dcfce7;color:#166534;border:1px solid #bbf7d0;border-radius:999px;padding:3px 10px;font-weight:500;vertical-align:middle;letter-spacing:.03em'><span style='width:6px;height:6px;border-radius:50%;background:#16a34a;display:inline-block'></span>Open to work · Madrid</span>",
+    hero_eyebrow:"Strategy · Product · Operations",
     hero_role:"Analyst and operator connecting strategy, product and numbers — A9RA co-founder, ESIC master’s, Valtier strategy intern. Based in Madrid and open to full-time roles in strategy, product, international business and analysis. — building, valuing and scaling startups across MENA and Europe.",
     hero_cta1:"Get in touch", hero_cta2:"Download CV",
     about_label:"Profile",
@@ -1236,7 +1236,7 @@ function Hero({
   }, /*#__PURE__*/React.createElement(motion.p, {
     className: "eyebrow",
     variants: item
-  }, t("hero_eyebrow")), /*#__PURE__*/React.createElement(motion.h1, {
+  }, t("hero_eyebrow")), React.createElement("span",{style:{display:"inline-flex",alignItems:"center",gap:"6px",fontSize:"12px",background:"#dcfce7",color:"#166534",border:"1px solid #bbf7d0",borderRadius:"999px",padding:"4px 12px",fontWeight:500,letterSpacing:".03em",marginTop:"12px",width:"fit-content",boxSizing:"border-box"}},React.createElement("span",{style:{width:"7px",height:"7px",borderRadius:"50%",background:"#16a34a",display:"inline-block",flexShrink:0}}),"\u00a0Open to work \u00b7 Madrid"), /*#__PURE__*/React.createElement(motion.h1, {
     className: "name",
     variants: item
   }, /*#__PURE__*/React.createElement(Decode, {
