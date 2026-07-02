@@ -299,6 +299,7 @@
   .net-legend span[data-cat="invest"] i{background:#2f7a72}
   .net-legend span[data-cat="product"] i{background:#5a63b8}
   .net-legend span[data-cat="ai"] i{background:#b9722f}
+  .net-legend span[data-cat].active{color:var(--ink);font-weight:600}
 </style>
 </head>
 <body>
@@ -639,12 +640,14 @@ window.MODULES_HTML = `
       edges.forEach(e=>{const a=e.dataset.a,b=e.dataset.b;if(a===id||b===id){e.classList.add('on');nb[a]=1;nb[b]=1;}});
       nodes.forEach(n=>{if(nb[n.dataset.id])n.classList.add('on');});
     }
+    stage._focus=focusF; stage._clear=clearF;
     nodes.forEach(n=>{
-      n.addEventListener('mouseenter',()=>focusF(n.dataset.id,n.dataset.cat));
-      n.addEventListener('mouseleave',clearF);
+      n.addEventListener('mouseenter',()=>{ if(!window._netPinned) focusF(n.dataset.id,n.dataset.cat); });
+      n.addEventListener('mouseleave',()=>{ if(!window._netPinned) clearF(); });
       n.addEventListener('click',e=>{e.stopPropagation();focusF(n.dataset.id,n.dataset.cat);});
     });
-    stage.querySelector('svg').addEventListener('click',clearF);
+    stage.querySelector('svg').addEventListener('click',()=>{ if(!window._netPinned) clearF(); });
+    if(window._netPinned) focusF(window._netPinned, window._netPinned);
   }
 
   const LOGOS_SVG={
@@ -810,7 +813,7 @@ window.MODULES_HTML = `
     // Polymath
     const brainBtn=document.getElementById('brain-btn');
     const bOverlay=document.getElementById('brain-overlay');
-    brainBtn.addEventListener('click',()=>{buildNet();bOverlay.classList.add('open');bOverlay.setAttribute('aria-hidden','false');window._netOpen=true;});
+    brainBtn.addEventListener('click',()=>{window._netPinned=null;document.querySelectorAll('.net-legend span[data-cat]').forEach(x=>x.classList.remove('active'));buildNet();bOverlay.classList.add('open');bOverlay.setAttribute('aria-hidden','false');window._netOpen=true;});
     function closeNet(){bOverlay.classList.remove('open');bOverlay.setAttribute('aria-hidden','true');window._netOpen=false;}
     document.getElementById('brain-close').addEventListener('click',closeNet);
 
@@ -871,6 +874,20 @@ window.MODULES_HTML = `
     if(narratorEl) narratorEl.addEventListener('click',()=>{cur=(nrIdx+1)%(NARR.en.length);nrShow(cur);});
     window._nrRender=()=>nrShow(nrIdx);
     nrShow(0);
+
+    // Polymath legend: hover previews a family, click pins/isolates it
+    const legend=document.querySelectorAll('.net-legend span[data-cat]');
+    function stageFocus(cat){const s=document.getElementById('net-stage'); if(s&&s._focus) s._focus(cat,cat);}
+    function stageClear(){const s=document.getElementById('net-stage'); if(s&&s._clear) s._clear();}
+    legend.forEach(li=>{
+      const cat=li.getAttribute('data-cat');
+      li.addEventListener('mouseenter',()=>{ if(!window._netPinned) stageFocus(cat); });
+      li.addEventListener('mouseleave',()=>{ if(!window._netPinned) stageClear(); });
+      li.addEventListener('click',()=>{
+        if(window._netPinned===cat){ window._netPinned=null; stageClear(); legend.forEach(x=>x.classList.remove('active')); }
+        else { window._netPinned=cat; stageFocus(cat); legend.forEach(x=>x.classList.toggle('active', x===li)); }
+      });
+    });
 
     window.__modulesSetLang(document.documentElement.lang||'en');
   }
