@@ -356,6 +356,12 @@
   .cs-metric .cs-cap{font-size:13px;color:var(--muted);max-width:240px}
   @media(max-width:820px){.cs-grid{grid-template-columns:1fr}.cred{padding:20px 0}}
   @media(max-width:600px){.cred-items span{font-size:17px}}
+  .exp-bar{display:flex;align-items:center;flex-wrap:wrap;gap:12px 22px;margin-top:36px;padding-top:26px;border-top:1px solid var(--line)}
+  .exp-bar-l{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);flex:0 0 auto}
+  .exp-bar-items{display:flex;flex-wrap:wrap;gap:10px 22px}
+  .exp-bar-items span{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#8a8a8a;transition:color .25s;cursor:default}
+  .exp-bar-items span:hover{color:var(--ink)}
+  @media(max-width:600px){.exp-bar{gap:10px 16px;margin-top:28px;padding-top:22px}.exp-bar-items span{font-size:16px}}
 </style>
 </head>
 <body>
@@ -425,7 +431,7 @@ window.I18N_DATA = {
     sk5_h:"Marketing & Growth", sk5_a:"Go-to-Market", sk5_b:"Brand & Positioning", sk5_c:"Growth & Acquisition", sk5_d:"Consumer Research", sk5_e:"Product Marketing", sk5_f:"Content & Storytelling",
     sk6_h:"Finance & Valuation", sk6_a:"Financial Modeling", sk6_b:"Startup Valuation", sk6_c:"Due Diligence", sk6_d:"Unit Economics", sk6_e:"Pitch Decks", sk6_f:"Fundraising",
     avail_line:"Based in Madrid · Full EU work rights · Open to work", pf1_l:"users in 5 days", pf2_l:"languages", pf3_l:"areas of expertise", pf4_l:"degrees", rec_lbl:"Recruiter view", rec_head:"The 60-second version", rec_avail_l:"Availability", rec_avail:"Madrid · Full EU work rights · Open to work now", rec_skills_l:"Core strengths", rec_roles_l:"Targeting", rec_roles:"Strategy · Product · International Business · Investment",
-    nav_case:"Case study", cred_l:"Studied & built at", cs_label:"Case study", cs_title:"A9RA — 25,000 users in 5 days.", cs_p_l:"Problem", cs_p:"EdTech in the region was crowded but full of gaps — I had to find a defensible wedge and prove real demand fast, on limited runway.", cs_a_l:"Approach", cs_a:"I ran a competitive landscape analysis to pinpoint the gap, designed the go-to-market, and built the investor pitch deck and financial projections for the pre-seed round.", cs_r_l:"Result", cs_r:"25,000+ users within 5 days of public beta — validating the wedge and equipping the raise.", cs_metric_l:"users acquired in the first 5 days",
+    nav_case:"Case study", cred_l:"Education", exp_bar_l:"Experience", cs_label:"Case study", cs_title:"A9RA — 25,000 users in 5 days.", cs_p_l:"Problem", cs_p:"EdTech in the region was crowded but full of gaps — I had to find a defensible wedge and prove real demand fast, on limited runway.", cs_a_l:"Approach", cs_a:"I ran a competitive landscape analysis to pinpoint the gap, designed the go-to-market, and built the investor pitch deck and financial projections for the pre-seed round.", cs_r_l:"Result", cs_r:"25,000+ users within 5 days of public beta — validating the wedge and equipping the raise.", cs_metric_l:"users acquired in the first 5 days",
     foot:"Madrid, Spain · Operations & Strategy"
   },
   es:{
@@ -490,7 +496,7 @@ window.I18N_DATA = {
     sk5_h:"Marketing y Crecimiento", sk5_a:"Salida al Mercado", sk5_b:"Marca y Posicionamiento", sk5_c:"Crecimiento y Adquisición", sk5_d:"Investigación de Consumidores", sk5_e:"Marketing de Producto", sk5_f:"Contenido y Narrativa",
     sk6_h:"Finanzas y Valoración", sk6_a:"Modelización Financiera", sk6_b:"Valoración de Startups", sk6_c:"Due Diligence", sk6_d:"Unit Economics", sk6_e:"Pitch Decks", sk6_f:"Captación de Fondos",
     avail_line:"En Madrid · Derecho a trabajar en la UE · Disponible", pf1_l:"usuarios en 5 días", pf2_l:"idiomas", pf3_l:"áreas de expertise", pf4_l:"titulaciones", rec_lbl:"Para reclutadores", rec_head:"La versión de 60 segundos", rec_avail_l:"Disponibilidad", rec_avail:"Madrid · Derecho a trabajar en la UE · Disponible ya", rec_skills_l:"Fortalezas clave", rec_roles_l:"Buscando", rec_roles:"Estrategia · Producto · Negocio Internacional · Inversión",
-    nav_case:"Caso", cred_l:"Formación y proyectos", cs_label:"Caso práctico", cs_title:"A9RA — 25.000 usuarios en 5 días.", cs_p_l:"Problema", cs_p:"El EdTech regional estaba saturado pero lleno de huecos — tenía que encontrar un ángulo defendible y demostrar demanda real rápido, con poco runway.", cs_a_l:"Enfoque", cs_a:"Realicé un análisis competitivo para detectar el hueco, diseñé la salida al mercado y construí el pitch deck y las proyecciones financieras para la ronda pre-seed.", cs_r_l:"Resultado", cs_r:"Más de 25.000 usuarios en los 5 días de beta pública — validando el ángulo y preparando la ronda.", cs_metric_l:"usuarios en los primeros 5 días",
+    nav_case:"Caso", cred_l:"Formación", exp_bar_l:"Experiencia", cs_label:"Caso práctico", cs_title:"A9RA — 25.000 usuarios en 5 días.", cs_p_l:"Problema", cs_p:"El EdTech regional estaba saturado pero lleno de huecos — tenía que encontrar un ángulo defendible y demostrar demanda real rápido, con poco runway.", cs_a_l:"Enfoque", cs_a:"Realicé un análisis competitivo para detectar el hueco, diseñé la salida al mercado y construí el pitch deck y las proyecciones financieras para la ronda pre-seed.", cs_r_l:"Resultado", cs_r:"Más de 25.000 usuarios en los 5 días de beta pública — validando el ángulo y preparando la ronda.", cs_metric_l:"usuarios en los primeros 5 días",
     foot:"Madrid, España · Operaciones y Estrategia"
   },
   fr:{
@@ -555,7 +561,7 @@ window.I18N_DATA = {
     sk5_h:"Marketing & Croissance", sk5_a:"Go-to-Market", sk5_b:"Marque & Positionnement", sk5_c:"Croissance & Acquisition", sk5_d:"Recherche Consommateur", sk5_e:"Marketing Produit", sk5_f:"Contenu & Storytelling",
     sk6_h:"Finance & Valorisation", sk6_a:"Modélisation Financière", sk6_b:"Valorisation de Startups", sk6_c:"Due Diligence", sk6_d:"Unit Economics", sk6_e:"Pitch Decks", sk6_f:"Levée de Fonds",
     avail_line:"Basé à Madrid · Droit de travail en UE · Disponible", pf1_l:"utilisateurs en 5 jours", pf2_l:"langues", pf3_l:"domaines d'expertise", pf4_l:"diplômes", rec_lbl:"Vue recruteur", rec_head:"La version 60 secondes", rec_avail_l:"Disponibilité", rec_avail:"Madrid · Droit de travail en UE · Disponible maintenant", rec_skills_l:"Points forts", rec_roles_l:"Objectif", rec_roles:"Stratégie · Produit · Business International · Investissement",
-    nav_case:"Étude de cas", cred_l:"Formation & projets", cs_label:"Étude de cas", cs_title:"A9RA — 25 000 utilisateurs en 5 jours.", cs_p_l:"Problème", cs_p:"L'EdTech régional était saturé mais plein de failles — je devais trouver un angle défendable et prouver une vraie demande vite, avec peu de runway.", cs_a_l:"Approche", cs_a:"J'ai mené une analyse concurrentielle pour cibler la faille, conçu le go-to-market et construit le pitch deck investisseurs et les projections financières du tour pre-seed.", cs_r_l:"Résultat", cs_r:"Plus de 25 000 utilisateurs en 5 jours de bêta publique — validant l'angle et préparant la levée.", cs_metric_l:"utilisateurs dans les 5 premiers jours",
+    nav_case:"Étude de cas", cred_l:"Formation", exp_bar_l:"Expérience", cs_label:"Étude de cas", cs_title:"A9RA — 25 000 utilisateurs en 5 jours.", cs_p_l:"Problème", cs_p:"L'EdTech régional était saturé mais plein de failles — je devais trouver un angle défendable et prouver une vraie demande vite, avec peu de runway.", cs_a_l:"Approche", cs_a:"J'ai mené une analyse concurrentielle pour cibler la faille, conçu le go-to-market et construit le pitch deck investisseurs et les projections financières du tour pre-seed.", cs_r_l:"Résultat", cs_r:"Plus de 25 000 utilisateurs en 5 jours de bêta publique — validant l'angle et préparant la levée.", cs_metric_l:"utilisateurs dans les 5 premiers jours",
     foot:"Madrid, Espagne · Opérations & Stratégie"
   }
 };
@@ -1359,7 +1365,16 @@ function Hero({
     variants: item
   }, /*#__PURE__*/React.createElement("span", {
     className: "ob-dot"
-  }), t("avail_line")))));
+  }), t("avail_line")), /*#__PURE__*/React.createElement(motion.div, {
+    className: "exp-bar",
+    variants: item
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "exp-bar-l"
+  }, t("exp_bar_l")), /*#__PURE__*/React.createElement("div", {
+    className: "exp-bar-items"
+  }, ["Valtier", "A9RA", "Moustachir", "Positive Agency", "Hexaee", "Itihad Group"].map(c => /*#__PURE__*/React.createElement("span", {
+    key: c
+  }, c)))))));
 }
 function About({
   t
@@ -1968,7 +1983,7 @@ function RecruiterOverlay({
 function Credibility({
   t
 }) {
-  const items = ["ESIC Madrid", "ISG Algiers", "USTHB", "A9RA", "Moustachir", "Positive Agency"];
+  const items = ["ESIC Madrid", "ISG Algiers", "USTHB Algiers"];
   return /*#__PURE__*/React.createElement("div", {
     className: "cred-band"
   }, /*#__PURE__*/React.createElement("div", {
