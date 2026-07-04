@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sofiane Hafsaoui — Strategy · Product · Analysis</title>
+<title>Sofiane Hafsaoui — Strategy, Product & International Business</title>
+<meta name="description" content="Sofiane Hafsaoui — analyst, strategist and product builder. Master's in International Trade & Business at ESIC Madrid, co-founder of A9RA (25,000+ users in 5 days). Open to full-time roles in strategy, product, international business and analysis." />
+<meta name="author" content="Sofiane Hafsaoui" />
+<meta name="theme-color" content="#ffffff" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sofiane Hafsaoui — Strategy, Product &amp; International Business" />
+<meta property="og:description" content="Sofiane Hafsaoui — analyst, strategist and product builder. Master's in International Trade & Business at ESIC Madrid, co-founder of A9RA (25,000+ users in 5 days). Open to full-time roles in strategy, product, international business and analysis." />
+<meta property="og:url" content="https://hafsaouisofiane.github.io/" />
+<meta property="og:site_name" content="Sofiane Hafsaoui" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Sofiane Hafsaoui — Strategy, Product &amp; International Business" />
+<meta name="twitter:description" content="Sofiane Hafsaoui — analyst, strategist and product builder. Master's in International Trade & Business at ESIC Madrid, co-founder of A9RA (25,000+ users in 5 days). Open to full-time roles in strategy, product, international business and analysis." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231a1a1a'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' fill='white' text-anchor='middle'>S</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -300,6 +312,50 @@
   .net-legend span[data-cat="product"] i{background:#5a63b8}
   .net-legend span[data-cat="ai"] i{background:#b9722f}
   .net-legend span[data-cat].active{color:var(--ink);font-weight:600}
+  .open-badge{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.06em;color:var(--ink);border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;margin-bottom:22px}
+  .ob-dot{width:8px;height:8px;border-radius:50%;background:#16a34a;flex:0 0 auto;box-shadow:0 0 0 0 rgba(22,163,74,.5);animation:obpulse 2s infinite}
+  @keyframes obpulse{0%{box-shadow:0 0 0 0 rgba(22,163,74,.5)}70%{box-shadow:0 0 0 7px rgba(22,163,74,0)}100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}}
+  @media(max-width:600px){.open-badge{margin-bottom:18px;font-size:11px}}
+  .proof{display:flex;flex-wrap:wrap;gap:30px 40px;margin-top:36px}
+  .proof .stat .num{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.5vw,44px);font-weight:600;line-height:1;color:var(--ink)}
+  .proof .stat .lbl{display:block;font-size:12px;color:var(--muted);letter-spacing:.03em;margin-top:6px;max-width:130px}
+  .avail-line{font-size:12.5px;color:var(--muted);letter-spacing:.02em;margin-top:20px;display:flex;align-items:center;gap:9px}
+  .rec-btn{font-size:12px;letter-spacing:.04em;color:var(--ink);border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;cursor:pointer;font-family:inherit;transition:border-color .25s;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+  .rec-btn:hover{border-color:var(--ink)}
+  .rec-btn .rb-dot{width:6px;height:6px;border-radius:50%;background:#16a34a;flex:0 0 auto}
+  .rec-overlay{position:fixed;inset:0;z-index:105;background:rgba(255,255,255,.98);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .4s;display:flex;align-items:center;justify-content:center;padding:24px}
+  .rec-overlay.open{opacity:1;pointer-events:auto}
+  .rec-card{position:relative;width:min(600px,96vw);max-height:92vh;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:20px;padding:40px 40px 34px;box-shadow:0 40px 100px -40px rgba(0,0,0,.5);transform:translateY(16px) scale(.985);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+  .rec-overlay.open .rec-card{transform:none}
+  .rec-card .rc-close{position:absolute;top:16px;right:20px;border:0;background:none;font-size:26px;line-height:1;color:var(--muted);cursor:pointer;transition:.2s}
+  .rec-card .rc-close:hover{color:var(--ink);transform:rotate(90deg)}
+  .rc-name{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;margin:6px 0 10px;line-height:1}
+  .rc-role{font-size:15px;color:#444;font-weight:300;line-height:1.5;margin-bottom:22px}
+  .rc-stats{display:flex;flex-wrap:wrap;gap:20px 30px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:20px}
+  .rc-stats .rc-num{display:block;font-family:'Cormorant Garamond',serif;font-size:29px;font-weight:600;line-height:1}
+  .rc-stats .rc-lbl{display:block;font-size:11.5px;color:var(--muted);margin-top:4px;max-width:120px}
+  .rc-block{display:flex;gap:16px;padding:11px 0;font-size:14px;align-items:flex-start}
+  .rc-block .rc-k{flex:0 0 92px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-top:4px}
+  .rc-block .rc-v{color:#333}
+  .rc-chips{display:flex;flex-wrap:wrap;gap:7px}
+  .rc-chips span{font-size:12px;color:#444;border:1px solid var(--line);border-radius:999px;padding:4px 11px;background:#fff}
+  .rc-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  @media(max-width:600px){.proof{gap:20px 26px;margin-top:28px}.rec-card{padding:30px 22px 24px}.rc-name{font-size:30px}.rc-block{flex-direction:column;gap:3px}.rc-block .rc-k{flex-basis:auto}}
+  .cred-band{border-bottom:1px solid var(--line)}
+  .cred{display:flex;align-items:center;flex-wrap:wrap;gap:14px 28px;padding:24px 0}
+  .cred-l{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);flex:0 0 auto}
+  .cred-items{display:flex;flex-wrap:wrap;gap:14px 26px}
+  .cred-items span{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:#3a3a3a}
+  .cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+  .cs-col{background:var(--bg);padding:30px 28px}
+  .cs-step{font-size:12px;color:var(--muted);letter-spacing:.1em;display:block;margin-bottom:14px}
+  .cs-col h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:12px}
+  .cs-col p{font-size:14.5px;color:#444;font-weight:300;line-height:1.55}
+  .cs-metric{display:flex;align-items:baseline;gap:16px;margin-top:34px}
+  .cs-metric .cs-big{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,8vw,72px);font-weight:600;line-height:1;color:var(--ink)}
+  .cs-metric .cs-cap{font-size:13px;color:var(--muted);max-width:240px}
+  @media(max-width:820px){.cs-grid{grid-template-columns:1fr}.cred{padding:20px 0}}
+  @media(max-width:600px){.cred-items span{font-size:17px}}
 </style>
 </head>
 <body>
@@ -323,15 +379,15 @@ window.I18N_DATA = {
     pj_genelin:"Full brand identity and graphic design system for Genelin.",
     pj_actile:"Internal operations platform designed for scalability and speed.",
     pj_webserv:"User and admin interfaces for a web-services marketplace.",
-    hero_eyebrow:"Strategy · Product · Operations",
-    hero_role:"Analyst and operator connecting strategy, product and numbers — A9RA co-founder, ESIC master’s, Valtier strategy intern. Based in Madrid and open to full-time roles in strategy, product, international business and analysis. — building, valuing and scaling startups across MENA and Europe.",
+    hero_eyebrow:"Strategy · Product · International Business",
+    hero_role:"I turn strategy into shipped products and measurable growth — combining a quantitative foundation with real founder experience. Master's candidate in International Trade & Business at ESIC Madrid, currently driving operations and go-to-market at Valtier Real Estate.",
     hero_cta1:"Get in touch", hero_cta2:"Download CV",
     about_label:"Profile",
-    about_text:"I’m an analyst and operator who connects strategy, product and numbers. Co-founder of <b>A9RA</b> (25,000+ users in 5 days), pursuing a <b>Master in International Trade & Business at ESIC Madrid</b>, and currently serving as a <b>Business Strategy & Operations Intern at Valtier Real Estate</b>. Based in Madrid and open to full-time roles in strategy, product, international business and analysis. with hands-on founder experience. Currently pursuing a Master in International Trade & Business at ESIC Madrid, and serving as an <b>Operations, Marketing & Business Strategy Intern at Valtier Real Estate</b>. I leverage product strategy and quantitative discipline to assess product-market fit, structure deals, and turn ideas into scalable ventures.",
-    skills_label:"What I do", skills_title:"Expertise across strategy, product and automation.",
+    about_text:"I'm an analyst and operator who connects strategy, product and numbers. A technical foundation in <b>Algebra & Cryptography</b> gives me quantitative rigor; co-founding <b>A9RA</b> — 25,000+ users in five days — taught me how to execute. I'm completing a <b>Master's in International Trade & Business at ESIC Madrid</b> while driving operations, marketing and go-to-market at <b>Valtier Real Estate</b>. Based in Madrid and open to full-time roles in strategy, product, international business and analysis.",
+    skills_label:"What I do", skills_title:"Expertise across strategy, markets, product and finance.",
     sk1_h:"Investment & Strategy", sk1_a:"Startup Valuations", sk1_b:"Market Sizing", sk1_c:"Due Diligence", sk1_d:"Deal Sourcing", sk1_e:"Business Model Analysis", sk1_f:"Market Research",
     sk2_h:"Product & Tech", sk2_a:"Product Strategy", sk2_b:"UI/UX & Prototyping", sk2_c:"Competitive Benchmarking", sk2_d:"No-Code Development", sk2_e:"Roadmapping",
-    sk3_h:"Automation & AI", sk3_a:"Automation Systems & Tools", sk3_b:"AI Agents", sk3_c:"Dashboarding", sk3_d:"Workflow Design", sk3_e:"Data Visualization", sk4_h:"International Trade & Business", sk4_a:"Incoterms & Trade Law", sk4_b:"Export Strategy", sk4_c:"Market Entry", sk4_d:"Cross-border Operations", sk4_e:"Supply Chain", sk5_h:"Marketing & Growth", sk5_a:"Go-to-Market Strategy", sk5_b:"Performance Marketing", sk5_c:"CRM & Automation", sk5_d:"SEO & Content", sk5_e:"Brand Strategy", sk6_h:"Finance & Valuation", sk6_a:"Startup Valuations", sk6_b:"Financial Modeling", sk6_c:"Pitch Decks", sk6_d:"Due Diligence", sk6_e:"Unit Economics",
+    sk3_h:"Automation & AI", sk3_a:"Automation Systems & Tools", sk3_b:"AI Agents", sk3_c:"Dashboarding", sk3_d:"Workflow Design", sk3_e:"Data Visualization",
     art_label:"Writing", art_title:"Thoughts on strategy, product and building.",
     art_cat_strategy:"Strategy", art_cat_product:"Product", art_cat_growth:"Growth",
     art_read:"Read article →",
@@ -363,7 +419,13 @@ window.I18N_DATA = {
     edu_label:"Education",
     ed1_d:"Master in International Trade & Business", ed2_d:"Bachelor's in Marketing & Business Management", ed3_d:"Bachelor's in Algebra & Cryptography",
     lang_label:"Languages", lv_bi:"Bilingual", lv_adv:"Advanced", lv_int:"Intermediate", lv_nat:"Native",
-    contact_label:"Contact", contact_h:"Open to new roles — let’s talk.",
+    contact_label:"Contact", contact_h:"Open to new roles — let's talk.",
+    open_badge:"Open to work · Madrid",
+    sk4_h:"International Trade & Business", sk4_a:"Market Entry Strategy", sk4_b:"Global Economics", sk4_c:"Internationalization", sk4_d:"Trade & Logistics", sk4_e:"Emerging Markets", sk4_f:"Cross-Cultural Management",
+    sk5_h:"Marketing & Growth", sk5_a:"Go-to-Market", sk5_b:"Brand & Positioning", sk5_c:"Growth & Acquisition", sk5_d:"Consumer Research", sk5_e:"Product Marketing", sk5_f:"Content & Storytelling",
+    sk6_h:"Finance & Valuation", sk6_a:"Financial Modeling", sk6_b:"Startup Valuation", sk6_c:"Due Diligence", sk6_d:"Unit Economics", sk6_e:"Pitch Decks", sk6_f:"Fundraising",
+    avail_line:"Based in Madrid · Full EU work rights · Open to work", pf1_l:"users in 5 days", pf2_l:"languages", pf3_l:"areas of expertise", pf4_l:"degrees", rec_lbl:"Recruiter view", rec_head:"The 60-second version", rec_avail_l:"Availability", rec_avail:"Madrid · Full EU work rights · Open to work now", rec_skills_l:"Core strengths", rec_roles_l:"Targeting", rec_roles:"Strategy · Product · International Business · Investment",
+    nav_case:"Case study", cred_l:"Studied & built at", cs_label:"Case study", cs_title:"A9RA — 25,000 users in 5 days.", cs_p_l:"Problem", cs_p:"EdTech in the region was crowded but full of gaps — I had to find a defensible wedge and prove real demand fast, on limited runway.", cs_a_l:"Approach", cs_a:"I ran a competitive landscape analysis to pinpoint the gap, designed the go-to-market, and built the investor pitch deck and financial projections for the pre-seed round.", cs_r_l:"Result", cs_r:"25,000+ users within 5 days of public beta — validating the wedge and equipping the raise.", cs_metric_l:"users acquired in the first 5 days",
     foot:"Madrid, Spain · Operations & Strategy"
   },
   es:{
@@ -382,12 +444,12 @@ window.I18N_DATA = {
     pj_genelin:"Identidad de marca completa y sistema de diseño gráfico para Genelin.",
     pj_actile:"Plataforma de operaciones interna diseñada para la escalabilidad y la velocidad.",
     pj_webserv:"Interfaces de usuario y administración para un marketplace de servicios web.",
-    hero_eyebrow:"Estrategia · Producto · Operaciones",
-    hero_role:"Estratega de negocio y diseñador de producto que une el rigor cuantitativo con el instinto de fundador — creando, valorando y escalando startups en MENA y Europa.",
+    hero_eyebrow:"Estrategia · Producto · Negocio Internacional",
+    hero_role:"Convierto la estrategia en productos lanzados y crecimiento medible — combinando una base cuantitativa con experiencia real como fundador. Estudiante de Máster en Comercio Internacional y Negocios en ESIC Madrid, actualmente liderando operaciones y salida al mercado en Valtier Real Estate.",
     hero_cta1:"Contactar", hero_cta2:"Descargar CV",
     about_label:"Perfil",
-    about_text:"Analista en formación que combina una <b>base técnica en Álgebra y Criptografía</b> con experiencia real como fundador. Actualmente cursando un Máster en Comercio Internacional y Negocios en ESIC Madrid, y ejerciendo como <b>Becario de Operaciones, Marketing y Estrategia de Negocio en Valtier Real Estate</b>. Aplico la estrategia de producto y la disciplina cuantitativa para evaluar el ajuste producto-mercado, estructurar acuerdos y convertir ideas en proyectos escalables.",
-    skills_label:"Qué hago", skills_title:"Experiencia en estrategia, producto y automatización.",
+    about_text:"Soy un analista y operador que conecta estrategia, producto y números. Una base técnica en <b>Álgebra y Criptografía</b> me da rigor cuantitativo; cofundar <b>A9RA</b> — más de 25.000 usuarios en cinco días — me enseñó a ejecutar. Curso un <b>Máster en Comercio Internacional y Negocios en ESIC Madrid</b> mientras lidero operaciones, marketing y salida al mercado en <b>Valtier Real Estate</b>. Con base en Madrid y abierto a puestos a tiempo completo en estrategia, producto, negocio internacional y análisis.",
+    skills_label:"Qué hago", skills_title:"Experiencia en estrategia, mercados, producto y finanzas.",
     sk1_h:"Inversión y Estrategia", sk1_a:"Valoración de Startups", sk1_b:"Dimensionamiento de Mercado", sk1_c:"Due Diligence", sk1_d:"Originación de Operaciones", sk1_e:"Análisis de Modelos de Negocio", sk1_f:"Investigación de Mercado",
     sk2_h:"Producto y Tecnología", sk2_a:"Estrategia de Producto", sk2_b:"UI/UX y Prototipado", sk2_c:"Benchmarking Competitivo", sk2_d:"Desarrollo No-Code", sk2_e:"Hojas de Ruta",
     sk3_h:"Automatización e IA", sk3_a:"Sistemas y Herramientas de Automatización", sk3_b:"Agentes de IA", sk3_c:"Dashboards", sk3_d:"Diseño de Flujos", sk3_e:"Visualización de Datos",
@@ -422,7 +484,13 @@ window.I18N_DATA = {
     edu_label:"Formación",
     ed1_d:"Máster en Comercio Internacional y Negocios", ed2_d:"Grado en Marketing y Gestión de Empresas", ed3_d:"Grado en Álgebra y Criptografía",
     lang_label:"Idiomas", lv_bi:"Bilingüe", lv_adv:"Avanzado", lv_int:"Intermedio", lv_nat:"Nativo",
-    contact_label:"Contacto", contact_h:"Construyamos algo que valga la pena escalar.",
+    contact_label:"Contacto", contact_h:"Abierto a nuevas oportunidades — hablemos.",
+    open_badge:"Disponible · Madrid",
+    sk4_h:"Comercio y Negocio Internacional", sk4_a:"Estrategia de Entrada al Mercado", sk4_b:"Economía Global", sk4_c:"Internacionalización", sk4_d:"Comercio y Logística", sk4_e:"Mercados Emergentes", sk4_f:"Gestión Intercultural",
+    sk5_h:"Marketing y Crecimiento", sk5_a:"Salida al Mercado", sk5_b:"Marca y Posicionamiento", sk5_c:"Crecimiento y Adquisición", sk5_d:"Investigación de Consumidores", sk5_e:"Marketing de Producto", sk5_f:"Contenido y Narrativa",
+    sk6_h:"Finanzas y Valoración", sk6_a:"Modelización Financiera", sk6_b:"Valoración de Startups", sk6_c:"Due Diligence", sk6_d:"Unit Economics", sk6_e:"Pitch Decks", sk6_f:"Captación de Fondos",
+    avail_line:"En Madrid · Derecho a trabajar en la UE · Disponible", pf1_l:"usuarios en 5 días", pf2_l:"idiomas", pf3_l:"áreas de expertise", pf4_l:"titulaciones", rec_lbl:"Para reclutadores", rec_head:"La versión de 60 segundos", rec_avail_l:"Disponibilidad", rec_avail:"Madrid · Derecho a trabajar en la UE · Disponible ya", rec_skills_l:"Fortalezas clave", rec_roles_l:"Buscando", rec_roles:"Estrategia · Producto · Negocio Internacional · Inversión",
+    nav_case:"Caso", cred_l:"Formación y proyectos", cs_label:"Caso práctico", cs_title:"A9RA — 25.000 usuarios en 5 días.", cs_p_l:"Problema", cs_p:"El EdTech regional estaba saturado pero lleno de huecos — tenía que encontrar un ángulo defendible y demostrar demanda real rápido, con poco runway.", cs_a_l:"Enfoque", cs_a:"Realicé un análisis competitivo para detectar el hueco, diseñé la salida al mercado y construí el pitch deck y las proyecciones financieras para la ronda pre-seed.", cs_r_l:"Resultado", cs_r:"Más de 25.000 usuarios en los 5 días de beta pública — validando el ángulo y preparando la ronda.", cs_metric_l:"usuarios en los primeros 5 días",
     foot:"Madrid, España · Operaciones y Estrategia"
   },
   fr:{
@@ -441,12 +509,12 @@ window.I18N_DATA = {
     pj_genelin:"Identité de marque complète et système de design graphique pour Genelin.",
     pj_actile:"Plateforme d'opérations interne conçue pour la scalabilité et la rapidité.",
     pj_webserv:"Interfaces utilisateur et administration pour une marketplace de services web.",
-    hero_eyebrow:"Stratégie · Produit · Opérations",
-    hero_role:"Stratège business et designer produit alliant rigueur quantitative et instinct de fondateur — créant, valorisant et faisant croître des startups au MENA et en Europe.",
+    hero_eyebrow:"Stratégie · Produit · Business International",
+    hero_role:"Je transforme la stratégie en produits livrés et en croissance mesurable — en alliant une base quantitative à une véritable expérience de fondateur. En Master de Commerce International & Business à l'ESIC Madrid, je pilote actuellement les opérations et le go-to-market chez Valtier Real Estate.",
     hero_cta1:"Me contacter", hero_cta2:"Télécharger le CV",
     about_label:"Profil",
-    about_text:"Analyste en devenir alliant un <b>socle technique en Algèbre & Cryptographie</b> à une véritable expérience de fondateur. Actuellement en Master de Commerce International et Business à l'ESIC Madrid, et <b>Stagiaire Opérations, Marketing & Stratégie d'Entreprise chez Valtier Real Estate</b>. J'applique la stratégie produit et la discipline quantitative pour évaluer l'adéquation produit-marché, structurer des deals et transformer des idées en projets scalables.",
-    skills_label:"Ce que je fais", skills_title:"Expertise en stratégie, produit et automatisation.",
+    about_text:"Je suis un analyste et opérateur qui relie stratégie, produit et chiffres. Un socle technique en <b>Algèbre & Cryptographie</b> me donne une rigueur quantitative ; avoir cofondé <b>A9RA</b> — plus de 25 000 utilisateurs en cinq jours — m'a appris à exécuter. Je termine un <b>Master en Commerce International & Business à l'ESIC Madrid</b> tout en pilotant les opérations, le marketing et le go-to-market chez <b>Valtier Real Estate</b>. Basé à Madrid et ouvert à des postes à temps plein en stratégie, produit, business international et analyse.",
+    skills_label:"Ce que je fais", skills_title:"Expertise en stratégie, marchés, produit et finance.",
     sk1_h:"Investissement & Stratégie", sk1_a:"Valorisation de Startups", sk1_b:"Dimensionnement de Marché", sk1_c:"Due Diligence", sk1_d:"Sourcing de Deals", sk1_e:"Analyse de Business Model", sk1_f:"Étude de Marché",
     sk2_h:"Produit & Tech", sk2_a:"Stratégie Produit", sk2_b:"UI/UX & Prototypage", sk2_c:"Benchmark Concurrentiel", sk2_d:"Développement No-Code", sk2_e:"Roadmapping",
     sk3_h:"Automatisation & IA", sk3_a:"Systèmes & Outils d'Automatisation", sk3_b:"Agents IA", sk3_c:"Dashboards", sk3_d:"Conception de Workflows", sk3_e:"Visualisation de Données",
@@ -481,7 +549,13 @@ window.I18N_DATA = {
     edu_label:"Formation",
     ed1_d:"Master en Commerce International & Business", ed2_d:"Licence en Marketing & Gestion d'Entreprise", ed3_d:"Licence en Algèbre & Cryptographie",
     lang_label:"Langues", lv_bi:"Bilingue", lv_adv:"Avancé", lv_int:"Intermédiaire", lv_nat:"Natif",
-    contact_label:"Contact", contact_h:"Construisons quelque chose qui mérite de grandir.",
+    contact_label:"Contact", contact_h:"Ouvert à de nouveaux postes — parlons-en.",
+    open_badge:"Disponible · Madrid",
+    sk4_h:"Commerce & Business International", sk4_a:"Stratégie d'Entrée sur le Marché", sk4_b:"Économie Mondiale", sk4_c:"Internationalisation", sk4_d:"Commerce & Logistique", sk4_e:"Marchés Émergents", sk4_f:"Management Interculturel",
+    sk5_h:"Marketing & Croissance", sk5_a:"Go-to-Market", sk5_b:"Marque & Positionnement", sk5_c:"Croissance & Acquisition", sk5_d:"Recherche Consommateur", sk5_e:"Marketing Produit", sk5_f:"Contenu & Storytelling",
+    sk6_h:"Finance & Valorisation", sk6_a:"Modélisation Financière", sk6_b:"Valorisation de Startups", sk6_c:"Due Diligence", sk6_d:"Unit Economics", sk6_e:"Pitch Decks", sk6_f:"Levée de Fonds",
+    avail_line:"Basé à Madrid · Droit de travail en UE · Disponible", pf1_l:"utilisateurs en 5 jours", pf2_l:"langues", pf3_l:"domaines d'expertise", pf4_l:"diplômes", rec_lbl:"Vue recruteur", rec_head:"La version 60 secondes", rec_avail_l:"Disponibilité", rec_avail:"Madrid · Droit de travail en UE · Disponible maintenant", rec_skills_l:"Points forts", rec_roles_l:"Objectif", rec_roles:"Stratégie · Produit · Business International · Investissement",
+    nav_case:"Étude de cas", cred_l:"Formation & projets", cs_label:"Étude de cas", cs_title:"A9RA — 25 000 utilisateurs en 5 jours.", cs_p_l:"Problème", cs_p:"L'EdTech régional était saturé mais plein de failles — je devais trouver un angle défendable et prouver une vraie demande vite, avec peu de runway.", cs_a_l:"Approche", cs_a:"J'ai mené une analyse concurrentielle pour cibler la faille, conçu le go-to-market et construit le pitch deck investisseurs et les projections financières du tour pre-seed.", cs_r_l:"Résultat", cs_r:"Plus de 25 000 utilisateurs en 5 jours de bêta publique — validant l'angle et préparant la levée.", cs_metric_l:"utilisateurs dans les 5 premiers jours",
     foot:"Madrid, Espagne · Opérations & Stratégie"
   }
 };
@@ -755,7 +829,7 @@ window.MODULES_HTML = `
       ["I don't just plan. I ship.","From valuations to live products.","A builder, end to end."],
       ["Founder instinct, analyst rigor.","25,000 users in 5 days — I move fast.","I adapt to whatever comes next."],
       ["Algebra, cryptography, business —","I'm curious about almost everything.","Always learning, always building."],
-      ["Open to new roles — let’s talk.","I'd genuinely love to talk.","I'm one message away."]
+      ["Let's build something worth scaling.","I'd genuinely love to talk.","I'm one message away."]
     ],
     es:[
       ["Hola — soy Sofiane.","Bienvenido a mi portafolio.","Me alegra que estés aquí."],
@@ -1161,7 +1235,8 @@ function Marquee() {
 function Nav({
   lang,
   setLang,
-  t
+  t,
+  onRecruiter
 }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -1170,7 +1245,7 @@ function Nav({
     f();
     return () => window.removeEventListener("scroll", f);
   }, []);
-  const links = [["about", "nav_about"], ["skills", "nav_skills"], ["work", "nav_work"], ["articles", "nav_articles"], ["experience", "nav_exp"], ["contact", "nav_contact"]];
+  const links = [["about", "nav_about"], ["skills", "nav_skills"], ["work", "nav_work"], ["casestudy", "nav_case"], ["experience", "nav_exp"], ["contact", "nav_contact"]];
   return /*#__PURE__*/React.createElement("nav", {
     className: scrolled ? "scrolled" : ""
   }, /*#__PURE__*/React.createElement("div", {
@@ -1183,7 +1258,12 @@ function Nav({
   }, links.map(([id, k]) => /*#__PURE__*/React.createElement("a", {
     key: id,
     href: "#" + id
-  }, t(k))), /*#__PURE__*/React.createElement("div", {
+  }, t(k))), /*#__PURE__*/React.createElement("button", {
+    className: "rec-btn",
+    onClick: onRecruiter
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "rb-dot"
+  }), t("rec_lbl")), /*#__PURE__*/React.createElement("div", {
     className: "lang-toggle",
     role: "group",
     "aria-label": "Language"
@@ -1233,10 +1313,15 @@ function Hero({
     variants: rm ? undefined : container,
     initial: rm ? false : "hidden",
     animate: rm ? false : "show"
-  }, /*#__PURE__*/React.createElement(motion.p, {
+  }, /*#__PURE__*/React.createElement(motion.div, {
+    className: "open-badge",
+    variants: item
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ob-dot"
+  }), t("open_badge")), /*#__PURE__*/React.createElement(motion.p, {
     className: "eyebrow",
     variants: item
-  }, t("hero_eyebrow")), React.createElement("span",{style:{display:"inline-flex",alignItems:"center",gap:"6px",fontSize:"12px",background:"#dcfce7",color:"#166534",border:"1px solid #bbf7d0",borderRadius:"999px",padding:"4px 12px",fontWeight:500,letterSpacing:".03em",marginTop:"12px",width:"fit-content",boxSizing:"border-box"}},React.createElement("span",{style:{width:"7px",height:"7px",borderRadius:"50%",background:"#16a34a",display:"inline-block",flexShrink:0}}),"\u00a0Open to work \u00b7 Madrid"), /*#__PURE__*/React.createElement(motion.h1, {
+  }, t("hero_eyebrow")), /*#__PURE__*/React.createElement(motion.h1, {
     className: "name",
     variants: item
   }, /*#__PURE__*/React.createElement(Decode, {
@@ -1247,6 +1332,19 @@ function Hero({
     className: "role",
     variants: item
   }, t("hero_role")), /*#__PURE__*/React.createElement(motion.div, {
+    className: "proof",
+    variants: item
+  }, [[25000, "+", "pf1_l"], [4, "", "pf2_l"], [6, "", "pf3_l"], [3, "", "pf4_l"]].map(([to, suf, l], i) => /*#__PURE__*/React.createElement("div", {
+    className: "stat",
+    key: i
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "num"
+  }, /*#__PURE__*/React.createElement(CountUp, {
+    to: to,
+    suffix: suf
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "lbl"
+  }, t(l))))), /*#__PURE__*/React.createElement(motion.div, {
     className: "cta-row",
     variants: item
   }, /*#__PURE__*/React.createElement(Magnetic, {
@@ -1256,7 +1354,12 @@ function Hero({
     className: "btn ghost",
     href: "Sofiane Hafsaoui CV English.pdf",
     target: "_blank"
-  }, t("hero_cta2"))))));
+  }, t("hero_cta2"))), /*#__PURE__*/React.createElement(motion.p, {
+    className: "avail-line",
+    variants: item
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ob-dot"
+  }), t("avail_line")))));
 }
 function About({
   t
@@ -1283,24 +1386,24 @@ const SKILLS = [{
   tags: ["sk1_a", "sk1_b", "sk1_c", "sk1_d", "sk1_e", "sk1_f"]
 }, {
   num: "02",
+  h: "sk4_h",
+  tags: ["sk4_a", "sk4_b", "sk4_c", "sk4_d", "sk4_e", "sk4_f"]
+}, {
+  num: "03",
+  h: "sk5_h",
+  tags: ["sk5_a", "sk5_b", "sk5_c", "sk5_d", "sk5_e", "sk5_f"]
+}, {
+  num: "04",
   h: "sk2_h",
   tags: ["sk2_a", "sk2_b", "sk2_c", "sk2_d", "sk2_e"]
 }, {
-  num: "03",
-  h: "sk3_h",
-  tags: ["sk3_a", "sk3_b", "sk3_c", "sk3_d", "sk3_e"]
-}, {
-  num: "04",
-  h: "sk4_h",
-  tags: ["sk4_a", "sk4_b", "sk4_c", "sk4_d", "sk4_e"]
-}, {
   num: "05",
-  h: "sk5_h",
-  tags: ["sk5_a", "sk5_b", "sk5_c", "sk5_d", "sk5_e"]
+  h: "sk6_h",
+  tags: ["sk6_a", "sk6_b", "sk6_c", "sk6_d", "sk6_e", "sk6_f"]
 }, {
   num: "06",
-  h: "sk6_h",
-  tags: ["sk6_a", "sk6_b", "sk6_c", "sk6_d", "sk6_e"]
+  h: "sk3_h",
+  tags: ["sk3_a", "sk3_b", "sk3_c", "sk3_d", "sk3_e"]
 }];
 function Skills({
   t
@@ -1747,6 +1850,170 @@ function Progress() {
     }
   });
 }
+function CountUp({
+  to,
+  suffix = ""
+}) {
+  const rm = useReducedMotion();
+  const [val, setVal] = useState(rm ? to : 0);
+  const ref = useRef(null);
+  const started = useRef(false);
+  useEffect(() => {
+    if (rm) {
+      setVal(to);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => {
+        if (e.isIntersecting && !started.current) {
+          started.current = true;
+          const t0 = performance.now(),
+            dur = 1400;
+          const tick = t => {
+            const p = Math.min(1, (t - t0) / dur);
+            setVal(Math.round(to * (1 - Math.pow(1 - p, 3))));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      });
+    }, {
+      threshold: 0.4
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return /*#__PURE__*/React.createElement("span", {
+    ref: ref
+  }, val.toLocaleString("en-US"), suffix);
+}
+function RecruiterOverlay({
+  open,
+  onClose,
+  t
+}) {
+  useEffect(() => {
+    const f = e => {
+      if (e.key === "Escape") onClose();
+    };
+    if (open) window.addEventListener("keydown", f);
+    return () => window.removeEventListener("keydown", f);
+  }, [open]);
+  const stats = [["25,000+", "pf1_l"], ["4", "pf2_l"], ["6", "pf3_l"], ["3", "pf4_l"]];
+  const fams = ["sk1_h", "sk4_h", "sk5_h", "sk2_h", "sk6_h", "sk3_h"];
+  return /*#__PURE__*/React.createElement("div", {
+    className: "rec-overlay" + (open ? " open" : ""),
+    onClick: e => {
+      if (e.currentTarget === e.target) onClose();
+    },
+    "aria-hidden": !open
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "rec-card",
+    role: "dialog"
+  }, /*#__PURE__*/React.createElement("button", {
+    className: "rc-close",
+    onClick: onClose,
+    "aria-label": "Close"
+  }, "\xD7"), /*#__PURE__*/React.createElement("p", {
+    className: "sec-label"
+  }, t("rec_head")), /*#__PURE__*/React.createElement("h2", {
+    className: "rc-name"
+  }, "Sofiane Hafsaoui"), /*#__PURE__*/React.createElement("p", {
+    className: "rc-role"
+  }, t("hero_role")), /*#__PURE__*/React.createElement("div", {
+    className: "rc-stats"
+  }, stats.map(([v, l], i) => /*#__PURE__*/React.createElement("div", {
+    key: i
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "rc-num"
+  }, v), /*#__PURE__*/React.createElement("span", {
+    className: "rc-lbl"
+  }, t(l))))), /*#__PURE__*/React.createElement("div", {
+    className: "rc-block"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "rc-k"
+  }, t("rec_avail_l")), /*#__PURE__*/React.createElement("span", {
+    className: "rc-v"
+  }, t("rec_avail"))), /*#__PURE__*/React.createElement("div", {
+    className: "rc-block"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "rc-k"
+  }, t("rec_roles_l")), /*#__PURE__*/React.createElement("span", {
+    className: "rc-v"
+  }, t("rec_roles"))), /*#__PURE__*/React.createElement("div", {
+    className: "rc-block"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "rc-k"
+  }, t("rec_skills_l")), /*#__PURE__*/React.createElement("div", {
+    className: "rc-chips"
+  }, fams.map(f => /*#__PURE__*/React.createElement("span", {
+    key: f
+  }, t(f))))), /*#__PURE__*/React.createElement("div", {
+    className: "rc-cta"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "btn solid",
+    href: "mailto:sofiane7hafsaoui@gmail.com"
+  }, "Email"), /*#__PURE__*/React.createElement("a", {
+    className: "btn ghost",
+    href: "Sofiane Hafsaoui CV English.pdf",
+    target: "_blank"
+  }, t("hero_cta2")), /*#__PURE__*/React.createElement("a", {
+    className: "btn ghost",
+    href: "https://www.linkedin.com/in/sofiane-hafsaoui",
+    target: "_blank"
+  }, "LinkedIn"))));
+}
+function Credibility({
+  t
+}) {
+  const items = ["ESIC Madrid", "ISG Algiers", "USTHB", "A9RA", "Moustachir", "Positive Agency"];
+  return /*#__PURE__*/React.createElement("div", {
+    className: "cred-band"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    className: "cred"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "cred-l"
+  }, t("cred_l")), /*#__PURE__*/React.createElement("div", {
+    className: "cred-items"
+  }, items.map(x => /*#__PURE__*/React.createElement("span", {
+    key: x
+  }, x))))));
+}
+function CaseStudy({
+  t
+}) {
+  const steps = [["cs_p_l", "cs_p"], ["cs_a_l", "cs_a"], ["cs_r_l", "cs_r"]];
+  return /*#__PURE__*/React.createElement("section", {
+    id: "casestudy"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "wrap"
+  }, /*#__PURE__*/React.createElement(Reveal, {
+    tag: "p",
+    className: "sec-label"
+  }, t("cs_label")), /*#__PURE__*/React.createElement(Title, null, t("cs_title")), /*#__PURE__*/React.createElement("div", {
+    className: "cs-grid"
+  }, steps.map(([k, v], i) => /*#__PURE__*/React.createElement(Reveal, {
+    className: "cs-col",
+    key: i,
+    delay: i * 0.08
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "cs-step"
+  }, "0", i + 1), /*#__PURE__*/React.createElement("h3", null, t(k)), /*#__PURE__*/React.createElement("p", null, t(v))))), /*#__PURE__*/React.createElement(Reveal, {
+    className: "cs-metric",
+    delay: 0.1
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "cs-big"
+  }, /*#__PURE__*/React.createElement(CountUp, {
+    to: 25000,
+    suffix: "+"
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "cs-cap"
+  }, t("cs_metric_l")))));
+}
 function Modules() {
   useEffect(() => {
     if (window.initModules) window.initModules();
@@ -1759,6 +2026,7 @@ function Modules() {
 }
 function App() {
   const [lang, setLangState] = useState("en");
+  const [recOpen, setRecOpen] = useState(false);
   const setLang = l => {
     setLangState(l);
     document.documentElement.lang = l;
@@ -1767,19 +2035,28 @@ function App() {
   useEffect(() => {
     if (window.__modulesSetLang) window.__modulesSetLang(lang);
   }, [lang]);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Modules, null), /*#__PURE__*/React.createElement(Progress, null), /*#__PURE__*/React.createElement(Nav, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Modules, null), /*#__PURE__*/React.createElement(RecruiterOverlay, {
+    open: recOpen,
+    onClose: () => setRecOpen(false),
+    t: t
+  }), /*#__PURE__*/React.createElement(Progress, null), /*#__PURE__*/React.createElement(Nav, {
     lang: lang,
     setLang: setLang,
-    t: t
+    t: t,
+    onRecruiter: () => setRecOpen(true)
   }), /*#__PURE__*/React.createElement(Hero, {
     t: t
-  }), /*#__PURE__*/React.createElement(Marquee, null), /*#__PURE__*/React.createElement(About, {
+  }), /*#__PURE__*/React.createElement(Marquee, null), /*#__PURE__*/React.createElement(Credibility, {
+    t: t
+  }), /*#__PURE__*/React.createElement(About, {
     t: t
   }), /*#__PURE__*/React.createElement(Skills, {
     t: t
   }), /*#__PURE__*/React.createElement(Experience, {
     t: t
   }), /*#__PURE__*/React.createElement(Work, {
+    t: t
+  }), /*#__PURE__*/React.createElement(CaseStudy, {
     t: t
   }), /*#__PURE__*/React.createElement(Articles, {
     t: t
