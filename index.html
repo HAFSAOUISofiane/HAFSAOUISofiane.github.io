@@ -12,9 +12,40 @@
 <meta property="og:description" content="Sofiane Hafsaoui — analyst, strategist and product builder. Master's in International Trade & Business at ESIC Madrid, co-founder of A9RA (25,000+ users in 5 days). Open to full-time roles in strategy, product, international business and analysis." />
 <meta property="og:url" content="https://hafsaouisofiane.github.io/" />
 <meta property="og:site_name" content="Sofiane Hafsaoui" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://hafsaouisofiane.github.io/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Sofiane Hafsaoui — Strategy, Product & International Business. Open to work, Madrid." />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Sofiane Hafsaoui — Strategy, Product &amp; International Business" />
 <meta name="twitter:description" content="Sofiane Hafsaoui — analyst, strategist and product builder. Master's in International Trade & Business at ESIC Madrid, co-founder of A9RA (25,000+ users in 5 days). Open to full-time roles in strategy, product, international business and analysis." />
+<meta name="twitter:image" content="https://hafsaouisofiane.github.io/og-image.png" />
+<link rel="canonical" href="https://hafsaouisofiane.github.io/" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sofiane Hafsaoui",
+  "url": "https://hafsaouisofiane.github.io/",
+  "email": "mailto:sofiane7hafsaoui@gmail.com",
+  "telephone": "+34662316895",
+  "jobTitle": "Analyst · Product Builder · International Business",
+  "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" },
+  "sameAs": ["https://www.linkedin.com/in/sofiane-hafsaoui"],
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "ESIC Business & Marketing School, Madrid" },
+    { "@type": "CollegeOrUniversity", "name": "ISG, Algiers" },
+    { "@type": "CollegeOrUniversity", "name": "USTHB, Algiers" }
+  ],
+  "knowsLanguage": ["en", "fr", "es", "ar"],
+  "knowsAbout": ["Business Strategy", "Product Design", "Startup Valuation", "Market Research", "International Trade", "Go-to-Market Strategy", "UI/UX Design", "Cryptography", "AI Workflows"],
+  "worksFor": { "@type": "Organization", "name": "A9RA" },
+  "seeks": { "@type": "Demand", "description": "Full-time roles in strategy, product, international business and analysis in Madrid / EU" }
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231a1a1a'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' fill='white' text-anchor='middle'>S</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -362,9 +393,34 @@
   .exp-bar-items span{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:#8a8a8a;transition:color .25s;cursor:default}
   .exp-bar-items span:hover{color:var(--ink)}
   @media(max-width:600px){.exp-bar{gap:10px 16px;margin-top:28px;padding-top:22px}.exp-bar-items span{font-size:16px}}
+
+  /* ACCESSIBILITY */
+  .skip-link{position:fixed;top:-60px;left:16px;z-index:200;background:var(--ink);color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;transition:top .2s}
+  .skip-link:focus{top:12px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  }
+
+  /* RECRUITER TRACKS */
+  .rc-tracks{display:flex;flex-direction:column;gap:0;margin-top:6px;border-top:1px solid var(--line)}
+  .rc-track{display:flex;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .rc-track b{font-size:13.5px;font-weight:600;white-space:nowrap}
+  .rc-track span{font-size:12.5px;color:var(--muted);flex:1;min-width:200px}
+  .rc-track a{font-size:12.5px;font-weight:500;white-space:nowrap;border-bottom:1px solid var(--ink);padding-bottom:1px}
+  .rc-track a:hover{color:var(--muted);border-color:var(--muted)}
+
+  /* NOW LINE */
+  .now-line{display:flex;align-items:baseline;gap:16px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line);flex-wrap:wrap}
+  .now-line .now-k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .now-line .now-k::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#2ea44f;margin-right:8px;animation:nowpulse 2.4s ease-in-out infinite}
+  @keyframes nowpulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .now-line .now-v{font-size:14.5px;color:#444;font-weight:300;flex:1;min-width:240px}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#about">Skip to content</a>
 <div id="root"><div id="boot" style="min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:sans-serif;color:#9a9a9a;font-size:14px;padding:24px;text-align:center">Loading the animated preview… if it doesn't appear, your current site is still live at <a href="./" style="color:#1a1a1a;margin-left:5px">the homepage</a>.</div></div>
 
 <script>
@@ -396,7 +452,7 @@ window.I18N_DATA = {
     sk3_h:"Automation & AI", sk3_a:"Automation Systems & Tools", sk3_b:"AI Agents", sk3_c:"Dashboarding", sk3_d:"Workflow Design", sk3_e:"Data Visualization",
     art_label:"Writing", art_title:"Thoughts on strategy, product and building.",
     art_cat_strategy:"Strategy", art_cat_product:"Product", art_cat_growth:"Growth",
-    art_read:"Read article →",
+    art_read:"Ask me about this →",
     art1_h:"Why African Startups Need Different Valuation Models",
     art1_p:"Standard DCF and VC methods break down in high-uncertainty, low-liquidity emerging markets. Here's the framework I built for Algerian startups and why the assumptions always matter more than the model.",
     art1_time:"8 min read",
@@ -431,6 +487,11 @@ window.I18N_DATA = {
     sk5_h:"Marketing & Growth", sk5_a:"Go-to-Market", sk5_b:"Brand & Positioning", sk5_c:"Growth & Acquisition", sk5_d:"Consumer Research", sk5_e:"Product Marketing", sk5_f:"Content & Storytelling",
     sk6_h:"Finance & Valuation", sk6_a:"Financial Modeling", sk6_b:"Startup Valuation", sk6_c:"Due Diligence", sk6_d:"Unit Economics", sk6_e:"Pitch Decks", sk6_f:"Fundraising",
     avail_line:"Based in Madrid · Full EU work rights · Open to work", pf1_l:"users in 5 days", pf2_l:"languages", pf3_l:"areas of expertise", pf4_l:"degrees", rec_lbl:"Recruiter view", rec_head:"The 60-second version", rec_avail_l:"Availability", rec_avail:"Madrid · Full EU work rights · Open to work now", rec_skills_l:"Core strengths", rec_roles_l:"Targeting", rec_roles:"Strategy · Product · International Business · Investment",
+    now_l:"Now", now_t:"Completing my Master's at ESIC Madrid · driving operations & go-to-market at Valtier Real Estate · leading the Moustachir V4 redesign.",
+    rec_tracks_l:"Pick your track",
+    tr1_h:"Strategy & Investment", tr1_p:"Valuation research, market sizing and founder-side fundraising — quantitative rigor from a math degree.", tr1_cv:"Business CV →",
+    tr2_h:"Product & Design", tr2_p:"End-to-end product delivery: 8+ shipped projects, from UX to go-to-market.", tr2_cv:"Product CV →",
+    tr3_h:"International Business", tr3_p:"Trained in trade & internationalization at ESIC — working across EN/FR/ES/AR markets.", tr3_cv:"Full CV →",
     nav_case:"Case study", cred_l:"Education", exp_bar_l:"Experience", cs_label:"Case study", cs_title:"A9RA — 25,000 users in 5 days.", cs_p_l:"Problem", cs_p:"EdTech in the region was crowded but full of gaps — I had to find a defensible wedge and prove real demand fast, on limited runway.", cs_a_l:"Approach", cs_a:"I ran a competitive landscape analysis to pinpoint the gap, designed the go-to-market, and built the investor pitch deck and financial projections for the pre-seed round.", cs_r_l:"Result", cs_r:"25,000+ users within 5 days of public beta — validating the wedge and equipping the raise.", cs_metric_l:"users acquired in the first 5 days",
     foot:"Madrid, Spain · Operations & Strategy"
   },
@@ -461,7 +522,7 @@ window.I18N_DATA = {
     sk3_h:"Automatización e IA", sk3_a:"Sistemas y Herramientas de Automatización", sk3_b:"Agentes de IA", sk3_c:"Dashboards", sk3_d:"Diseño de Flujos", sk3_e:"Visualización de Datos",
     art_label:"Escritura", art_title:"Reflexiones sobre estrategia, producto y construcción.",
     art_cat_strategy:"Estrategia", art_cat_product:"Producto", art_cat_growth:"Crecimiento",
-    art_read:"Leer artículo →",
+    art_read:"Pregúntame sobre esto →",
     art1_h:"Por qué las startups africanas necesitan modelos de valoración distintos",
     art1_p:"Los métodos DCF y VC estándar fallan en mercados emergentes de alta incertidumbre y baja liquidez. Aquí está el framework que construí para startups argelinas y por qué los supuestos siempre importan más que el modelo.",
     art1_time:"8 min de lectura",
@@ -496,6 +557,11 @@ window.I18N_DATA = {
     sk5_h:"Marketing y Crecimiento", sk5_a:"Salida al Mercado", sk5_b:"Marca y Posicionamiento", sk5_c:"Crecimiento y Adquisición", sk5_d:"Investigación de Consumidores", sk5_e:"Marketing de Producto", sk5_f:"Contenido y Narrativa",
     sk6_h:"Finanzas y Valoración", sk6_a:"Modelización Financiera", sk6_b:"Valoración de Startups", sk6_c:"Due Diligence", sk6_d:"Unit Economics", sk6_e:"Pitch Decks", sk6_f:"Captación de Fondos",
     avail_line:"En Madrid · Derecho a trabajar en la UE · Disponible", pf1_l:"usuarios en 5 días", pf2_l:"idiomas", pf3_l:"áreas de expertise", pf4_l:"titulaciones", rec_lbl:"Para reclutadores", rec_head:"La versión de 60 segundos", rec_avail_l:"Disponibilidad", rec_avail:"Madrid · Derecho a trabajar en la UE · Disponible ya", rec_skills_l:"Fortalezas clave", rec_roles_l:"Buscando", rec_roles:"Estrategia · Producto · Negocio Internacional · Inversión",
+    now_l:"Ahora", now_t:"Terminando mi Máster en ESIC Madrid · liderando operaciones y go-to-market en Valtier Real Estate · dirigiendo el rediseño de Moustachir V4.",
+    rec_tracks_l:"Elige tu perfil",
+    tr1_h:"Estrategia e Inversión", tr1_p:"Investigación de valoraciones, dimensionamiento de mercado y fundraising como fundador — rigor cuantitativo de un grado en matemáticas.", tr1_cv:"CV Business →",
+    tr2_h:"Producto y Diseño", tr2_p:"Entrega de producto de principio a fin: más de 8 proyectos lanzados, del UX al go-to-market.", tr2_cv:"CV Producto →",
+    tr3_h:"Negocio Internacional", tr3_p:"Formado en comercio e internacionalización en ESIC — trabajando en mercados EN/FR/ES/AR.", tr3_cv:"CV completo →",
     nav_case:"Caso", cred_l:"Formación", exp_bar_l:"Experiencia", cs_label:"Caso práctico", cs_title:"A9RA — 25.000 usuarios en 5 días.", cs_p_l:"Problema", cs_p:"El EdTech regional estaba saturado pero lleno de huecos — tenía que encontrar un ángulo defendible y demostrar demanda real rápido, con poco runway.", cs_a_l:"Enfoque", cs_a:"Realicé un análisis competitivo para detectar el hueco, diseñé la salida al mercado y construí el pitch deck y las proyecciones financieras para la ronda pre-seed.", cs_r_l:"Resultado", cs_r:"Más de 25.000 usuarios en los 5 días de beta pública — validando el ángulo y preparando la ronda.", cs_metric_l:"usuarios en los primeros 5 días",
     foot:"Madrid, España · Operaciones y Estrategia"
   },
@@ -526,7 +592,7 @@ window.I18N_DATA = {
     sk3_h:"Automatisation & IA", sk3_a:"Systèmes & Outils d'Automatisation", sk3_b:"Agents IA", sk3_c:"Dashboards", sk3_d:"Conception de Workflows", sk3_e:"Visualisation de Données",
     art_label:"Écrits", art_title:"Réflexions sur la stratégie, le produit et la construction.",
     art_cat_strategy:"Stratégie", art_cat_product:"Produit", art_cat_growth:"Croissance",
-    art_read:"Lire l'article →",
+    art_read:"Parlons-en →",
     art1_h:"Pourquoi les startups africaines ont besoin de modèles de valorisation différents",
     art1_p:"Les méthodes DCF et VC standard s'effondrent dans les marchés émergents à haute incertitude et faible liquidité. Voici le cadre que j'ai construit pour les startups algériennes — et pourquoi les hypothèses comptent toujours plus que le modèle.",
     art1_time:"8 min de lecture",
@@ -561,6 +627,11 @@ window.I18N_DATA = {
     sk5_h:"Marketing & Croissance", sk5_a:"Go-to-Market", sk5_b:"Marque & Positionnement", sk5_c:"Croissance & Acquisition", sk5_d:"Recherche Consommateur", sk5_e:"Marketing Produit", sk5_f:"Contenu & Storytelling",
     sk6_h:"Finance & Valorisation", sk6_a:"Modélisation Financière", sk6_b:"Valorisation de Startups", sk6_c:"Due Diligence", sk6_d:"Unit Economics", sk6_e:"Pitch Decks", sk6_f:"Levée de Fonds",
     avail_line:"Basé à Madrid · Droit de travail en UE · Disponible", pf1_l:"utilisateurs en 5 jours", pf2_l:"langues", pf3_l:"domaines d'expertise", pf4_l:"diplômes", rec_lbl:"Vue recruteur", rec_head:"La version 60 secondes", rec_avail_l:"Disponibilité", rec_avail:"Madrid · Droit de travail en UE · Disponible maintenant", rec_skills_l:"Points forts", rec_roles_l:"Objectif", rec_roles:"Stratégie · Produit · Business International · Investissement",
+    now_l:"En ce moment", now_t:"Je termine mon Master à l'ESIC Madrid · je pilote les opérations et le go-to-market chez Valtier Real Estate · je dirige la refonte de Moustachir V4.",
+    rec_tracks_l:"Choisissez votre profil",
+    tr1_h:"Stratégie & Investissement", tr1_p:"Recherche en valorisation, market sizing et levée de fonds côté fondateur — la rigueur quantitative d'un diplôme de maths.", tr1_cv:"CV Business →",
+    tr2_h:"Produit & Design", tr2_p:"Livraison produit de bout en bout : plus de 8 projets lancés, de l'UX au go-to-market.", tr2_cv:"CV Produit →",
+    tr3_h:"Business International", tr3_p:"Formé au commerce et à l'internationalisation à l'ESIC — actif sur les marchés EN/FR/ES/AR.", tr3_cv:"CV complet →",
     nav_case:"Étude de cas", cred_l:"Formation", exp_bar_l:"Expérience", cs_label:"Étude de cas", cs_title:"A9RA — 25 000 utilisateurs en 5 jours.", cs_p_l:"Problème", cs_p:"L'EdTech régional était saturé mais plein de failles — je devais trouver un angle défendable et prouver une vraie demande vite, avec peu de runway.", cs_a_l:"Approche", cs_a:"J'ai mené une analyse concurrentielle pour cibler la faille, conçu le go-to-market et construit le pitch deck investisseurs et les projections financières du tour pre-seed.", cs_r_l:"Résultat", cs_r:"Plus de 25 000 utilisateurs en 5 jours de bêta publique — validant l'angle et préparant la levée.", cs_metric_l:"utilisateurs dans les 5 premiers jours",
     foot:"Madrid, Espagne · Opérations & Stratégie"
   }
@@ -1393,7 +1464,14 @@ function About({
     dangerouslySetInnerHTML: {
       __html: t("about_text")
     }
-  })));
+  }), /*#__PURE__*/React.createElement(Reveal, {
+    className: "now-line",
+    delay: 0.1
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "now-k"
+  }, t("now_l")), /*#__PURE__*/React.createElement("span", {
+    className: "now-v"
+  }, t("now_t")))));
 }
 const SKILLS = [{
   num: "01",
@@ -1711,7 +1789,7 @@ function Articles({
     className: "art-time"
   }, t(a.time))), /*#__PURE__*/React.createElement("h3", null, t(a.h)), /*#__PURE__*/React.createElement("p", null, t(a.p)), /*#__PURE__*/React.createElement("a", {
     className: "art-read",
-    href: "#"
+    href: "mailto:sofiane7hafsaoui@gmail.com?subject=" + encodeURIComponent("Your essay: " + t(a.h))
   }, t("art_read")))))));
 }
 const ESIC_MODS = ["Global Economic Environment", "Internationalization Strategy", "International Marketing", "Market Entry Strategies", "International Trade Law", "Trade Policy & Regulation", "Finance for Trade Business", "International Trade Finance", "Supply Chain & Operations", "Digital Trade", "Data & Analytics", "Sustainability & ESG", "Intercultural Leadership", "Market Research", "Demand Forecasting", "Project Management", "Business Strategy", "Final Master Project"];
@@ -1966,6 +2044,18 @@ function RecruiterOverlay({
   }, fams.map(f => /*#__PURE__*/React.createElement("span", {
     key: f
   }, t(f))))), /*#__PURE__*/React.createElement("div", {
+    className: "rc-block"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "rc-k"
+  }, t("rec_tracks_l")), /*#__PURE__*/React.createElement("div", {
+    className: "rc-tracks"
+  }, [["tr1_h", "tr1_p", "tr1_cv", "Sofiane Hafsaoui CV English.pdf"], ["tr2_h", "tr2_p", "tr2_cv", "Sofiane UI CV 2026 English.pdf"], ["tr3_h", "tr3_p", "tr3_cv", "Sofiane Hafsaoui CV English.pdf"]].map(([h, p, c, f]) => /*#__PURE__*/React.createElement("div", {
+    className: "rc-track",
+    key: h
+  }, /*#__PURE__*/React.createElement("b", null, t(h)), /*#__PURE__*/React.createElement("span", null, t(p)), /*#__PURE__*/React.createElement("a", {
+    href: f,
+    target: "_blank"
+  }, t(c)))))), /*#__PURE__*/React.createElement("div", {
     className: "rc-cta"
   }, /*#__PURE__*/React.createElement("a", {
     className: "btn solid",
