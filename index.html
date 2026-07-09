@@ -2063,8 +2063,9 @@ function RecruiterOverlay({
   }, [["tr1_h", "tr1_p", "Strategy"], ["tr2_h", "tr2_p", "Design"], ["tr3_h", "tr3_p", "International"], ["tr4_h", "tr4_p", "Marketing"]].map(([h, p, slug]) => /*#__PURE__*/React.createElement("div", {
     className: "rc-track",
     key: h
-  }, /*#__PURE__*/React.createElement("b", null, t(h)), /*#__PURE__*/React.createElement("span", null, t(p)), /*#__PURE__*/React.createElement("nav", {
+  }, /*#__PURE__*/React.createElement("b", null, t(h)), /*#__PURE__*/React.createElement("span", null, t(p)), /*#__PURE__*/React.createElement("div", {
     className: "rc-langs",
+    role: "group",
     "aria-label": t(h)
   }, ["en", "fr", "es"].map(lg => /*#__PURE__*/React.createElement("a", {
     key: lg,
