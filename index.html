@@ -410,6 +410,8 @@
   .rc-track span{font-size:12.5px;color:var(--muted);flex:1;min-width:200px}
   .rc-track a{font-size:12.5px;font-weight:500;white-space:nowrap;border-bottom:1px solid var(--ink);padding-bottom:1px}
   .rc-track a:hover{color:var(--muted);border-color:var(--muted)}
+.rc-langs{display:flex;gap:12px;flex:0 0 auto}
+.rc-track .rc-langs a.cur{font-weight:700;border-bottom-width:2px}
 
   /* NOW LINE */
   .now-line{display:flex;align-items:baseline;gap:16px;margin-top:34px;padding-top:26px;border-top:1px solid var(--line);flex-wrap:wrap}
@@ -489,9 +491,9 @@ window.I18N_DATA = {
     avail_line:"Based in Madrid · Full EU work rights · Open to work", pf1_l:"users in 5 days", pf2_l:"languages", pf3_l:"areas of expertise", pf4_l:"degrees", rec_lbl:"Recruiter view", rec_head:"The 60-second version", rec_avail_l:"Availability", rec_avail:"Madrid · Full EU work rights · Open to work now", rec_skills_l:"Core strengths", rec_roles_l:"Targeting", rec_roles:"Strategy · Product · International Business · Investment",
     now_l:"Now", now_t:"Completing my Master's at ESIC Madrid · driving operations & go-to-market at Valtier Real Estate · leading the Moustachir V4 redesign.",
     rec_tracks_l:"Pick your track",
-    tr1_h:"Strategy & Investment", tr1_p:"Valuation research, market sizing and founder-side fundraising — quantitative rigor from a math degree.", tr1_cv:"Business CV →",
-    tr2_h:"Product & Design", tr2_p:"End-to-end product delivery: 8+ shipped projects, from UX to go-to-market.", tr2_cv:"Product CV →",
-    tr3_h:"International Business", tr3_p:"Trained in trade & internationalization at ESIC — working across EN/FR/ES/AR markets.", tr3_cv:"Full CV →",
+    tr1_h:"Strategy & Investment", tr1_p:"Valuation research, market sizing and founder-side fundraising — quantitative rigor from a math degree.",
+    tr2_h:"Product & Design", tr2_p:"End-to-end product delivery: 8+ shipped projects, from UX to go-to-market.",
+    tr3_h:"International Business", tr3_p:"Trained in trade & internationalization at ESIC — working across EN/FR/ES/AR markets.", tr4_h:"Marketing & Growth", tr4_p:"Go-to-market execution — 25,000+ users in 5 days at A9RA; brand, growth and performance marketing.",
     nav_case:"Case study", cred_l:"Education", exp_bar_l:"Experience", cs_label:"Case study", cs_title:"A9RA — 25,000 users in 5 days.", cs_p_l:"Problem", cs_p:"EdTech in the region was crowded but full of gaps — I had to find a defensible wedge and prove real demand fast, on limited runway.", cs_a_l:"Approach", cs_a:"I ran a competitive landscape analysis to pinpoint the gap, designed the go-to-market, and built the investor pitch deck and financial projections for the pre-seed round.", cs_r_l:"Result", cs_r:"25,000+ users within 5 days of public beta — validating the wedge and equipping the raise.", cs_metric_l:"users acquired in the first 5 days",
     foot:"Madrid, Spain · Operations & Strategy"
   },
@@ -559,9 +561,9 @@ window.I18N_DATA = {
     avail_line:"En Madrid · Derecho a trabajar en la UE · Disponible", pf1_l:"usuarios en 5 días", pf2_l:"idiomas", pf3_l:"áreas de expertise", pf4_l:"titulaciones", rec_lbl:"Para reclutadores", rec_head:"La versión de 60 segundos", rec_avail_l:"Disponibilidad", rec_avail:"Madrid · Derecho a trabajar en la UE · Disponible ya", rec_skills_l:"Fortalezas clave", rec_roles_l:"Buscando", rec_roles:"Estrategia · Producto · Negocio Internacional · Inversión",
     now_l:"Ahora", now_t:"Terminando mi Máster en ESIC Madrid · liderando operaciones y go-to-market en Valtier Real Estate · dirigiendo el rediseño de Moustachir V4.",
     rec_tracks_l:"Elige tu perfil",
-    tr1_h:"Estrategia e Inversión", tr1_p:"Investigación de valoraciones, dimensionamiento de mercado y fundraising como fundador — rigor cuantitativo de un grado en matemáticas.", tr1_cv:"CV Business →",
-    tr2_h:"Producto y Diseño", tr2_p:"Entrega de producto de principio a fin: más de 8 proyectos lanzados, del UX al go-to-market.", tr2_cv:"CV Producto →",
-    tr3_h:"Negocio Internacional", tr3_p:"Formado en comercio e internacionalización en ESIC — trabajando en mercados EN/FR/ES/AR.", tr3_cv:"CV completo →",
+    tr1_h:"Estrategia e Inversión", tr1_p:"Investigación de valoraciones, dimensionamiento de mercado y fundraising como fundador — rigor cuantitativo de un grado en matemáticas.",
+    tr2_h:"Producto y Diseño", tr2_p:"Entrega de producto de principio a fin: más de 8 proyectos lanzados, del UX al go-to-market.",
+    tr3_h:"Negocio Internacional", tr3_p:"Formado en comercio e internacionalización en ESIC — trabajando en mercados EN/FR/ES/AR.", tr4_h:"Marketing y Growth", tr4_p:"Ejecución go-to-market — más de 25.000 usuarios en 5 días con A9RA; marca, growth y marketing de rendimiento.",
     nav_case:"Caso", cred_l:"Formación", exp_bar_l:"Experiencia", cs_label:"Caso práctico", cs_title:"A9RA — 25.000 usuarios en 5 días.", cs_p_l:"Problema", cs_p:"El EdTech regional estaba saturado pero lleno de huecos — tenía que encontrar un ángulo defendible y demostrar demanda real rápido, con poco runway.", cs_a_l:"Enfoque", cs_a:"Realicé un análisis competitivo para detectar el hueco, diseñé la salida al mercado y construí el pitch deck y las proyecciones financieras para la ronda pre-seed.", cs_r_l:"Resultado", cs_r:"Más de 25.000 usuarios en los 5 días de beta pública — validando el ángulo y preparando la ronda.", cs_metric_l:"usuarios en los primeros 5 días",
     foot:"Madrid, España · Operaciones y Estrategia"
   },
@@ -629,9 +631,9 @@ window.I18N_DATA = {
     avail_line:"Basé à Madrid · Droit de travail en UE · Disponible", pf1_l:"utilisateurs en 5 jours", pf2_l:"langues", pf3_l:"domaines d'expertise", pf4_l:"diplômes", rec_lbl:"Vue recruteur", rec_head:"La version 60 secondes", rec_avail_l:"Disponibilité", rec_avail:"Madrid · Droit de travail en UE · Disponible maintenant", rec_skills_l:"Points forts", rec_roles_l:"Objectif", rec_roles:"Stratégie · Produit · Business International · Investissement",
     now_l:"En ce moment", now_t:"Je termine mon Master à l'ESIC Madrid · je pilote les opérations et le go-to-market chez Valtier Real Estate · je dirige la refonte de Moustachir V4.",
     rec_tracks_l:"Choisissez votre profil",
-    tr1_h:"Stratégie & Investissement", tr1_p:"Recherche en valorisation, market sizing et levée de fonds côté fondateur — la rigueur quantitative d'un diplôme de maths.", tr1_cv:"CV Business →",
-    tr2_h:"Produit & Design", tr2_p:"Livraison produit de bout en bout : plus de 8 projets lancés, de l'UX au go-to-market.", tr2_cv:"CV Produit →",
-    tr3_h:"Business International", tr3_p:"Formé au commerce et à l'internationalisation à l'ESIC — actif sur les marchés EN/FR/ES/AR.", tr3_cv:"CV complet →",
+    tr1_h:"Stratégie & Investissement", tr1_p:"Recherche en valorisation, market sizing et levée de fonds côté fondateur — la rigueur quantitative d'un diplôme de maths.",
+    tr2_h:"Produit & Design", tr2_p:"Livraison produit de bout en bout : plus de 8 projets lancés, de l'UX au go-to-market.",
+    tr3_h:"Business International", tr3_p:"Formé au commerce et à l'internationalisation à l'ESIC — actif sur les marchés EN/FR/ES/AR.", tr4_h:"Marketing & Growth", tr4_p:"Exécution go-to-market — plus de 25 000 utilisateurs en 5 jours avec A9RA ; marque, growth et marketing de performance.",
     nav_case:"Étude de cas", cred_l:"Formation", exp_bar_l:"Expérience", cs_label:"Étude de cas", cs_title:"A9RA — 25 000 utilisateurs en 5 jours.", cs_p_l:"Problème", cs_p:"L'EdTech régional était saturé mais plein de failles — je devais trouver un angle défendable et prouver une vraie demande vite, avec peu de runway.", cs_a_l:"Approche", cs_a:"J'ai mené une analyse concurrentielle pour cibler la faille, conçu le go-to-market et construit le pitch deck investisseurs et les projections financières du tour pre-seed.", cs_r_l:"Résultat", cs_r:"Plus de 25 000 utilisateurs en 5 jours de bêta publique — validant l'angle et préparant la levée.", cs_metric_l:"utilisateurs dans les 5 premiers jours",
     foot:"Madrid, Espagne · Opérations & Stratégie"
   }
@@ -1351,7 +1353,8 @@ function Nav({
   }, l.toUpperCase()))))));
 }
 function Hero({
-  t
+  t,
+  onRecruiter
 }) {
   const rm = useReducedMotion();
   const {
@@ -1429,8 +1432,11 @@ function Hero({
     href: "#contact"
   }, t("hero_cta1")), /*#__PURE__*/React.createElement(Magnetic, {
     className: "btn ghost",
-    href: "Sofiane Hafsaoui CV English.pdf",
-    target: "_blank"
+    href: "#cv",
+    onClick: e => {
+      e.preventDefault();
+      onRecruiter();
+    }
   }, t("hero_cta2"))), /*#__PURE__*/React.createElement(motion.p, {
     className: "avail-line",
     variants: item
@@ -1894,7 +1900,8 @@ function Education({
   }))))))))));
 }
 function Contact({
-  t
+  t,
+  onRecruiter
 }) {
   return /*#__PURE__*/React.createElement("section", {
     id: "contact",
@@ -1923,8 +1930,11 @@ function Contact({
     href: "tel:+34662316895"
   }, "+34 662 316 895"), /*#__PURE__*/React.createElement(Magnetic, {
     className: "btn ghost",
-    href: "Sofiane Hafsaoui CV English.pdf",
-    target: "_blank"
+    href: "#cv",
+    onClick: e => {
+      e.preventDefault();
+      onRecruiter();
+    }
   }, t("hero_cta2")))));
 }
 function Progress() {
@@ -1983,6 +1993,7 @@ function CountUp({
   }, val.toLocaleString("en-US"), suffix);
 }
 function RecruiterOverlay({
+  lang,
   open,
   onClose,
   t
@@ -2049,22 +2060,24 @@ function RecruiterOverlay({
     className: "rc-k"
   }, t("rec_tracks_l")), /*#__PURE__*/React.createElement("div", {
     className: "rc-tracks"
-  }, [["tr1_h", "tr1_p", "tr1_cv", "Sofiane Hafsaoui CV English.pdf"], ["tr2_h", "tr2_p", "tr2_cv", "Sofiane UI CV 2026 English.pdf"], ["tr3_h", "tr3_p", "tr3_cv", "Sofiane Hafsaoui CV English.pdf"]].map(([h, p, c, f]) => /*#__PURE__*/React.createElement("div", {
+  }, [["tr1_h", "tr1_p", "Strategy"], ["tr2_h", "tr2_p", "Design"], ["tr3_h", "tr3_p", "International"], ["tr4_h", "tr4_p", "Marketing"]].map(([h, p, slug]) => /*#__PURE__*/React.createElement("div", {
     className: "rc-track",
     key: h
-  }, /*#__PURE__*/React.createElement("b", null, t(h)), /*#__PURE__*/React.createElement("span", null, t(p)), /*#__PURE__*/React.createElement("a", {
-    href: f,
-    target: "_blank"
-  }, t(c)))))), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("b", null, t(h)), /*#__PURE__*/React.createElement("span", null, t(p)), /*#__PURE__*/React.createElement("nav", {
+    className: "rc-langs",
+    "aria-label": t(h)
+  }, ["en", "fr", "es"].map(lg => /*#__PURE__*/React.createElement("a", {
+    key: lg,
+    href: "cv/Sofiane-Hafsaoui-CV-" + slug + "-" + lg.toUpperCase() + ".pdf",
+    target: "_blank",
+    className: lg === lang ? "cur" : "",
+    "aria-label": t(h) + " CV (" + lg.toUpperCase() + ")"
+  }, lg.toUpperCase()))))))), /*#__PURE__*/React.createElement("div", {
     className: "rc-cta"
   }, /*#__PURE__*/React.createElement("a", {
     className: "btn solid",
     href: "mailto:sofiane7hafsaoui@gmail.com"
   }, "Email"), /*#__PURE__*/React.createElement("a", {
-    className: "btn ghost",
-    href: "Sofiane Hafsaoui CV English.pdf",
-    target: "_blank"
-  }, t("hero_cta2")), /*#__PURE__*/React.createElement("a", {
     className: "btn ghost",
     href: "https://www.linkedin.com/in/sofiane-hafsaoui",
     target: "_blank"
@@ -2141,6 +2154,7 @@ function App() {
     if (window.__modulesSetLang) window.__modulesSetLang(lang);
   }, [lang]);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Cursor, null), /*#__PURE__*/React.createElement(Modules, null), /*#__PURE__*/React.createElement(RecruiterOverlay, {
+    lang: lang,
     open: recOpen,
     onClose: () => setRecOpen(false),
     t: t
@@ -2149,9 +2163,7 @@ function App() {
     setLang: setLang,
     t: t,
     onRecruiter: () => setRecOpen(true)
-  }), /*#__PURE__*/React.createElement(Hero, {
-    t: t
-  }), /*#__PURE__*/React.createElement(Marquee, null), /*#__PURE__*/React.createElement(Credibility, {
+  }), /*#__PURE__*/React.createElement(Hero, { t: t, onRecruiter: () => setRecOpen(true) }), /*#__PURE__*/React.createElement(Marquee, null), /*#__PURE__*/React.createElement(Credibility, {
     t: t
   }), /*#__PURE__*/React.createElement(About, {
     t: t
@@ -2167,9 +2179,7 @@ function App() {
     t: t
   }), /*#__PURE__*/React.createElement(Education, {
     t: t
-  }), /*#__PURE__*/React.createElement(Contact, {
-    t: t
-  }), /*#__PURE__*/React.createElement("footer", {
+  }), /*#__PURE__*/React.createElement(Contact, { t: t, onRecruiter: () => setRecOpen(true) }), /*#__PURE__*/React.createElement("footer", {
     className: "wrap"
   }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 Sofiane Hafsaoui"), /*#__PURE__*/React.createElement("span", null, t("foot"))));
 }
