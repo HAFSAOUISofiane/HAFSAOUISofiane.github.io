@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 1
+- **Current day**: 2
 - **Current CEFR level**: A2
-- **Last lesson date**: 2026-07-30
+- **Last lesson date**: 2026-07-31
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -18,8 +18,21 @@
 - la reunión (n) — meeting
 - nervioso / nerviosa (adj) — nervous
 - coger (v) — to take / to catch (a bus) — neutral in Spain, vulgar in much of Latin America
+- la compra / hacer la compra (n/expr) — shopping / to do the grocery shopping
+- el supermercado (n) — supermarket
+- la lista (n) — list
+- necesitar (v) — to need — false friend vs. French "nécessiter" (used for things, not personal need)
+- el carrito (n) — shopping cart / trolley
+- buscar (v) — to look for
+- encontrar (v) — to find — false friend vs. French "rencontrer" (to meet a person)
+- pagar (v) — to pay
+- la caja (n) — checkout / box
+- quedar (con alguien) (v) — to meet up (with someone)
+- madrugar (v) — to get up early
 
 ## Grammar points introduced so far
 
 - Ser vs. Estar (identity/origin/permanent traits vs. location/temporary states)
 - Reflexive verbs in present tense (e.g. despertarse: me despierto, te despiertas, se despierta...)
+- Ir a + infinitivo (near future: voy a, vas a, va a...)
+- Hay vs. Estar (existence/indefinite quantity vs. location of something specific)
