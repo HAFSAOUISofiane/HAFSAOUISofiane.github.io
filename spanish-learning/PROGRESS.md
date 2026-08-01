@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 2
+- **Current day**: 3
 - **Current CEFR level**: A2
-- **Last lesson date**: 2026-07-31
+- **Last lesson date**: 2026-08-01
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -29,6 +29,17 @@
 - la caja (n) — checkout / box
 - quedar (con alguien) (v) — to meet up (with someone)
 - madrugar (v) — to get up early
+- levantarse (v) — to get up (out of bed) — pairs with despertarse (to wake up)
+- desayunar (v) — to have breakfast — false friend vs. French "déjeuner" (= to have lunch)
+- el mercado (n) — (local/outdoor) market
+- fresco / fresca (adj) — fresh
+- la verdura (n) — vegetable(s)
+- lavar (v) — to wash
+- la ropa (n) — clothes
+- llamar (v) — to call (a person, by phone)
+- la familia (n) — family
+- el almuerzo (n) — lunch — this is what French "déjeuner" actually refers to
+- la siesta (n) — nap
 
 ## Grammar points introduced so far
 
@@ -36,3 +47,5 @@
 - Reflexive verbs in present tense (e.g. despertarse: me despierto, te despiertas, se despierta...)
 - Ir a + infinitivo (near future: voy a, vas a, va a...)
 - Hay vs. Estar (existence/indefinite quantity vs. location of something specific)
+- Pretérito indefinido (preterite/simple past) — regular -ar/-er/-ir verbs, e.g. desayunó, comieron (plus recognition-only irregulars "fue" and "hizo")
+- Reflexive verbs in the preterite (e.g. se levantó, se despertó)
