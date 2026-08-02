@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 3
+- **Current day**: 4
 - **Current CEFR level**: A2
-- **Last lesson date**: 2026-08-01
+- **Last lesson date**: 2026-08-02
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -40,6 +40,18 @@
 - la familia (n) — family
 - el almuerzo (n) — lunch — this is what French "déjeuner" actually refers to
 - la siesta (n) — nap
+- empezar (v, e→ie) — to start / to begin
+- el ascensor (n) — elevator / lift
+- el fin de semana (n/expr) — weekend
+- la fiesta (n) — party (cognate of French "fête"; s-before-consonant ↔ circumflex pattern)
+- ocupado / ocupada (adj) — busy
+- echar (una siesta) (v/expr) — to take (a nap)
+- el jefe / la jefa (n) — boss
+- entregar (v) — to hand in / to submit
+- el informe (n) — report
+- revisar (v) — to check / to review — false friend vs. French "réviser" (mainly "to study for an exam" in French)
+- la pausa (n) — break / pause
+- terminar (v) — to finish
 
 ## Grammar points introduced so far
 
@@ -49,3 +61,5 @@
 - Hay vs. Estar (existence/indefinite quantity vs. location of something specific)
 - Pretérito indefinido (preterite/simple past) — regular -ar/-er/-ir verbs, e.g. desayunó, comieron (plus recognition-only irregulars "fue" and "hizo")
 - Reflexive verbs in the preterite (e.g. se levantó, se despertó)
+- Pretérito indefinido — common irregular verbs sharing unstressed endings (tener → tuve/tuviste/tuvo..., estar → estuve/estuviste/estuvo..., poder → pude/pudiste/pudo...)
+- Tener que + infinitivo vs. Hay que + infinitivo (personal obligation vs. impersonal/general obligation)
