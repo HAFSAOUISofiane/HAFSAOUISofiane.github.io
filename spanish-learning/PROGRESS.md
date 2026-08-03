@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 4
+- **Current day**: 5
 - **Current CEFR level**: A2
-- **Last lesson date**: 2026-08-02
+- **Last lesson date**: 2026-08-03
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -52,6 +52,17 @@
 - revisar (v) — to check / to review — false friend vs. French "réviser" (mainly "to study for an exam" in French)
 - la pausa (n) — break / pause
 - terminar (v) — to finish
+- el autobús (n) — bus
+- la parada (n) — (bus) stop — false friend vs. French "la parade" (parade, showing off)
+- tardar (v) — to take (time) — e.g. tarda 20 minutos = it takes 20 minutes
+- el billete (n) — ticket
+- la cita (n) — appointment
+- rellenar (v) — to fill in / fill out (a form)
+- el formulario (n) — form (document)
+- firmar (v) — to sign
+- gratis (adj/adv) — free (no cost)
+- asistir (v) — to attend — false friend vs. English "to assist" (= ayudar), but matches French "assister à"
+- actualmente (adv) — currently, at present — false friend vs. English "actually" (= en realidad), but matches French "actuellement"
 
 ## Grammar points introduced so far
 
@@ -63,3 +74,5 @@
 - Reflexive verbs in the preterite (e.g. se levantó, se despertó)
 - Pretérito indefinido — common irregular verbs sharing unstressed endings (tener → tuve/tuviste/tuvo..., estar → estuve/estuviste/estuvo..., poder → pude/pudiste/pudo...)
 - Tener que + infinitivo vs. Hay que + infinitivo (personal obligation vs. impersonal/general obligation)
+- Por vs. Para (cause/means/time-of-day vs. purpose/destination/deadline)
+- Direct object pronouns: lo / la / los / las (replacing an already-mentioned noun)
