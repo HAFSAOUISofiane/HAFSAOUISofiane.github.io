@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 5
+- **Current day**: 6
 - **Current CEFR level**: A2
-- **Last lesson date**: 2026-08-03
+- **Last lesson date**: 2026-08-04
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -63,6 +63,18 @@
 - gratis (adj/adv) — free (no cost)
 - asistir (v) — to attend — false friend vs. English "to assist" (= ayudar), but matches French "assister à"
 - actualmente (adv) — currently, at present — false friend vs. English "actually" (= en realidad), but matches French "actuellement"
+- la carta (n) — menu — matches French "la carte"; also means "letter" (mail), unlike English which uses two separate words
+- el menú del día (n/expr) — the set menu / today's menu — near-transparent cognate of French "le menu du jour"
+- de primero / de segundo (expr) — as a starter / as a main course
+- pedir (v, e→i) — to order / to ask for — partial false friend vs. French "demander" (which covers both "pedir" and "preguntar")
+- preguntar (v) — to ask (a question) — pairs with "pedir"; French "demander" doesn't distinguish the two
+- el camarero / la camarera (n) — waiter / waitress
+- recomendar (v, e→ie) — to recommend — close cognate of French "recommander"
+- picante (adj) — spicy
+- la cuenta (n) — the bill / check — also means "bank account" (like French "le compte"); French uses a different word ("l'addition") for a restaurant bill
+- invitar (v) — to invite / to treat (pay for someone) — matches French "inviter (qn au restaurant)"; partial false friend vs. English "to invite" (no payment implied)
+- la propina (n) — tip (gratuity)
+- la sobremesa (n) — after-meal chat at the table — culturally Spanish concept, no direct French or English equivalent
 
 ## Grammar points introduced so far
 
@@ -76,3 +88,5 @@
 - Tener que + infinitivo vs. Hay que + infinitivo (personal obligation vs. impersonal/general obligation)
 - Por vs. Para (cause/means/time-of-day vs. purpose/destination/deadline)
 - Direct object pronouns: lo / la / los / las (replacing an already-mentioned noun)
+- Indirect object pronouns: le / les (to/for whom the action is done; contrasted with direct object pronouns)
+- Stem-changing verbs e→i in the present tense (pedir: pido, pides, pide, pedimos, pedís, piden), contrasted with the previously-seen e→ie pattern
