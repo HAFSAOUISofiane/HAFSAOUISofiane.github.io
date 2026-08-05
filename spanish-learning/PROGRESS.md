@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 6
+- **Current day**: 7
 - **Current CEFR level**: A2
-- **Last lesson date**: 2026-08-04
+- **Last lesson date**: 2026-08-05
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -75,6 +75,17 @@
 - invitar (v) — to invite / to treat (pay for someone) — matches French "inviter (qn au restaurant)"; partial false friend vs. English "to invite" (no payment implied)
 - la propina (n) — tip (gratuity)
 - la sobremesa (n) — after-meal chat at the table — culturally Spanish concept, no direct French or English equivalent
+- doler (v, o→ue) — to hurt — related to French "la douleur" (pain)
+- encontrarse (bien/mal) (v, o→ue, reflexive) — to feel (good/bad) — false friend vs. French "se trouver" (to be located)
+- la cabeza (n) — head
+- la garganta (n) — throat — loosely similar to French "la gorge"
+- el resfriado (n) — a cold (illness) — shares root with French "froid" / "refroidissement"
+- la fiebre (n) — fever — close cognate of French "la fièvre"
+- grave (adj) — serious — transparent cognate of French "grave"
+- guardar cama (expr) — to stay in bed / to rest up
+- la receta (n) — prescription — false friend vs. French "la recette" (cooking recipe)
+- la farmacia (n) — pharmacy — matches French "la pharmacie"
+- la pastilla (n) — pill — false friend vs. French "la pastille" (lozenge/candy)
 
 ## Grammar points introduced so far
 
@@ -90,3 +101,5 @@
 - Direct object pronouns: lo / la / los / las (replacing an already-mentioned noun)
 - Indirect object pronouns: le / les (to/for whom the action is done; contrasted with direct object pronouns)
 - Stem-changing verbs e→i in the present tense (pedir: pido, pides, pide, pedimos, pedís, piden), contrasted with the previously-seen e→ie pattern
+- Verbs like "gustar": doler (indirect object pronoun + verb agreeing with the body part, e.g. me duele la cabeza / me duelen los pies)
+- Stem-changing verbs o→ue in the present tense (poder: puedo, puedes, puede, podemos, podéis, pueden; encontrarse: me encuentro, te encuentras...)
