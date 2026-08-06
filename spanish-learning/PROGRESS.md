@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 7
+- **Current day**: 8
 - **Current CEFR level**: A2
-- **Last lesson date**: 2026-08-05
+- **Last lesson date**: 2026-08-06
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -86,6 +86,16 @@
 - la receta (n) — prescription — false friend vs. French "la recette" (cooking recipe)
 - la farmacia (n) — pharmacy — matches French "la pharmacie"
 - la pastilla (n) — pill — false friend vs. French "la pastille" (lozenge/candy)
+- vacío / vacía (adj) — empty — shares Latin root with French "vacances" (holiday), but means "empty" in Spanish, not "vacation"
+- la ola de calor (n) — heatwave
+- el aire acondicionado (n) — air conditioning
+- el ventilador (n) — (electric) fan
+- costar (le cuesta + infinitivo) (v, o→ue) — to find it hard (to do something) — matches French "coûter" but used figuratively here
+- la operación salida (n/expr) — the summer "mass exodus" traffic operation (Spain-specific term)
+- el atasco (n) — traffic jam
+- el tráfico (n) — traffic — false friend vs. French "le trafic" (usually implies illegal trafficking); everyday traffic in French is "la circulation"
+- tener razón (expr) — to be right — near-perfect calque of French "avoir raison"
+- el despertador (n) — alarm clock — related to "despertarse" (Day 1); different word in French ("le réveil")
 
 ## Grammar points introduced so far
 
@@ -103,3 +113,5 @@
 - Stem-changing verbs e→i in the present tense (pedir: pido, pides, pide, pedimos, pedís, piden), contrasted with the previously-seen e→ie pattern
 - Verbs like "gustar": doler (indirect object pronoun + verb agreeing with the body part, e.g. me duele la cabeza / me duelen los pies)
 - Stem-changing verbs o→ue in the present tense (poder: puedo, puedes, puede, podemos, podéis, pueden; encontrarse: me encuentro, te encuentras...)
+- Weather expressions with "hacer" (hace calor, hace sol; va a hacer más calor) vs. "hay" for weather phenomena as nouns (hay una ola de calor, hay niebla)
+- Comparatives: más/menos + adj./noun + que (superiority), tan + adj. + como (equality), irregular mejor/peor
