@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 8
+- **Current day**: 9
 - **Current CEFR level**: A2
-- **Last lesson date**: 2026-08-06
+- **Last lesson date**: 2026-08-07
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -96,6 +96,16 @@
 - el tráfico (n) — traffic — false friend vs. French "le trafic" (usually implies illegal trafficking); everyday traffic in French is "la circulation"
 - tener razón (expr) — to be right — near-perfect calque of French "avoir raison"
 - el despertador (n) — alarm clock — related to "despertarse" (Day 1); different word in French ("le réveil")
+- el coche (n) — car — no direct French cognate (French uses "la voiture")
+- la carretera (n) — road / highway — shares root with "carrito" (Day 2) via Latin "carrus"
+- acordarse (de) (v, o→ue, reflexive) — to remember — false friend vs. French "accord" (agreement); means "se souvenir de", not "être d'accord"
+- la arena (n) — sand — false friend vs. French "l'arène" (bullring/amphitheater)
+- despejado / despejada (adj) — clear (sky) — no French cognate (French: "dégagé")
+- la nube (n) — cloud — distant cousin of French "le nuage" (both from Latin "nubes")
+- la sombrilla (n) — beach umbrella / parasol — cognate of French "l'ombrelle" (shared root "umbra")
+- construir (v) — to build — transparent cognate of French "construire"
+- el chiringuito (n) — beach bar / casual seaside food stall — Spain-specific, no French equivalent
+- la brisa (n) — breeze — transparent cognate of French "la brise"
 
 ## Grammar points introduced so far
 
@@ -115,3 +125,5 @@
 - Stem-changing verbs o→ue in the present tense (poder: puedo, puedes, puede, podemos, podéis, pueden; encontrarse: me encuentro, te encuentras...)
 - Weather expressions with "hacer" (hace calor, hace sol; va a hacer más calor) vs. "hay" for weather phenomena as nouns (hay una ola de calor, hay niebla)
 - Comparatives: más/menos + adj./noun + que (superiority), tan + adj. + como (equality), irregular mejor/peor
+- Pretérito imperfecto (regular forms: -aba/-abas... for -ar; -ía/-ías... for -er/-ir) — habitual past actions and background description, contrasted with pretérito indefinido (completed, sequential actions)
+- Mientras + imperfecto — expressing two simultaneous past actions/background
