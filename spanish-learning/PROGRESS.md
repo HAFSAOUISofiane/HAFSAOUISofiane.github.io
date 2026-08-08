@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 9
-- **Current CEFR level**: A2
-- **Last lesson date**: 2026-08-07
+- **Current day**: 10
+- **Current CEFR level**: A2+
+- **Last lesson date**: 2026-08-08
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -106,6 +106,17 @@
 - construir (v) — to build — transparent cognate of French "construire"
 - el chiringuito (n) — beach bar / casual seaside food stall — Spain-specific, no French equivalent
 - la brisa (n) — breeze — transparent cognate of French "la brise"
+- la bandeja de entrada (n) — inbox — no French cognate (French: "la boîte de réception")
+- el correo electrónico (n) — email — matches French "le courrier électronique" (le courriel)
+- contestar (v) — to reply / to answer — false friend vs. French "contester" (to dispute/challenge)
+- ponerse al día (expr) — to catch up, get up to date — no direct French equivalent ("se mettre à jour")
+- reenviar (v) — to forward — cognate of French "renvoyer", which can also mean "to dismiss" (an employee) in French
+- adjuntar (v) — to attach — related noun "adjunto" false friend vs. French "adjoint" (deputy/assistant); as adjective "adjunto" = attached (file)
+- la videollamada (n) — video call — transparent compound; French prefers "la visioconférence" / "l'appel vidéo"
+- atrasado / atrasada (adj) — behind, backlogged / late — no French cognate (French: "en retard")
+- echar de menos (expr) — to miss (someone/something) — grammar trap vs. French "quelque chose me manque" (reversed subject)
+- soler (+ infinitivo) (v, o→ue) — to usually do something — no French cognate (French uses adverbs like "d'habitude")
+- cerrado por vacaciones (expr) — closed for vacation (common shop sign in Spain in August)
 
 ## Grammar points introduced so far
 
@@ -127,3 +138,5 @@
 - Comparatives: más/menos + adj./noun + que (superiority), tan + adj. + como (equality), irregular mejor/peor
 - Pretérito imperfecto (regular forms: -aba/-abas... for -ar; -ía/-ías... for -er/-ir) — habitual past actions and background description, contrasted with pretérito indefinido (completed, sequential actions)
 - Mientras + imperfecto — expressing two simultaneous past actions/background
+- Pretérito perfecto compuesto (present perfect) — haber (he/has/ha/hemos/habéis/han) + participio (regular -ado/-ido, plus irregulars visto/dicho/hecho/puesto/vuelto) — recent past / period including "now", contrasted with pretérito indefinido
+- Ya vs. todavía no + pretérito perfecto (already vs. not yet)
