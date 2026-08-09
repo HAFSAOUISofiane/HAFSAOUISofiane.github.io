@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 10
+- **Current day**: 11
 - **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-08
+- **Last lesson date**: 2026-08-09
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -117,6 +117,17 @@
 - echar de menos (expr) — to miss (someone/something) — grammar trap vs. French "quelque chose me manque" (reversed subject)
 - soler (+ infinitivo) (v, o→ue) — to usually do something — no French cognate (French uses adverbs like "d'habitude")
 - cerrado por vacaciones (expr) — closed for vacation (common shop sign in Spain in August)
+- la piscina (n) — swimming pool
+- relajarse (v) — to relax
+- dejar (algo) para el último momento (expr) — to leave (something) till the last minute — false friend trap vs. French "déjà" (visual only, unrelated meaning)
+- añadir (v) — to add (say) — distant relative of French "ajouter"
+- la previsión del tiempo (n) — weather forecast
+- el móvil (n) — mobile phone — French mostly says "le portable" for the phone
+- en voz alta (expr) — out loud — direct calque of French "à voix haute"
+- estrenar (v) — to use/wear for the first time — no French cognate
+- las gafas de sol (n) — sunglasses — no cognate (French: "les lunettes de soleil")
+- el edificio (n) — building — cognate of French "l'édifice" but that word is more formal/monumental in French (everyday French: "le bâtiment")
+- apagar (v) — to turn off — no French cognate (French: "éteindre")
 
 ## Grammar points introduced so far
 
@@ -140,3 +151,5 @@
 - Mientras + imperfecto — expressing two simultaneous past actions/background
 - Pretérito perfecto compuesto (present perfect) — haber (he/has/ha/hemos/habéis/han) + participio (regular -ado/-ido, plus irregulars visto/dicho/hecho/puesto/vuelto) — recent past / period including "now", contrasted with pretérito indefinido
 - Ya vs. todavía no + pretérito perfecto (already vs. not yet)
+- Futuro simple (regular formation: infinitivo + -é/-ás/-á/-emos/-éis/-án), plus recognition-only common irregular stems (tendr-, saldr-, podr-, har-, habr-)
+- Futuro simple vs. Ir a + infinitivo (predictions/promises/conditional plans vs. already-decided near-future plans)
