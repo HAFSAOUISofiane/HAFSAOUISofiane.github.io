@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 11
+- **Current day**: 12
 - **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-09
+- **Last lesson date**: 2026-08-10
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -128,6 +128,17 @@
 - las gafas de sol (n) — sunglasses — no cognate (French: "les lunettes de soleil")
 - el edificio (n) — building — cognate of French "l'édifice" but that word is more formal/monumental in French (everyday French: "le bâtiment")
 - apagar (v) — to turn off — no French cognate (French: "éteindre")
+- las vacaciones (n, pl) — holidays / vacation — true cognate of French "les vacances"; shares Latin root with "vacío" (Day 9, empty)
+- acumularse (v) — to pile up / to build up — cognate of French "s'accumuler"
+- archivar (v) — to file / to archive — cognate of French "archiver"
+- la carpeta (n) — folder — false friend vs. French "la carpette" (rug/doormat)
+- tomarse (algo) con calma (expr) — to take (something) calmly / easy
+- el bronceado (n) — suntan / tan — cognate of French "le bronzage"
+- descansado / descansada (adj) — rested
+- retomar (v) — to pick back up / to resume — no French cognate (French: "reprendre")
+- echar un vistazo (expr) — to take a quick look
+- pendiente (adj) — pending / outstanding — false friend vs. French "pendant" (during) — visual only
+- la agenda (n) — schedule / diary — exact cognate of French "l'agenda"
 
 ## Grammar points introduced so far
 
@@ -153,3 +164,5 @@
 - Ya vs. todavía no + pretérito perfecto (already vs. not yet)
 - Futuro simple (regular formation: infinitivo + -é/-ás/-á/-emos/-éis/-án), plus recognition-only common irregular stems (tendr-, saldr-, podr-, har-, habr-)
 - Futuro simple vs. Ir a + infinitivo (predictions/promises/conditional plans vs. already-decided near-future plans)
+- Condicional simple (regular formation: infinitivo + -ía/-ías/-ía/-íamos/-íais/-ían), sharing the same irregular stems as futuro simple (tendría, saldría, podría, haría, habría)
+- Condicional for giving advice / hypothetical suggestions ("yo, en tu lugar..." / "yo que tú...")
