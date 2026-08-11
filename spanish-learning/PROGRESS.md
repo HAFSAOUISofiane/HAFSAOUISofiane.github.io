@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 12
+- **Current day**: 13
 - **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-10
+- **Last lesson date**: 2026-08-11
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -139,6 +139,17 @@
 - echar un vistazo (expr) — to take a quick look
 - pendiente (adj) — pending / outstanding — false friend vs. French "pendant" (during) — visual only
 - la agenda (n) — schedule / diary — exact cognate of French "l'agenda"
+- el gimnasio (n) — gym — cognate of French "le gymnase", but French "gymnase" mainly means the school sports hall; French uses "la salle de sport" for "the gym"
+- entrenar (v) — to train / work out — cognate of French "entraîner", which also means "to cause/lead to" in French (a sense "entrenar" lacks)
+- llevar (+ tiempo + gerundio) (v/expr) — to have been doing something for (time) — no French cognate (French: "ça fait... que" / "depuis" + present)
+- acabar de + infinitivo (expr) — to have just done something — same idea as French "venir de + infinitif" but with a different verb
+- estirar (v) — to stretch — true cognate of French "étirer"
+- agotado / agotada (adj) — exhausted — no French cognate (French: "épuisé")
+- sudar (v) — to sweat — true cognate of French "suer"
+- la energía (n) — energy — transparent cognate of French "l'énergie"
+- el músculo (n) — muscle — transparent cognate of French "le muscle"
+- ducharse (v, reflexive) — to shower — "la ducha" is a true cognate of French "la douche" (not a false friend, for once)
+- el objetivo (n) — goal / objective — transparent cognate of French "l'objectif"
 
 ## Grammar points introduced so far
 
@@ -166,3 +177,5 @@
 - Futuro simple vs. Ir a + infinitivo (predictions/promises/conditional plans vs. already-decided near-future plans)
 - Condicional simple (regular formation: infinitivo + -ía/-ías/-ía/-íamos/-íais/-ían), sharing the same irregular stems as futuro simple (tendría, saldría, podría, haría, habría)
 - Condicional for giving advice / hypothetical suggestions ("yo, en tu lugar..." / "yo que tú...")
+- Llevar + [tiempo] + gerundio — expressing an action begun in the past that continues now (e.g. llevo tres semanas yendo al gimnasio), contrasted with French "ça fait... que" / "depuis"
+- Acabar de + infinitivo — expressing a very recently completed action (e.g. acaba de empezar)
