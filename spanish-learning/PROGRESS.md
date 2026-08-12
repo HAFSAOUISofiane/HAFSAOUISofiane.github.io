@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 13
+- **Current day**: 14
 - **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-11
+- **Last lesson date**: 2026-08-12
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -150,6 +150,16 @@
 - el músculo (n) — muscle — transparent cognate of French "le muscle"
 - ducharse (v, reflexive) — to shower — "la ducha" is a true cognate of French "la douche" (not a false friend, for once)
 - el objetivo (n) — goal / objective — transparent cognate of French "l'objectif"
+- el trámite (n) — procedure / paperwork — no French cognate (French: "la démarche")
+- empadronarse (v, reflexive) — to register your address at the town hall — Spain-specific, no French equivalent
+- mudarse (de piso) (v, reflexive) — to move (house/apartment) — no French cognate (French: "déménager")
+- la cita previa (n/expr) — appointment booked in advance — builds on "la cita"; "previa" relates to French "préalable"
+- la cola (n) — queue / line — matches French "la queue" (faire la queue); both also mean an animal's tail
+- el turno (n) — (numbered) turn / queue ticket — no direct French cognate
+- la ventanilla (n) — counter / service window — diminutive of "ventana"; French uses a different word, "le guichet"
+- el funcionario / la funcionaria (n) — civil servant — transparent cognate of French "le fonctionnaire"
+- sellar (v) — to stamp — cognate of French "sceller"
+- dar pereza (expr) — to feel like a hassle / to dread (doing something) — no French cognate (French: "avoir la flemme de...")
 
 ## Grammar points introduced so far
 
@@ -179,3 +189,5 @@
 - Condicional for giving advice / hypothetical suggestions ("yo, en tu lugar..." / "yo que tú...")
 - Llevar + [tiempo] + gerundio — expressing an action begun in the past that continues now (e.g. llevo tres semanas yendo al gimnasio), contrasted with French "ça fait... que" / "depuis"
 - Acabar de + infinitivo — expressing a very recently completed action (e.g. acaba de empezar)
+- Imperativo formal (usted) — regular formation (-ar → -e/-en; -er/-ir → -a/-an) plus common irregulars (dé, vaya, sea), with object pronouns attached to the end (rellénelo, fírmelo)
+- Combining indirect + direct object pronouns: le/les → se before lo/la/los/las (e.g. désela = dé + se + la)
