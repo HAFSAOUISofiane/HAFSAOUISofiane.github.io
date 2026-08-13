@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 14
+- **Current day**: 15
 - **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-12
+- **Last lesson date**: 2026-08-13
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -160,6 +160,16 @@
 - el funcionario / la funcionaria (n) — civil servant — transparent cognate of French "le fonctionnaire"
 - sellar (v) — to stamp — cognate of French "sceller"
 - dar pereza (expr) — to feel like a hassle / to dread (doing something) — no French cognate (French: "avoir la flemme de...")
+- el banco (n) — bank — cognate of French "la banque"; also means "bench", same dual meaning as French "un banc"
+- la tarjeta (n) — card — matches the concept of French "la carte bancaire"
+- el cajero automático (n) — ATM / cash machine — built on "la caja" (Day 2, checkout)
+- ingresar (v) — to deposit (money) — false friend vs. French "ingérer" (to ingest/interfere)
+- retirar (v) — to withdraw (money) — true cognate of French "retirer"
+- la nómina (n) — payslip / salary — no French cognate (French: "la fiche de paie")
+- el saldo (n) — balance (account) — cognate of French "le solde", but French "les soldes" = sales/discounts
+- la sucursal (n) — branch (bank/company) — true cognate of French "la succursale"
+- domiciliar (un recibo) (v) — to set up a direct debit — related to French "domicilier"
+- el recibo (n) — bill / receipt — close to French "le reçu"
 
 ## Grammar points introduced so far
 
@@ -191,3 +201,5 @@
 - Acabar de + infinitivo — expressing a very recently completed action (e.g. acaba de empezar)
 - Imperativo formal (usted) — regular formation (-ar → -e/-en; -er/-ir → -a/-an) plus common irregulars (dé, vaya, sea), with object pronouns attached to the end (rellénelo, fírmelo)
 - Combining indirect + direct object pronouns: le/les → se before lo/la/los/las (e.g. désela = dé + se + la)
+- Presente continuo (estar + gerundio) — action happening right now (estoy haciendo, está explicando), contrasted with the gerundio already known from "llevar + tiempo + gerundio"
+- Se impersonal — se + verb in 3rd person for general statements/rules with no specific subject (se paga con tarjeta, no se acepta efectivo), contrasted with the reflexive "se" already known
