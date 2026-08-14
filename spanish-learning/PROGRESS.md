@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 15
+- **Current day**: 16
 - **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-13
+- **Last lesson date**: 2026-08-14
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -170,6 +170,16 @@
 - la sucursal (n) — branch (bank/company) — true cognate of French "la succursale"
 - domiciliar (un recibo) (v) — to set up a direct debit — related to French "domicilier"
 - el recibo (n) — bill / receipt — close to French "le reçu"
+- el puesto (n) — market stall / stand — partial cognate of French "le poste" (dual meaning: stall and job position, like Spanish "puesto de trabajo")
+- el vendedor / la vendedora (n) — seller / vendor — cognate of French "le vendeur / la vendeuse"
+- regatear (v) — to haggle / to bargain — no French cognate (French: "marchander")
+- la ganga (n) — bargain, good deal — no French cognate (French: "une bonne affaire")
+- probar (v) — to try / to taste — false friend vs. French "éprouver" (to feel/experience); French uses "goûter" for tasting food
+- maduro / madura (adj) — ripe (also: mature) — cognate of French "mûr / mûre"
+- pesar (v) — to weigh — true cognate of French "peser"
+- el kilo (n) — kilogram — near-identical to French "le kilo"
+- oler (v, o→hue) — to smell — distant Latin root shared with French "l'odorat"; French everyday verb is "sentir", not a direct cognate
+- gastar (v) — to spend (money) — false friend vs. French "gâter" (to spoil/pamper); shared Latin root "vastare", meanings diverged
 
 ## Grammar points introduced so far
 
@@ -203,3 +213,5 @@
 - Combining indirect + direct object pronouns: le/les → se before lo/la/los/las (e.g. désela = dé + se + la)
 - Presente continuo (estar + gerundio) — action happening right now (estoy haciendo, está explicando), contrasted with the gerundio already known from "llevar + tiempo + gerundio"
 - Se impersonal — se + verb in 3rd person for general statements/rules with no specific subject (se paga con tarjeta, no se acepta efectivo), contrasted with the reflexive "se" already known
+- Pretérito pluscuamperfecto (había + participio) — "past of the past," an action that had already happened before another past action (e.g. ya había vendido), contrasted with pretérito perfecto compuesto; parallels the French plus-que-parfait almost word for word
+- Irregular stem change o→hue in oler (huelo, hueles, huele, olemos, oléis, huelen) — an exception within the already-known o→ue family
