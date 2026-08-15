@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 16
+- **Current day**: 17
 - **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-14
+- **Last lesson date**: 2026-08-15
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -180,6 +180,16 @@
 - el kilo (n) — kilogram — near-identical to French "le kilo"
 - oler (v, o→hue) — to smell — distant Latin root shared with French "l'odorat"; French everyday verb is "sentir", not a direct cognate
 - gastar (v) — to spend (money) — false friend vs. French "gâter" (to spoil/pamper); shared Latin root "vastare", meanings diverged
+- festivo (adj/n) — public holiday / day off — false friend vs. French "festif" (festive mood, not a day off); French for public holiday is "un jour férié"
+- el puente (n/expr) — bridge; hacer puente = to take a long weekend — true cognate of French "le pont"; "hacer puente" ≈ "faire le pont" (near-perfect calque)
+- la multitud (n) — crowd — transparent cognate of French "la multitude"
+- abarrotado / abarrotada (adj) — packed, crowded — no French cognate (French: "bondé")
+- el ambiente (n) — atmosphere, vibe — close cognate of French "l'ambiance"
+- tumbarse (v, reflexive) — to lie down — no French cognate (French: "s'allonger")
+- darse un chapuzón (expr) — to take a quick dip/swim — Spain-specific colloquial expression, no French equivalent
+- refrescarse (v, reflexive) — to cool off — cognate of French "se rafraîchir"
+- la toalla (n) — towel — no French cognate (French: "la serviette"); watch out, Spanish "la servilleta" means "napkin", not "towel"
+- disfrutar (de) (v) — to enjoy — no direct French cognate (French: "profiter de"/"apprécier"), but takes "de" like "profiter de" structurally
 
 ## Grammar points introduced so far
 
@@ -215,3 +225,5 @@
 - Se impersonal — se + verb in 3rd person for general statements/rules with no specific subject (se paga con tarjeta, no se acepta efectivo), contrasted with the reflexive "se" already known
 - Pretérito pluscuamperfecto (había + participio) — "past of the past," an action that had already happened before another past action (e.g. ya había vendido), contrasted with pretérito perfecto compuesto; parallels the French plus-que-parfait almost word for word
 - Irregular stem change o→hue in oler (huelo, hueles, huele, olemos, oléis, huelen) — an exception within the already-known o→ue family
+- Superlativo relativo (el/la/los/las + más/menos + adjetivo + de) — e.g. uno de los días más importantes del verano, building on the comparative (más...que); irregulars el/la mejor, el/la peor reused; near-word-for-word match with French "le/la plus... de"
+- Pronombres indefinidos y negativos: alguien/nadie, algo/nada, alguno/ninguno — Spanish double-negative rule (no + verbo + nadie/nada when the negative word follows the verb; "no" dropped when it precedes the verb), compared to French's similar two-part "ne...personne/rien"
