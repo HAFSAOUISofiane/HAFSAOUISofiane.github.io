@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 17
+- **Current day**: 18
 - **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-15
+- **Last lesson date**: 2026-08-16
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -190,6 +190,16 @@
 - refrescarse (v, reflexive) — to cool off — cognate of French "se rafraîchir"
 - la toalla (n) — towel — no French cognate (French: "la serviette"); watch out, Spanish "la servilleta" means "napkin", not "towel"
 - disfrutar (de) (v) — to enjoy — no direct French cognate (French: "profiter de"/"apprécier"), but takes "de" like "profiter de" structurally
+- volver (v) — to return / to come back — base verb of the periphrasis "volver a + infinitivo"
+- la terraza (n) — terrace / outdoor patio — true cognate of French "la terrasse"
+- pintar (v) — to paint — distant relative of French "peindre" (shared Latin root "pingere"), not an obvious cognate
+- atender (v) — to serve / to attend to (a customer) — false friend vs. French "attendre" (to wait) and near-false-friend vs. English "to attend" (= asistir)
+- la sonrisa (n) — smile — no French cognate (French: "le sourire")
+- posponer (v) — to postpone, put off — no French cognate (French: "reporter" / "remettre à plus tard")
+- apuntarse (a algo) (v, reflexive) — to sign up (for a class/gym/activity) — no French cognate (French: "s'inscrire à")
+- el colegio (n) — school (primary/secondary) — false friend vs. French "le collège" (specifically ages ~11-15 in French; broader in Spanish)
+- el cartel (n) — poster, sign — no French cognate (French: "l'affiche"); also a visual false friend vs. English "cartel" (crime organization)
+- en serio (expr) — seriously, for real — matches French "sérieusement" / "pour de vrai"
 
 ## Grammar points introduced so far
 
@@ -227,3 +237,5 @@
 - Irregular stem change o→hue in oler (huelo, hueles, huele, olemos, oléis, huelen) — an exception within the already-known o→ue family
 - Superlativo relativo (el/la/los/las + más/menos + adjetivo + de) — e.g. uno de los días más importantes del verano, building on the comparative (más...que); irregulars el/la mejor, el/la peor reused; near-word-for-word match with French "le/la plus... de"
 - Pronombres indefinidos y negativos: alguien/nadie, algo/nada, alguno/ninguno — Spanish double-negative rule (no + verbo + nadie/nada when the negative word follows the verb; "no" dropped when it precedes the verb), compared to French's similar two-part "ne...personne/rien"
+- Perífrasis verbales: dejar de + infinitivo (to stop doing something) / volver a + infinitivo (to do something again) — join the previously-known periphrases ir a, acabar de, llevar + gerundio
+- Pronombre relativo que (linking clauses, referring to a person/thing already mentioned) and donde (referring to a place) — parallels French "qui/que" and "où"
