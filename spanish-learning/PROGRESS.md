@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 18
+- **Current day**: 19
 - **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-16
+- **Last lesson date**: 2026-08-17
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -200,6 +200,16 @@
 - el colegio (n) — school (primary/secondary) — false friend vs. French "le collège" (specifically ages ~11-15 in French; broader in Spanish)
 - el cartel (n) — poster, sign — no French cognate (French: "l'affiche"); also a visual false friend vs. English "cartel" (crime organization)
 - en serio (expr) — seriously, for real — matches French "sérieusement" / "pour de vrai"
+- la vuelta (n) — the return, going back — related to "volver"; no single-word French match ("la vuelta al trabajo" is conceptually close to "la rentrée")
+- quedarse (v, reflexive) — to stay / to remain — no French cognate (French: "rester"); don't confuse with "quedar (con alguien)" = to meet up
+- broncearse (v, reflexive) — to sunbathe / get a tan — cognate of French "se bronzer"; builds on "el bronceado"
+- pálido / pálida (adj) — pale — close cognate of French "pâle"
+- lleno / llena (adj) — full — false friend vs. French "plein" (no cognate)
+- seguir (v, e→i) — to keep on (doing) / to follow — distant cousin of French "suivre"; "seguir + gerundio" has no one-word French equivalent (French: "continuer à")
+- el resumen (n) — summary — true cognate of French "le résumé"
+- la nostalgia (n) — nostalgia — transparent cognate of French "la nostalgie"
+- el estrés (n) — stress — transparent cognate of French "le stress"
+- acostumbrarse (a) (v, reflexive) — to get used to — distant relative of French "s'habituer à" (not a real cognate)
 
 ## Grammar points introduced so far
 
@@ -239,3 +249,5 @@
 - Pronombres indefinidos y negativos: alguien/nadie, algo/nada, alguno/ninguno — Spanish double-negative rule (no + verbo + nadie/nada when the negative word follows the verb; "no" dropped when it precedes the verb), compared to French's similar two-part "ne...personne/rien"
 - Perífrasis verbales: dejar de + infinitivo (to stop doing something) / volver a + infinitivo (to do something again) — join the previously-known periphrases ir a, acabar de, llevar + gerundio
 - Pronombre relativo que (linking clauses, referring to a person/thing already mentioned) and donde (referring to a place) — parallels French "qui/que" and "où"
+- Ponerse / quedarse + adjetivo (change of state vs. ending up/staying in a state), contrasted with plain "estar" for a state with no focus on the change
+- Seguir + gerundio ("to keep on doing") — joins the periphrasis family (ir a, acabar de, volver a, dejar de, llevar + gerundio, estar + gerundio); contrasted with "dejar de + infinitivo" (opposite meaning)
