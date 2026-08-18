@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 19
+- **Current day**: 20
 - **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-17
+- **Last lesson date**: 2026-08-18
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -210,6 +210,17 @@
 - la nostalgia (n) — nostalgia — transparent cognate of French "la nostalgie"
 - el estrés (n) — stress — transparent cognate of French "le stress"
 - acostumbrarse (a) (v, reflexive) — to get used to — distant relative of French "s'habituer à" (not a real cognate)
+- el proyecto (n) — project — true cognate of French "le projet"
+- el plazo (n) — deadline — no French cognate (French: "le délai")
+- cumplir (v) — to meet / fulfill (a deadline, a promise) — no French cognate (French: "respecter" / "tenir un délai")
+- planificar (v) — to plan — close cognate of French "planifier"
+- próximo / próxima (adj) — next — false friend vs. French "proche" (= near), which looks similar but means something different; French for "next" is "prochain"
+- la carga de trabajo (n/expr) — workload — near-transparent match with French "la charge de travail"
+- proponer (v) — to propose, suggest — close cognate of French "proposer"
+- esperar (v) — to hope / to wait / to expect — false friend vs. French "espérer" (only means "to hope"; French uses "attendre" for "to wait")
+- mientras tanto (adv/expr) — meanwhile — no French cognate (French: "pendant ce temps")
+- de acuerdo (expr) — agreed, OK — near-perfect calque of French "d'accord"
+- genial (adj) — great, awesome (informal) — matches French "génial" almost exactly
 
 ## Grammar points introduced so far
 
@@ -251,3 +262,5 @@
 - Pronombre relativo que (linking clauses, referring to a person/thing already mentioned) and donde (referring to a place) — parallels French "qui/que" and "où"
 - Ponerse / quedarse + adjetivo (change of state vs. ending up/staying in a state), contrasted with plain "estar" for a state with no focus on the change
 - Seguir + gerundio ("to keep on doing") — joins the periphrasis family (ir a, acabar de, volver a, dejar de, llevar + gerundio, estar + gerundio); contrasted with "dejar de + infinitivo" (opposite meaning)
+- Presente de subjuntivo (first contact) — regular formation (-ar → -e/-es/-e/-emos/-éis/-en; -er/-ir → -a/-as/-a/-amos/-áis/-an), triggered by verbs of wish/hope in the main clause (querer que, esperar que) when the subject changes
+- Infinitivo vs. subjuntivo — same subject → plain infinitive (quiero terminar) vs. different subject → que + subjuntivo (quiero que termines)
