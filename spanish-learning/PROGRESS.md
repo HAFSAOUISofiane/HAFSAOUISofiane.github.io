@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 20
-- **Current CEFR level**: A2+
-- **Last lesson date**: 2026-08-18
+- **Current day**: 21
+- **Current CEFR level**: B1
+- **Last lesson date**: 2026-08-19
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -221,6 +221,16 @@
 - mientras tanto (adv/expr) — meanwhile — no French cognate (French: "pendant ce temps")
 - de acuerdo (expr) — agreed, OK — near-perfect calque of French "d'accord"
 - genial (adj) — great, awesome (informal) — matches French "génial" almost exactly
+- la vuelta al cole (n/expr) — back to school (season) — no French cognate (French: "la rentrée")
+- agobiado / agobiada (adj) — overwhelmed, stressed out — no French cognate (French: "débordé/stressé")
+- la papelería (n) — stationery shop — true cognate of French "la papeterie"
+- la mochila (n) — backpack — no French cognate (French: "le sac à dos")
+- el estuche (n) — pencil case — no French cognate (French: "la trousse")
+- los libros de texto (n) — textbooks — "texto" is a true cognate of French "le texte"
+- el curso (n) — school year / academic year — partial false friend vs. French "le cours" (= a class/lesson)
+- la matrícula (n) — school enrollment / tuition fee — false friend vs. French "la matricule" (ID/serial number)
+- el gasto (n) — expense — noun form of "gastar" (Day 12); no French cognate (French: "la dépense")
+- apretado / apretada (adj) — tight (budget, schedule) — no French cognate (French: "serré")
 
 ## Grammar points introduced so far
 
@@ -264,3 +274,5 @@
 - Seguir + gerundio ("to keep on doing") — joins the periphrasis family (ir a, acabar de, volver a, dejar de, llevar + gerundio, estar + gerundio); contrasted with "dejar de + infinitivo" (opposite meaning)
 - Presente de subjuntivo (first contact) — regular formation (-ar → -e/-es/-e/-emos/-éis/-en; -er/-ir → -a/-as/-a/-amos/-áis/-an), triggered by verbs of wish/hope in the main clause (querer que, esperar que) when the subject changes
 - Infinitivo vs. subjuntivo — same subject → plain infinitive (quiero terminar) vs. different subject → que + subjuntivo (quiero que termines)
+- Cuando + subjuntivo — for a future, not-yet-real moment (cuando empiece el curso...), contrasted with cuando + indicativo for habitual/past (cuando empieza/empezó el curso...); a genuine departure from French, which keeps the future tense after "quand"
+- Es + adjetivo + que + subjuntivo — impersonal expressions (es importante que, es necesario que) triggering the subjunctive with a specific subject, contrasted with the plain infinitive for general statements (es importante comprar vs. es importante que compremos); extends the same subject/different-subject logic from querer que/esperar que
