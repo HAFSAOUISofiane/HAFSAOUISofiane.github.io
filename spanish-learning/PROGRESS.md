@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 21
+- **Current day**: 22
 - **Current CEFR level**: B1
-- **Last lesson date**: 2026-08-19
+- **Last lesson date**: 2026-08-20
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -231,6 +231,16 @@
 - la matrícula (n) — school enrollment / tuition fee — false friend vs. French "la matricule" (ID/serial number)
 - el gasto (n) — expense — noun form of "gastar" (Day 12); no French cognate (French: "la dépense")
 - apretado / apretada (adj) — tight (budget, schedule) — no French cognate (French: "serré")
+- el equipo (n) — team — true cognate of French "l'équipe"
+- incorporarse (a la empresa) (v, reflexive) — to join (a company), start a new job — distant relative of French "s'incorporer" (technical); everyday French: "rejoindre"
+- asentir (v) — to nod / to agree — loosely related to French "consentir" (to consent) — look-alike, not a true cognate
+- el entregable (n) — deliverable — built on "entregar"; no French cognate (French: "le livrable")
+- dudar (v) — to doubt — true cognate of French "douter"
+- preocupado / preocupada (adj) — worried — true cognate of French "préoccupé(e)"
+- repartir (v) — to distribute / to share out — true cognate of French "répartir"
+- la oportunidad (n) — opportunity — true cognate of French "l'opportunité"
+- parecer (v) — to seem, to appear — distant cousin of French "paraître" (shared Latin root "parere")
+- seguro / segura (estar seguro de que) (adj/expr) — sure, certain — matches French "sûr(e)"; but noun "el seguro" = insurance, a different word from French "la sûreté"
 
 ## Grammar points introduced so far
 
@@ -276,3 +286,5 @@
 - Infinitivo vs. subjuntivo — same subject → plain infinitive (quiero terminar) vs. different subject → que + subjuntivo (quiero que termines)
 - Cuando + subjuntivo — for a future, not-yet-real moment (cuando empiece el curso...), contrasted with cuando + indicativo for habitual/past (cuando empieza/empezó el curso...); a genuine departure from French, which keeps the future tense after "quand"
 - Es + adjetivo + que + subjuntivo — impersonal expressions (es importante que, es necesario que) triggering the subjunctive with a specific subject, contrasted with the plain infinitive for general statements (es importante comprar vs. es importante que compremos); extends the same subject/different-subject logic from querer que/esperar que
+- Presente de subjuntivo — irregular stems: yo-irregular stem carried through all persons (tenga/tengamos, haga, ponga, salga, diga, venga) vs. fully irregular forms with no pattern (sea, esté, vaya, sepa, haya, dé)
+- Dudar / no creer que + subjuntivo — doubt or denied certainty as a third subjunctive trigger family (joining wishes/hopes and impersonal expressions), contrasted with affirmative creer que + indicativo (certainty stays indicative)
