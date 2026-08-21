@@ -1,8 +1,8 @@
 # Spanish Lesson Progress
 
-- **Current day**: 22
+- **Current day**: 23
 - **Current CEFR level**: B1
-- **Last lesson date**: 2026-08-20
+- **Last lesson date**: 2026-08-21
 - **Level-up schedule note**: advance roughly every 10-14 days (A2 → A2+ → B1 → B1+ → B2 ...)
 
 ## Vocabulary taught so far
@@ -241,6 +241,18 @@
 - la oportunidad (n) — opportunity — true cognate of French "l'opportunité"
 - parecer (v) — to seem, to appear — distant cousin of French "paraître" (shared Latin root "parere")
 - seguro / segura (estar seguro de que) (adj/expr) — sure, certain — matches French "sûr(e)"; but noun "el seguro" = insurance, a different word from French "la sûreté"
+- aunque (conj) — although / even if — no direct French cognate; French uses "bien que" (+ subjonctif) or "même si" (+ indicatif)
+- el pronóstico (n) — forecast — true cognate of French "le pronostic"
+- animarse (a) (v, reflexive) — to work up the motivation, decide to (do something) — partial false friend vs. French "s'animer" (to come to life/get lively)
+- mojarse (v, reflexive) — to get wet — no French cognate (French: "se mouiller")
+- aprovechar (v) — to make the most of / take advantage of — visual false friend vs. French "approcher" (to approach); French for this meaning is "profiter de"
+- el chubasco (n) — (sudden) rain shower — no French cognate (French: "l'averse")
+- el paraguas (n) — umbrella — no French cognate, but structural parallel to French "le parapluie" (both literally "for water/rain")
+- refugiarse (v, reflexive) — to take shelter — true cognate of French "se réfugier"
+- el impermeable (n) — raincoat — true cognate of French "l'imperméable"
+- empapado / empapada (adj) — soaked, drenched — no French cognate (French: "trempé")
+- la excursión (n) — outing, day trip — true cognate of French "l'excursion"
+- merecer la pena (expr) — to be worth it — no single-word French cognate (French: "valoir la peine", close in structure)
 
 ## Grammar points introduced so far
 
@@ -288,3 +300,5 @@
 - Es + adjetivo + que + subjuntivo — impersonal expressions (es importante que, es necesario que) triggering the subjunctive with a specific subject, contrasted with the plain infinitive for general statements (es importante comprar vs. es importante que compremos); extends the same subject/different-subject logic from querer que/esperar que
 - Presente de subjuntivo — irregular stems: yo-irregular stem carried through all persons (tenga/tengamos, haga, ponga, salga, diga, venga) vs. fully irregular forms with no pattern (sea, esté, vaya, sepa, haya, dé)
 - Dudar / no creer que + subjuntivo — doubt or denied certainty as a third subjunctive trigger family (joining wishes/hopes and impersonal expressions), contrasted with affirmative creer que + indicativo (certainty stays indicative)
+- Aunque + indicativo vs. subjuntivo — concession, where the mood itself changes the meaning: known/real fact (aunque llueve = it IS raining) vs. hypothetical/unconfirmed/unimportant condition (aunque llueva = whether or not it rains); a fourth subjunctive-trigger family alongside wishes, impersonal opinions, and doubt
+- Imperativo negativo — reuses the present subjunctive forms already known (no se preocupe, no lo haga, no sea...) with no new conjugation required
